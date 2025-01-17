@@ -1,0 +1,61 @@
+############################################################################################
+#######################################	MongoDB Tutorial ###################################
+############################################################################################
+
+->> mongosh (to start the mongo shell in 'cmd')
+
+->> show dbs (showing all database present in the mongo database)
+
+->> db (show current database which selected)
+
+->> use employees (switched from current to database "employees" & if not present then it will be creates)
+
+->> show collections (same as "show dbs" where here it shows all collections of current database)
+
+->> db.managers.find() (It shows all documents presents in the collection "managers")
+
+->> db.managers.insertOne({ name: "Badreaalam", location: "Waitagwadi"});
+	(insert one document in the collection "managers")
+	
+->> db.managers.insertMany([ {name: "Rahul", location: "Switzerland"}, {name: "Ram", location: "Nepal"}])
+	(insert 2 documents in the collection "managers" at a time)
+	
+@@ Basically the find has two query objects to filter and display the database
+	db.collectionName.find({query}, {projection})
+		query ->> query is used to filter the data according to condition
+		projection ->> projection is used to filter the field that only we want to display 
+	
+->> db.programmers.find({name: "Shahbaz"}) (It filters the documents that display only which contain name = "Shahbaz")
+
+->> db.managers.find({name: "Shahbaz"}, {name: 1}) (it shows the document with filteration but with name field only, but here "_id" field is by default to show as below output) 
+	Output ->> [ { _id: ObjectId('677c882e28c3cf918b145d25'), name: 'Shahbaz' } ]
+	
+->> db.managers.find({name: "Shahbaz"}, {name: 1, _id: 0}) (it shows same as above output but here we remove "_id" field from the record as below output)
+	Output ->> [ { name: 'Shahbaz' } ]
+	
+->> db.managers.findOne({location: "Nepal"});	(way1 - it shows only single document out of many in the collection "managers")
+
+->> db.managers.find({location: "Nepal"}).limit(1) (way2 - it shows only single document out of many in the collection "managers")
+
+->> db.managers.find({location: "Nepal"}).limit(1).skip(1)
+		(it shows single document out of all and skips the first one from collection "managers")
+		
+->> db.managers.updateOne({location: "Dubai"}, { $set: {location: "United Arab Emirates"} })
+	(update the location with "United Arab Emirates" where location is "Dubai" of only 1st field)
+	
+	Output ->> 
+	{
+	  acknowledged: true,
+	  insertedId: null,
+	  matchedCount: 1,
+	  modifiedCount: 1,	// here u can see modifiedCount 1
+	  upsertedCount: 0
+	}
+	
+->> db.managers.updateMany({location: "Dubai"}, { $set: {location: "United Arab Emirates"} })
+	(update the location with "United Arab Emirates" where location is "Dubai" of all matched fields)
+	
+->> db.managers.deleteMany({location: "Nepal"})		(delete all the field which "location" field value has "Nepal")
+
+->> db.managers.deleteMany({})		(delete all the documents of collection "managers")
+

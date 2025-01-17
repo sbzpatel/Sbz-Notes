@@ -1,0 +1,458 @@
+############################################################################################
+#######################################	Git Tutorial #######################################
+############################################################################################
+
+Q)	What is Git? Why we use it.
+	- Git is a popular version control system.
+	- Git is free & Open Source.
+	- It is fast & Scalable.
+	- We can easily track the history of changes, and according to that we can work on our project.
+	- Git also very important when we are team work on a single project.
+	- We can easily manage our code on it.
+	- Github is a portal where we can signup using our personal email id.
+	
+	
+Q) 	What are the basic commands used in Git Bash after installed in PC?
+	- There are some basic commands used in Git Bash as following,
+	1) pwd ->> use to retrieved working directory
+	2) ls ->> details about all folders and directories related to git
+	3) git --version ->> use to retrieve git version
+	
+	
+Q) 	How to Configure Git in Personal Computer/Laptop?
+	- We need some commands to configure Git with our creds(emaiId) in Personal Computer as following,
+	- To configure we use Git Bash in Windows with write of following commands.
+	
+	1) git config --global user.name "ShahbazTalhabPatel"		// set here userName
+	2) git config --global user.email "shahbaz.patel1989@gmail.com"		// set here email Id of GitHub
+	3) git config --list					// show all related git account used with our local machine
+
+	
+Q) 	How to Clone Git Repo on our Local Repo & See the Status?
+	- We can clone our Git Repo on our local machine using below command,
+	Eg:
+		git clone https://github.com/sbzpatel/DemoProject.git
+		
+	- after get a clone of git Repository in our local machine, we can get the list of all files listed in this project with command "ls" & for get a list of hidden file & folders run the command "ls -a".	
+	
+	- after getting a list of files, if we encountered a ".git" directory means that it is a git repo directory used to track the changes made for this project.
+	
+	- after all, we need to check the current status of the project which means the comparison our local repo with a respective git repo. for this we need to write a command below,
+	Eg:	
+		git status
+		
+		Command Output: ->>
+		On branch master
+		Your branch is up to date with 'origin/master'.
+		nothing to commit, working tree clean
+		
+	
+Q) 	How many types of files use in Git Operations?
+	- Generally we can get the status of all files or project by using command [git status]. There are 4 types of files which describes their current status in Git Operations:
+	1) untracked ->>
+		new file that git doesn't track yet
+		
+	2) modified ->>
+		changed files
+		
+	3) staged ->>
+		file which is added, but not commited yet
+	
+	4) unmodified ->> 
+		file which is not changed (which is identical at both side i.e. local repo & git repo)
+		
+
+Q) 	How to stage and commit the modified files in git at local side?
+	- After checking status, if any file show that the file was modified, then generally we need to stage and than commit this file for further process and update on the github(Git Repo).
+	- There are following command by which we can stage first this modified file in our local repo.
+		git add README.md
+		
+	- In case if there are more files to stage, then we should use a following command to do stage all those modified files ata a time,
+		git add .
+		
+	- After add the second important step to commit it in the local repo, which we can do using below command,
+		git commit -m "Added by Sbz"	// "Added by Sbz" is a comment add with this commit command
+		
+	
+Q) 	Is stage and commit sufficient to update the Local Repo code on Git Repo Code?
+	- Basically my answer is no. Because we stage(add) and commit our modified file is just confirm the local repo changes.
+	- For update the local repo to git repo, we need to push to write a push command on our local computer as shown below,
+		git push origin master 		// here origin just a named for push operation for a basic or default branch which is 
+									   "master" we mentioned in command
+									   
+	- Branch is an another topic to discuss in a more dip to understand. In above command, master is our default branch in which we are carry an operations.   
+
+
+Q) What is init command scope? In which conditions we generally use this command.
+	- Basically if we start the project on github and then we clone the same project on our local repo. The same process we already followed.
+	- In this process after clone, we made a required changed we want and then the modified files are staged and then commit and then push to the git repo.
+	- But the problem was arise when we first create a project on local repo and then want to push it first time on the git repo. In this situation init command application got in the picture.
+	- init command used to create a new git repo.
+	- The below are the commands used step by step to carry out operation where we can create a local repo and then create one git repo and after that link our local repo and git repo and at last perform push operation where we push all our local code to git repo:
+	
+	step 1: In first step we need to initialize git in current project which we created and want to update on the new git repo.
+		git init
+			after did this command our local repo contains one .git folder. which means now our local repo has git initialized. we can check it by using below command.
+		ls -a
+		
+	step 2: now add remote origin with link which was created a new git repo as give below command.
+		git remote add origin https://github.com/sbzpatel/DemoProject.git
+			here we remotely added git repo using their link(https://github.com/sbzpatel/DemoProject.git) given above
+			
+	step 3: In this step, we must to verify remote directory name with below command
+		git remote -v
+			Output->>
+				origin  https://github.com/sbzpatel/DemoProject.git (fetch)
+				origin  https://github.com/sbzpatel/DemoProject.git (push)
+				
+			Here above terminal output shows the git repo directory on which we are going to perform an operations. Basically by this command, we are verify the git points to which github directory
+			
+	step 4: After verify git repo pointed at at this time, now the 2nd point to verify or retrieve the current branch on which we will be going to perform operations.
+		git branch
+			Output ->> 
+				* master (here master is default branch of git repo)
+			
+	step 5: Now we want to rename our branch name with below command.
+		git branch -M main
+			In above command, we changed the old branch name(master) to new branch name(main).
+			here we rename the branch name only which branch pointed to.
+			
+	After all these 5 steps, now we would start push our updated code of local repo to the pointed git repo using finally last command.
+	
+	step 6: In this step, we are going to perform a push command where updated or modified files will be updated to the git repo (always remember that we can only push the code after stage and commit on local repo).
+		git push origin main
+			Here we pushed the local repo untracked, modified files to the git repo.
+			
+	Now, when we see on the github, we will see the current changes on the github repo successfully.
+			
+	
+Q) 	What is Branch? How can we create in GitHub?
+	- Branch is like a department, where different type of functionality will be going to build.
+	- In large projects, there are multiple engineers are working on single projects. At that point, single engineer will upload their code on the seperate branch and after all changes done from engineers. this branch will merge to the main branch as a single project.
+	- Before working with branch, always check the current branch where its pointed first with below command.
+		git branch
+		
+	There are some basic commands which related to use when working with branches as below,	
+		
+	1) If we want to navigate to the particular branch, so write the below command,
+		git checkout feature1 
+			In above command, we navigate to "feature1" from old branch(main)
+	2) If we want to navigate to the branch which is not present, means here we want to create new branch and navigate to the same one. so we can write the below command:
+		git checkout -b feature2
+			Now when we write command git branch, we can see we should navigate to branch feature2 (new one created)
+			
+	3) finally we can delete the branch using below command,
+		git branch -d feature1
+			In this command, we are going to delete branch named feature1
+			
+
+Q) 	How to create new branch and according to it put changes on local repo as well as git repo?
+	- Basically branch is a seperate code record where we first go to the particular branch and then do a changes with add and commit command in it local repo.
+	- These all changes are made branch wise. and then same branch code push to the git repo with mentioning that branch name in command as discussed below command.
+	step 1 ->> First need to change or create a new branch.
+		git checkout -b newFeature
+			Here we create new branch "newFeature" and navigate to that branch
+			
+	step 2 ->> make some changes in README.md file, so we want to add as well as commit those changes in new branch.
+	
+	step 3 ->> After changes in README.md file, add it to changes in new branch as below,
+		git add README.md
+			Those changes are done in README.md file under branch newFeature automatically
+		
+	step 4: Here once we navigate another branch, then these changes will be vanish. now commit the same changes in local repo.
+		git commit -m "Add a RadioFeature"	
+			Here we committed the changes in local repo on branch newFeature
+			
+	step 5: Now we want to push the same changes on the git repo using below command,
+		git push origin newFeature
+			- These command push the new changes to the newFeature branch of git repo
+			
+			
+Q) 	How to merge the branch code of branch in GitHub?
+	- Basically we have to ways to merge the 2 branch code as below:
+	1) Compare & Merge (Way 1) ->>
+		- If we want to compare 2 branches, first check where we are currently by using git branch command. Now we want to compare with another branch from whom we want to compare. 
+		- Here we will get a difference between our branch and main branch using below command.
+		- We can easily compare 2 files, commits, Branches & More using diff command as below,
+		git diff main  
+			Here we are comparing 2 branches newFeature and main
+			
+		- After compare we can just merge the code of newFeature with main Branch by writing below command,
+		git merge main	
+			After this the main branch code was updated on the local repo
+			
+		- Now we want to push the changes on git repo main branch. Here before push command, need to navigate first to main branch and then write a push command.
+		git check main
+			Here navigate to main branch
+		git push origin main 
+			Now pushed the merged code to the git repo
+			
+	2) Pull Request (Way 2) ->>
+		- This is a more practical practice in Industries. Where after review from the manager, then and only he/she can approved to merge on GitHub portal to allow pull request for other engineers to update local repo on their side.
+		- Here all the changes all other engineers can pull by using one single command as below, 
+		git pull origin main
+			pull request used to fetch and download content from a remote repo and immediately update the local repo to match that conent.
+		
+	
+Q) 	What is Merge Conflicts? How to Resolve it in GitHub?
+	- An event that takes place when Git is unable to automatically resolve differences in code between 2 commits.
+	- Such a type of conflicts occured when we merge a 2 branches and both has changes on same line, such a situation called merge Conflicts.
+	- lets consider we have 2 branches "main" & "dev1" and both have difference in same line in README.md file. so the git unable to solve this situation. In this situation we should instruct git to which change should to stick at the time of merge both branch. look at the below procedure:
+	
+	Step 1 ->>
+		Now we are on main branch so go to the dev1 branch using below command.
+		git checkout dev1
+		
+	Step 2 ->>
+		Check the comparison between 2 branches files
+		git diff main (compare dev1 with main branch)
+		
+	Step 3 ->>
+		git merge main
+		At this point, the conflicts are occurred on marge operation. Git unable to understand here which branch changes are to consider final in this situations. Here we can resolve the conflicts by instruct the git manually by following command.
+		
+	Step 4 ->>
+		Now we want to change in a file we want to do final, then add and commit in a branch dev1 and then merge the committed changes on main as mentioned below,
+		
+		git add .								(staged all changed files, after changes done manually)
+		git commit -m "Manually Final changes on conflict"
+		git checkout main 						(navigate to main)
+		git status 								(see the difference which we done manually in dev1 manually)
+		git merge dev1 							(merge the changes done in dev1 with main branch)
+		git push								(finally we push the changes on git repo)
+		
+	Here we successfully solved the conflicts which arise during merge in main branch.
+	
+	
+Q) 	What are Undoing Changes? And how to handle it in different stages during like Stage(add) and commit? 
+	- There are some scenarios which will consider where we need to undo our changes in Git as follows,
+	
+	1) Scenario 1 ->> (Staged Changes) Scenario where we add the changes, but not committed yet
+		In this scenario, need to undo the changes which we staged or add of a single file or all file using below command,
+		
+		Here if we want to undo or reset the changes limitted to single file,
+			git reset README.md
+		If the Staged changes are of large scale and in more than 1 files,
+			git reset
+			
+	2) Scenario 2 ->> (Committed Changes) Scenario where we committed the changes (staged and commited also)
+		Generally git store all commits info in this memory, so the last one commit called as "HEAD". so by using that name we can reset the last commit using below command.
+			git reset HEAD~1
+			
+	here we can check all the commits in a single log using below command.
+		git log
+		q (for quit from this log)
+		
+	3) Scenario 3 ->> Here we want to reset more than one commits did in git instead of only latest one
+		For undo or reset a multiple commits, need to do below commands:
+		
+		Here we need to find first hashcode of commit using command,
+			git log
+			q (quit log)
+		
+		After copy hashcode, we can use following command to reset the commit after that commits in local repo
+			git reset <-- Hashcode -->
+		
+		These changes are done only in local repo, if we want to see it in code then we should hard reset it using below command,
+			git reset --hard <-- Hashcode -->
+			
+	
+Q) 	What is Fork? What is Application of it?
+	- Fork is a rough copy.
+	- A Fork is a new repository that shares code and visibility settings with the original "upstream" repository.
+	- Here we will manage the fork on github portal directly.
+	- Where we can create a same copy of any project in our profile and after changes we can pull it on the master copy of git repo.
+	- But the project owner can restrict any user from pull request for changes directly in master project for a security reason.
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+	
+		
+
+
+	
+	
+	
+	
+
+Q) 	What are some basic commands which we should use working on Git as a developer?
+	- There are many commands which we can use when working on Git as a developer are following,
+	1) Clone ->>
+		git clone <- project https link ->
+	2) Status ->>
+		git status ->> use to return the state of code, means check if user modified any file which is not staged or committed yet 
+		There are 4 types of files which are as follows,
+		a) untracked files ->> new files that git doesn't yet track
+		b) modified ->> files which are modified by user but not staged or commited yet to git repo
+		c) staged ->> file which are ready to commit, its already staged
+		d) unmodified ->> there are files which are not modified (here the same code which is present on the git repo)
+	3) Add & Commit ->> (2 important commands to update on git repo from local computer)
+		A) add ->>
+			git add <- filename ->
+			- But if we want to add all files instead of 1, then just put dot(.), so will staged all required files at a time.
+			
+		B) commit ->> it is record of change
+			git commit -m "some message"
+			
+		C) push ->> upload local repo content to remote repo
+			git push origin main ->> here we push the all local changes files on main branch of git repo
+			- We can change the branch from main to any other one and push our code on it
+			
+		D) init ->>
+			git init (go to that directory and run this command, after for checking ls -a to check it)
+			After init, we want to commit it as above describes for local repos (Here still we can't put our new project on the git repo)
+			to do it go to github portal to create a new repo first
+			
+		E) git remote add origin <- git repo link ->  		->>
+			Using this command we link the local and git repos.
+			
+		F) git remote -v ->> to verify remote 
+			check that our local repo link proper with that repo link for push pull operations
+			
+		G) git branch ->> used to determine the current branch in which we want to do operations
+				- by default the branch will be master at first
+		
+		H) git branch -M main ->> here we change the braanch name from "master" to "main"
+		
+		I) git push origin main ->> using push command we are going to push our local repo on git repo
+		
+		J) git branch ->> check the current branch of git repo
+		
+		K) git branch -M devSbz ->> here we change the name of branch to "devSbz"
+		
+		L) git checkout <- branchName -> ->> here we are changing to another branch by specifying their name
+
+		M) git checkout -b <- newBranchName ->	->> in this command we are creating a new branch name and switch to it
+		
+		N) git branch -d <- branchName -> ->> here we deleting the branch. But we can't delete the current branch where we present
+		
+		O) pull command ->> git pull origin main 
+			This command use to pull the updated code from git repo to our local repo
+			
+			
+Q) 	What are Resolving Merge conflicts?
+	- 
+			
+	
+
+
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+
+
+
+
+######################### Git Commands (Work-Book) #########################
+
+	->> git config --global user.name "ShahbazPatel"
+	->> git config --global user.email "shahbazpatel1989@gmail.com"
+	
+	
+	->> pwd
+	->> ls
+	->> git --version
+	
+	
+	->> git clone https://github.com/sbzpatel/sbzNodeProject.git
+	
+	
+	->> git status
+	->> git add README.md
+	->> git add .
+	->> git commit -m "new file added successfully by shahbaz"
+	->> git push origin master
+	
+	
+	->> git init
+	->> git init -y (likely this command creates package file more efficiently)
+	
+	
+	->> git remote add origin https://github.com/sbzpatel/PRSWebsite.git
+	->> git remote -v
+	
+	
+	->> git branch
+	->> git branch -M main (name modified to "main" from "master"(default name))
+	
+	
+	->> git checkout -b feautre1
+	->> git checkout feature1
+	->> git branch -d feature1
+	
+	
+	->> git diff feature1 (we should on main branch)
+	->> git merge feature1 (changes will be reflects on feature1 of main)
+	->> git push origin main (after merge push that local code to the repo "main" branch)
+	
+	
+	->> git pull origin main
+	
+	
+	->> git reset index.html
+	->> git reset
+	
+	
+	->> git reset HEAD~1
+	->> git reset --hard HEAD~1
+	
+	
+	->> git log
+	
+	
+	->> git reset <- commit hashcode ->
+	->> git reset --hard <- commit hashcode ->
+	
+	->> fork is an option in github portal to copy whole another project on our personal repo and after required changes done by ourside, we can send the pull request to the master of that repo.
+	
+######################### Git Commands (Work-Book) #########################

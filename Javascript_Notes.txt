@@ -1,0 +1,3955 @@
+################################### Javascript ################################
+
+Javascript is the most popular programming language(for web).
+We should need a basic knowledge of HTML,CSS to learn Javascript.
+	JavaScript Can Change HTML Content-
+		First of all we need to identify the HTML element by JS method getElementById().
+		
+		Here first we need to select the HTML by its id and then change the HTML content by using innerHTML, as following example,
+		eg:
+		<button onclick="document.getElementById('demo').innerHTML = 'JavaScript changed the HTML content successfully!!!!';">Click Me!</button>
+		
+		javascript use both double and single quotes.
+		
+	Javascript can change HTML element Attributes-
+		eg:
+		<button onclick="document.getElementById('bulb_img').src='pic_bulbon.gif'">Turn on the Light</button>
+		<img src="pic_bulboff.gif" id="bulb_img">
+		<button onclick="document.getElementById('bulb_img').src='pic_bulboff.gif'">Turn on the Light</button>
+		
+		In above example we use 2 different buttons and create onclick event to change the src of img to off or on.
+		
+	JavaScript Can Change HTML Styles (CSS)-
+		eg:
+		<p id="para">Javascript can change the fontsize onclick button.</p>
+		<button onclick="document.getElementById('para').style.fontSize='24px'">Click Me</button>
+		
+		In this above example, onclick event change the fontsize of the paragraph.
+		
+	JavaScript Can Hide/Show HTML Elements-
+		We can hide & show the element by change the style property display value(none,block,inline).
+		
+		eg:
+		<p id="para">Javascript can change the fontsize onclick button.</p>
+		<button onclick="document.getElementById('para').style.display='none'">Click Me</button>
+
+JavaScript Where To->>
+	In which way we will place the javascript code in HTML Page. Usually In HTML, javascript code inserted between <script> and </script> tags.
+	Javascript Functions and Events-
+		A javascript function is a block of code that executed when it "called". These functions will call when JS event will occurs.
+		
+	JavaScript in <head> or <body>-
+		1) Javascript in <head>-
+			eg: 
+			<head>
+				<script>
+				function myFunction() {
+				  document.getElementById("demo").innerHTML = "Paragraph changed.";
+				}
+				</script>
+			</head>
+			<body>
+				<h2>Demo JavaScript in Head</h2>
+
+				<p id="demo">A Paragraph</p>
+				<button type="button" onclick="myFunction()">Try it</button>
+			</body>
+			
+		2) JavaScript in <body>-
+			Placing scripts at the bottom of the <body> element improves the display speed, because script interpretation slows down the display.
+
+			eg: 
+			<body>
+				<h2>Demo JavaScript in Body</h2>
+				<p id="demo">A Paragraph</p>
+				<button type="button" onclick="myFunction()">Try it</button>
+
+				<script>
+				function myFunction() {
+				  document.getElementById("demo").innerHTML = "Paragraph changed.";
+				}
+				</script>
+			</body>
+			
+		3) External Javascript-
+			Scripts can also be placed in external files(which saves in a directory with .js extension). we dont want to add script tags in external file as following example.
+			
+			eg:
+			External file: myScript.js-
+			function myFunction() {
+			  document.getElementById("demo").innerHTML = "Paragraph changed.";
+			}
+		
+			<body>
+				<button type="button" onclick="myFunction()">Try it</button>
+				
+				<script src="myScript.js"></script>
+			</body>
+			
+Javascript Output-
+	There are 4 ways to output our data in JS.
+	1) Write into an HTML element, using innerHTML.
+		eg:
+		document.getElementById("demo").innerHTML = "Shahbaz Patel";
+		
+	2) Write into a console, using console.
+		eg:
+		console.log("Shahbaz Patel");
+		
+	3) Write into an alert, using alert().
+		eg:
+		window.alert("Shahbaz Patel");
+		
+	4) Writing into the HTML output using document.write().
+		eg:
+		document.write("Shahbaz Patel");
+		
+JS Comments->>
+	1) Single Line Comment-
+		// It is not executed by Javascript.
+	2) Multiple Line Comment-
+		/* It is Multi-Line
+			Comment which is not executed by JS. */
+			
+JS Variable->>
+	Actually, in JS using 3 ways to declare variables,
+	1) var
+	2) let
+	3) const
+	
+	1) var-
+		Here we are using var keyword with identifiers.
+		eg:
+		var x = 5;
+		var y = 6;
+		var z = x+y;
+		document.write(z);	// 11
+		
+		The general rules for constructing names for variables (unique identifiers) are:
+
+		Names can contain letters, digits, underscores, and dollar signs.
+		Names must begin with a letter
+		Names can also begin with $ and _ (but we will not use it in this tutorial)
+		Names are case sensitive (y and Y are different variables)
+		Reserved words (like JavaScript keywords) cannot be used as names
+		JavaScript identifiers are case-sensitive.
+		
+		To assign an literal to variable, using assignment operator(=). In above example using assignment operator we assigned a value 5 to variable x, value 6  to variable y.
+		
+		We can declare both x and y variable in single statement.
+		eg: 
+		var x=5,y=6;
+		var z=x+y;
+		document.write(z);	// 11
+		
+		In case we just declare the variable x without assigning value to it. Then data type of x is "undefined".
+		eg:
+		var x;	// data type "undefined"
+		
+		variable declare with var keyword can redeclare and reassign.
+	
+	2) let-
+		Variables defined with let cannot be redeclared.
+		Variables defined with let must be declared before use.
+		Variables defined with let have block scope. 
+		
+		eg:
+		let x;
+		let x;
+		document.write(x);		// Error, cannot redeclare variable.
+		
+		eg:
+		let x;
+		x=5;
+		x=4;
+		document.write(x);		// 5, can reassign
+		
+		eg:
+		x = 4;
+
+		{
+			let x=6;
+		}
+
+		document.getElementById("demo").innerHTML = x;		// 4, becuase the different scope has different value
+		
+	3) const:
+		Variables defined or declared with const cannot redeclared.
+		Variables defined or declared with const cannot be reassign.
+		We need to assign the value when we define or declar it.
+		
+		eg:
+		const PI;
+		PI = 3.14;
+		document.write(PI);	// Error, should assign only when variable declared.
+		
+		eg:
+		const PI = 3.142222222222;
+		PI = 3.14;
+		document.write(PI);	// Error, cannot reassign the const variable.
+			
+Javascript Operator->>
+	1) Assignment-
+		use to assign a value to the variable.
+		eg: 
+		let x=4;
+		
+	2) Addition-	
+		works on 2 operands to add.
+		eg: 
+		let x=4; 
+		let y=5;
+		let z=x+y;
+		document.write(z);	// 9
+		
+	3) Multiplication-
+		use to multiply 2 or more operands.
+		eg:
+		let x=4;
+		let y=5;
+		let z=x*y;
+		document.write(z);	// 20
+		
+	4) Exponentiation-
+		use to square of given variable or literal.
+		eg:
+		let x=5;
+		let sqr = x**2;
+		document.write(sqr);	// 25
+		
+	5) Division-
+		use to divide the 1st operand by 2nd one.
+		eg:
+		let x=36;
+		let y=9;
+		let z=x/y;
+		document.write(z);	// 4
+		
+	6) Modulus (Division Reminder)-
+		use to get the reminder after divsion between 2 operands.
+		eg:
+		let x=36;
+		let y=9;
+		let z=x%y;
+		document.write(z);	// 0
+		
+	7) Increament;
+		use Increament operator to increase a value by 1.
+		eg: 
+		let x=20;
+		let y=x++;
+		document.write(y);	//21
+		
+	7) Decreament;
+		use Decreament operator to decrease a value by 1.
+		eg: 
+		let x=20;
+		let y=x--;
+		document.write(y);	//19
+	
+	Javascript Assignment Operator-
+		x=6,y=6,x+=y;	// y=12;	x+=y same as x=x+y	
+		simillarly we can use all arithmetic operators with assignment operator.
+		
+	Javascript String Operator-
+		The + operator can also be used to add (concatenate) strings.
+		eg: 
+		let fname = "Shahbaz";
+		let lname = "Patel";
+		let fullname = fname+" "+lname;
+		document.write(fullname);	// Shahbaz Patel
+		
+		The += assignment operator can also be used to add (concatenate) strings:
+		eg:
+		let txt = "Hello Sbz! ";
+		txt+="How are You.";
+		console.log(txt);	// Hello Sbz! How are You.
+		
+	Adding Strings and Numbers-
+		eg:
+		let x = 5 + 5;			// 10
+		let y = "5" + 5;		// 55
+		let z = "Hello" + 5;	// Hello5
+		let m = 5 + 5 + "Hello";	// 10Hello
+		
+	Javascript Comparison Operators-
+		== 		-> equal to
+		===		-> equal value and equal type
+		!=		-> not equal
+		!==		-> not equal value or not equal type
+		>		-> greater than
+		< 		-> smaller than
+		>=		-> greater than or equal to
+		<=		-> smaller than or equal to
+		?		-> ternary operator
+	
+	Javascript Logical Operators-
+		&&		-> Logical and
+		||		-> Logical or
+		!		-> Logical not
+		
+	JavaScript Type Operator-
+		typeof 	-> Return a type of variable
+		instanceof-> Returns true if an object is an instance of an object type
+		
+JavaScript Data Type->>
+	let name = "Shahbaz Patel";		// strings
+	let age = 32;					// Number
+	let sbzProfile = {name:"Shahbaz Patel",age:32,father:"Talhab Patel",mother:"Shehnaz Patel"};	// Object
+	let friends = ["Shahbaz","Ilham","Kaleem","Aasim"];	// Array
+	let undec;	// undefined
+	let nullNum = null;	// null
+	let bool = true;	// boolean
+	
+Javascript Functions->>
+	A JavaScript function is a block of code designed to perform a particular task.
+	A JavaScript function is executed when "something" invokes it (calls it).
+	eg:
+	function fullname(fName,lName)
+	{
+		document.write(lName+" "+lName);	// Shahbaz Patel
+	}
+		
+	Function Syntax-
+		function FunctionName(parameter1,parameter2,parameter3)
+		{
+			// code to  executed
+		}
+		
+		Function Parameters are listed inside the parentheses () in the function definition.
+		Function arguments are the values received by the function when it is invoked.
+		Inside the function, the arguments(the parameters) behaves like local variables.
+		
+	Function Invocation-
+		The code inside the function definition will call when something invokes the function.
+		The function invoked when the action trigger from user or browser.
+		
+	Function Return-
+		Functions often compute a return value. The return value is "returned" back to the "caller":
+		eg:
+		let x = myFunction(4, 3);   // Function is called, return value will end up in x
+
+		function myFunction(a, b) {
+		  return a * b;             // Function returns the product of a and b
+		}
+		
+	Why Functions?
+		You can reuse code: Define the code once, and use it many times.
+		You can use the same code many times with different arguments, to produce different results.
+		eg:
+		function toCelsius(fahrenheit) {
+		  return (5/9) * (fahrenheit-32);
+		}
+		document.getElementById("demo").innerHTML = toCelsius(77);
+	
+	The () Operator Invokes the Function-
+		Accessing a function without () will return the function object instead of the function result.
+		eg: 
+		function toCelsius(fahrenheit) {
+		  return (5/9) * (fahrenheit-32);
+		}
+		document.getElementById("demo").innerHTML = toCelsius;
+		
+	Functions Used as Variable Values-
+		Functions can be used the same way as you use variables, in all types of formulas, assignments, and calculations.
+		eg:
+		let x = toCelsius(77);
+		let text = "The temperature is " + x + " Celsius";
+	
+	Local Variables-
+		Variables declared within a JavaScript function, become LOCAL to the function.
+		Local variables can only be accessed from within the function.
+		eg:
+		function myFunction(){
+			let name = "Shahbaz Patel";		
+			// code here can only use name variable (local variable of this function)
+		}
+		
+JS Objects->>
+	Objects contain many values.
+	eg:
+	const prof = {"Shahbaz Patel",32,"Kolhapur"};
+	
+	In object values are written in name:value pair. and each value is seperated by comma.
+	
+	Object Definition-
+		eg:
+		const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+		Spaces and line breaks are not important. An object definition can span multiple lines:
+
+		eg:
+		const person = {
+		  firstName: "John",
+		  lastName: "Doe",
+		  age: 50,
+		  eyeColor: "blue"
+		};
+		
+	object Properties-
+		The name:values pairs in JavaScript objects are called properties, where firstName is a property and John is a property value.
+		
+	Accessing Object Properties-
+		we can access the object property in two ways.
+		1) person.firstName
+		2) person["firstName"]
+		
+	Object Methods-
+		Objects also have methods.
+		Methods are actions which are performed on objects.
+		Methods are stored in properties as function definitions.
+		eg:
+		var person = {
+			fName: "Shahbaz",
+			lName: "Patel",
+			age: 32,
+			fullName: function(){
+				return this.fName++this.lName;
+			}
+		};
+
+	Accessing Object Methods-
+		we can access the object methods as,
+		person.fullName();
+		
+		If we call person.fullName without parentheses, then returns the whole function definition.
+		
+JS Events->>
+	HTML events are "things" which happen on the HTML elements.
+	Javascript can react in response of this events.
+	eg:
+	<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+	
+	Common HTML Events-
+	Here are a list of some common HTML events:
+		1) onchange - An HTML element has been changed.
+		2) onclick - clicks an HTML element.
+		3) onmouseover - The user moves the mouse cursor over HTML element.
+		4) onmouseout - The user moves the mouse away from an HTML element.
+		5) onkeydown - The user pushes a keyboard key
+		6) onload - The browser has finished the loading the page.
+		
+JS String->>
+	Javascript strings are used to storing and manipulating text.
+	Javascript string is a zero or more characters written in quotes.
+	eg:
+	let name = "Shahbaz Patel";
+	
+	You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+	eg:
+	let answer1 = "It's alright";
+	let answer2 = "He is called 'Johnny'";
+	let answer3 = 'He is called "Johnny"';
+	
+	String Length-
+		To find the length of the string, using "length" proeprty.
+		eg:
+		let name = "Shahbaz Patel";
+		document.write(name.lenth);		// 13
+		
+	Escape Character-
+		Because strings must be written within quotes, JavaScript will misunderstand this string:
+		eg: let text = "We are the so-called "Vikings" from the north.";		// Error
+			let text = "We are the so-called \"Vikings\" from the north.";		// Right
+			
+	Sring can be Objects-
+		Normally, JavaScript strings are primitive values, created from literals:
+		let firstName = "Sbz";
+
+		But strings can also be defined as objects with the keyword new:
+		let firstName = new String("Sbz");
+		
+		eg:
+		let x = "Sbz";
+		let y = new String("Sbz");
+		
+		if(x==y)
+		{
+			console.write("Both variables are equal in value.");
+		}
+		
+		if(x===y)
+		{
+			console.write("Both variables are un-equal in type.");	// first type is string and second is object 
+		}
+
+		Objects cannot be compared
+		
+		eg:
+		let x = new String("Sbz");
+		let x = new String("Sbz");
+		
+		if(x===y)	// false
+		if(x==y)	// false
+
+	String Methods-
+		Extracting String Parts-
+			There are 3 methods use to extract the part of a string.
+			1) slice()
+			2) substring()
+			3) substr()
+			
+			1) slice()-
+				slice() extract a part of a string, and saves it in a new string.
+				The method takes 2 parameters. first is start position, second is end position (end not included)
+				
+				eg:
+				let phrase = "Shahbaz Patel is a great software developer.";
+				document.write(phrase.slice(8,13));		// Patel
+				
+				JavaScript counts positions from zero. First position is 0.
+				If a parameter is negative, the position is counted from the end of the string.
+				
+			2) substring()-
+				substring() is similar to slice().
+				The difference is that substring() cannot accept negative indexes.
+				eg:
+				let str = "Apple, Banana, Kiwi";
+				substring(7, 13)    // Returns Banana
+				
+			3) substr()-
+				substr() is similar to slice().
+				The difference is that the second parameter specifies the length of the extracted part.
+				eg:
+				let str = "Shahbaz is a Great Software Developer.";
+				document.getElementById("demo").innerHTML = str.substr(13,5);	// Great
+
+				If you omit the second parameter, substr() will slice out the rest of the string.
+				If the first parameter is negative, the position counts from the end of the string.
+				
+		Replacing string Content-
+			The replace() method replaces a specified value with another one in a a string.
+			
+			eg:
+			let text = "Hello Microsoft";
+			document.write(text.replace("Microsoft","W3Schools"));	// Hello W3Schools
+			
+			The replace() method does not change the string it is called on. It returns a new string.
+			By default, the replace() method replaces only the first match:
+			By default, the replace() method is case sensitive. Writing MICROSOFT (with upper-case) will not work:
+			
+			eg:
+			let text = "Hello microsoft";
+			document.write(text.replace("Microsoft","W3Schools"));	// Error, cannot replace
+			
+			To replace case insensitive, use a regular expression with an /i flag (insensitive):
+
+			eg:
+			let text = "Hello microsoft";
+			document.write(text.replace(/Microsoft/i,"W3Schools"));		// Hello W3Schools
+			
+			To replace all matches, use a regular expression with a /g flag (global match):
+
+			eg:
+			let text = "Microsoft employees are more clever in the Microsoft Events.";
+			document.write(text.replace(/Microsoft/g,"Google"));	
+				// Google employees are more clever in the Google Events.
+				
+		Converting to Upper and Lower Case-
+			A string is converted to uppercase using toUpperCase() method.
+			eg:
+			let txt1 = "Shahbaz Patel";
+			document.write(txt1.toUpperCase());
+			
+			A string will be converted to lowercase using toLowerCase() method.
+			eg:
+			let txt1 = "SHAHBAZ";
+			document.write(txt1.toLowerCase());
+			
+		concat() Method-
+			concat() method joings two or more strings.
+			eg:
+			let text1 = "Hello";
+			let text2 = "World";
+			let text3 = text1.concat(" ", text2);
+			document.write(text3);	// Hello World
+			
+			
+		String.trim()-
+			trim() method removes whitespaces from both side of string.
+			eg:
+			let text = "       Hello World!        ";
+			document.write(text.trim());    // Returns "Hello World!"
+
+		Extracting string Characters-
+			There are 3 methods to extract string characters.
+			1) charAt()
+			2) charCodeAt()
+			3) Property access [ ]
+			
+			1) charAt()-
+				The charAt() method returns the character on position which specifies in a method.
+				eg:
+				let str = "Shahbaz Patel";
+				document.write(str.charAt(0));		// S
+				
+			2) charCodeAt()-
+				The charCodeAt() method returns the unicode of the character at a specified index in a string:
+				eg:
+				let text = "HELLO WORLD";
+				text.charCodeAt(0)       // Returns 72
+				
+			3) Property Access-
+				We can access the character of a string using their index value as in following figure.
+				eg:
+				let txt = "Shahbaz Patel";
+				document.write(txt[2]);		// a
+				
+		Converting a string into an Array-
+			split() method converts string into array.
+			eg:
+			let str = "Shahbaz,Saba,Taskin,Fazilat";
+			let arr = str.split(",");
+			document.write(arr[0]);		// Shahbaz
+			
+			If the seperator is omitted, then the returned array value contain the whole string in index 0.
+			
+			eg:
+			let str = "Shahbaz,Saba,Taskin,Fazilat";
+			let arr = str.split("");
+			document.write(arr[25]);	// above
+			
+		JS String Search-
+			There are some methods used to search the characters in a string.
+			1) indexOf()-
+				The indexOf() method return the position of the specified first occurence of a string as below example,
+				eg:
+				let str = "Hello, How are you shahbaz!!";
+				document.write(str.indexOf("shahbaz"));		// 19
+				
+				In case of specified string not found, method returns the -1.
+				
+			2) lastIndexOf()-
+				The lastIndexOf() used to search the last occurence of specified string in a string.
+				eg:
+				let str = "Hello, How are you shahbaz!! Hey shahbaz are you there.";
+				document.write(str.lastIndexOf("shahbaz"));		// 33
+				
+				Both indexOf(), and lastIndexOf() return -1 if the text is not found:
+				Both methods accept a second parameter as the starting position for the search:
+				But there are different applications on which they work as following both examples
+				
+				eg1:
+				let str = "Hello, How are you shahbaz!! Hey shahbaz are you there. Can you please tell me why you not repliead shahbaz.";
+				
+				document.write(str.indexOf("shahbaz",55));		// 100
+				
+				eg2:
+				let str = "Hello, How are you shahbaz!! Hey shahbaz are you there. Can you please tell me why you not repliead shahbaz.";
+				
+				document.write(str.lastIndexOf("shahbaz",55));		// 33
+
+			3) search()-
+				The search() method used to search the specified value and return the position:
+				eg:
+				let str = "Please locate where 'locate' occurs!";
+				str.search("locate")     // Returns 7
+				
+				The search() method cannot define the second start position argument.
+				The search() method has regular expression to search critical values.
+				
+				eg:
+				let str = "Hello, How are you Shahbaz!! Hey shahbaz are you there. Can you please tell me why you not repliead shahbaz.";
+				document.write(str.search(/shahbaz/i));		// 19
+				
+			4) match()-
+				The match() method searches a string for a match with regular expression and return the matches as an array.
+				eg:
+				let str = "Hello, How are you shahbaz!! Hey shahbaz are you there. Can you please tell me why you not repliead shahbaz.";
+				document.write(str.match(/shahbaz/g));		// shahbaz,shahbaz,shahbaz -> array object
+				
+			5) includes()-
+				The includes() method return the true if a specified value exist in the string, otherwise false.
+				eg:
+				let text = "Hello world, welcome to the universe.";
+				document.write(text.includes("world"));    // Returns true
+				
+				Check if a string includes "world", starting the search at position 12:
+
+				let text = "Hello world, welcome to the universe.";
+				document.write(text.includes("world", 12));    // Returns false
+				
+			6) startsWith()-
+				The startsWith() method returns the true if the specified value present in the start of string, otherwise it returns false.
+				eg:
+				let txt = "Hello world, shahbaz patel is a great man.";
+				document.write(txt.startsWith("Hello"));	// true
+				
+				We will add the second parameter to set the starting position to search the starting string as above example.
+				let txt = "Hello world, shahbaz patel is a great man.";
+				document.write(txt.startsWith("world",6));	// true
+				
+			7) endsWith()-
+				The endsWith method returns the true if the specified value present in the end of string, otherwise it returns false.
+				eg:
+				let txt = "Hello world, shahbaz patel is a great man.";
+				document.write(txt.startsWith("man"));		// true
+				
+JS Numbers-
+	JS has only one type of number. number can written with or without decmimals.
+	eg:
+	let x = 12;
+	let y = 7.56;
+	Extra large or small numbers could be written in expoential format.
+	eg:
+	let x = 123e5;
+	let y = 78e-4;
+	
+	Adding Numbers and Strings-
+		JS uses + operator to addition and concatenation.
+		
+		If we would add 2 numbers, the result will be a number.
+		eg:	
+		let x = 10;
+		let y = 20;
+		let z = x+y;
+		document.write(z);		// zero
+		
+		If we add 2 strings, the result will be a strings.
+		eg:
+		let fname = "Shahbaz";
+		let lname = "Patel";
+		document.write(fname+" "+lname);	// Shahbaz Patel
+		
+		If we add one string and one number, the result will be a string(String Concatenation).
+		eg:
+		let x = "20";
+		let y = 10;
+		let z = x+y;
+		document.write(z);	// 2010		
+		
+		eg:
+		let x = 10;
+		let y = 20;
+		let z = "30";
+		let result = x + y + z;	// 3030
+	
+		Numeric Strings-
+		eg:
+		let x = "100";
+		
+		JS will try to convert string to number in all numeric operations.
+		eg:
+		let x = "100";
+		let y = "20";
+		let z = x/y;
+		document.write(z);	// 50
+		
+		let x = "100";
+		let y = "20";
+		let z = x*y;
+		document.write(z);	// 2000
+
+	NaN-Not a Number-
+		NaN is a JS reserved word which shows the number is not a legal number.
+		Trying to arithmetic with a non-numeric string will be result in NaN (Not a Number).
+		
+		eg:
+		let x=100/"Apple";
+		document.write(x);		// NaN (Not a Number)
+		
+		You can use the global JavaScript function isNaN() to find out if a value is a not a number:
+		eg:
+		let x = 100 / "Apple";
+		isNaN(x);               // returns true because x is Not a Number
+		
+		NaN is a number: typeof NaN returns number:
+
+	Numbers can be Objects-
+		Normally JS Numbers are literals or primitive values.
+		let x = 123;
+		But number can be defined as objects with keyword new.
+		let x = new Number(124);
+		eg:
+		let x = 12;
+		let y = new Number(12);
+		
+		//	typeof x is number
+		// typeof y is object
+		Hence here both variables (x,y) has equal values but different datatypes.
+		// if(x==y)	// true, values are same
+		// if(x===y)	// false, data type are different
+		
+		eg:
+		let x = new Number(123);
+		let y = new Number(123);
+		
+		We cannot compare 2 objects having simillar values.
+		// if(x==y)	// false
+		// if(x===y)	// false
+		
+Number Methods-
+	There are many number methods to work with numbers as below,
+	1) toString()-
+		The toString() method returns a number as a string.
+		eg:
+		let x = 123;
+		document.write(x.toString());	// data type "string"
+			
+	2) toExponential()-
+		It returns the string which is in exponential format.
+		eg:
+		let x =  9.656;
+		document.write(x.toExponential(2));	// 9.66e+0
+		document.write(x.toExponential(4));	// 9.6560e+0
+		document.write(x.toExponential(6));	// 9.656000e+0
+		
+	3) toFixed()-
+		It returns the string with fixed decimals as following example.
+		eg:
+		let x = 9.656;
+		x.toFixed(0);           // returns 10
+		x.toFixed(2);           // returns 9.66
+		x.toFixed(4);           // returns 9.6560
+		x.toFixed(6);           // returns 9.656000
+		
+	4) toPrecision()-
+		toPrecision() returns a string, with a number written with a specified length:
+		eg:
+		let x = 9.656;
+		x.toPrecision();        // returns 9.656
+		x.toPrecision(2);       // returns 9.7
+		x.toPrecision(4);       // returns 9.656
+		x.toPrecision(6);       // returns 9.65600
+		
+	5) valueOf()-
+		valueOf() returns a number as a number.
+		Here It converts the number in form of object converts to the primitive number value.
+		eg:
+		let x = new Number(10);
+		document.write(typeof x.valueOf());		// number (instead of object)
+		
+	6) Converting Variables to Numbers-
+		There are 3 JS methods used to convert the variable to number.
+		1) Number()-
+			Returns a number. parses its argument. If the number cannot be converted, NaN(Not a Number) is retured.
+			It will use to convert the date to seconds.
+			eg:
+			new Date("04-10-2021");	// 1617993000000
+		2) parseInt()-
+			Parses its argument and return an integer. 
+		3) parseFloat()-
+			Parses its argument and return a floating point number.
+			
+JS Array->>
+	JS array used to store the multiple values in a single variable.
+	eg:
+	const friends = ["Shahbaz","Kaleem","Ilham"];
+			
+	Accessing Array Elements-
+		You access an array element by referring to the index number:
+		eg: 
+		const friends = ["Shahbaz","Kaleem","Ilham"];
+		document.write(friends[0]);		// Shahbaz
+		
+	Changing an Array Element-
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham"];
+		friends[0] = "Faheem";
+		document.write(friends[0]);		// Faheem
+		
+	Access the Full Array-
+		With JavaScript, the full array can be accessed by referring to the array name:
+		eg:
+		const cars = ["Saab", "Volvo", "BMW"];
+		document.getElementById("demo").innerHTML = cars;
+		
+	Arrays are Objects-
+		Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+		But, JavaScript arrays are best described as arrays.
+		Arrays use numbers to access its "elements". In this example, person[0] returns John:
+		eg:
+		const person = ["John", "Doe", 46];
+		But Objects use names to access its members.In below example:
+		eg:
+		const person = {fname:"John",lname:"Doe",age:46};
+		
+	Accessing the Last Array Element-
+		eg:
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		document.write(fruits[fruits.length-1]);		// Mango
+		
+	Looping Array Elements-
+		The safest way to loop through an array is for loop:
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham"];
+		let flen = friends.length;
+		
+		text = "<ul>";
+		for(let i=0;i<flen;i++)
+		{
+			text += "<li>"+friends[i]+"</li>";
+		}
+		text+="</ul>";
+		
+		document.write(text);
+
+		Also we can use foreach() to looping array elements.
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham"];
+		
+		text = "<ul>";
+		friends.foreach(myFun);
+		text +="</ul>";
+		
+		function myFun(value){
+			text += "<li>"+value+"</ul>";
+		}
+		
+	How to Recognize an array-
+		A common question is: How do I know if a variable is an array?
+		The problem is that the JavaScript operator typeof returns "object":
+		eg:
+		const fruits = ["Banana", "Orange", "Apple"];
+		typeof fruits;    // returns object
+		
+		Here there are 2 solutions or methods used to describe whether it is array or not.
+		1) Array.isArray()-
+			Array.isArray(fruits);		// true
+
+		2) instanceof
+			fruits instanceof Array;	// true
+			
+Array Methods->>
+	Converting Arrays to Strings-
+		The JavaScript method toString() converts an array to a string of (comma separated) array values.
+		
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+		document.write(friends.toString());		// Shahbaz,Kaleem,Ilham,Aasim
+		
+		The join() method also same as toString(). But here we can pass the seperator to convert the array into string.
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+		document.write(friends.join("*"));		// Shahbaz*Kaleem*Ilham*Aasim
+		
+	Popping and Pushing-
+		Popping-
+			The pop() method removes the last element of an array.
+			
+			eg:
+			const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+			friends.pop();				// return Aasim
+			document.write(friends);	// Shahbaz,Kaleem,Ilham	
+			
+			friends.pop() method returns the last pop out element of an array.
+			
+		Pushing-
+			The push method add the new element at the end of an array.
+			
+			eg:
+			const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+			friends.push("NewOne");		// returns 5
+			document.write(friends);	// Shahbaz,Kaleem,Ilham,Aasim,NewOne
+			
+	Shifting Elements-
+		shifting is equivalent to popping, working on first element of an array instead of last.
+		
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+		friends.shift();	// Removes "Shahbaz", returns "Shahbaz"
+		
+	Unshifting Elements-
+		Unshift() method used to add the new element at the beginning of the array. and this method unshift() method returns the new length of array.
+		
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+		friends.unshift("NewOne");	// returns new array length (5)
+		document.write(friends);	// NewOne,Shahbaz,Kaleem,Ilham,Aasim
+		
+	delete Array element-
+		delete operator used to delete the array element with reference of index value.
+		
+		eg:
+		const friends = ["Shahbaz","Kaleem","Ilham","Aasim"];
+		delete fruits[0];
+		
+		Using delete may leave undefined holes in the array. Use pop() or shift() instead.
+
+	splice()-
+		The splice method used to add or delete any number of element from any position in an array.
+		
+		eg:
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		fruits.splice(2,0,"Lemon","Kiwi");
+		document.write(fruits);			// Banana,Orange,Lemon,Kiwi,Apple,Mango
+		
+	Merging Arrays-
+		The concat() method creates a new array by merging (concatenating) existing arrays:
+
+		eg:
+		const myGirls = ["Alima","Sakina",Zohra];
+		const myBoys = ["Arhaan","Anas","Ahmad","Tamim"];
+		document.write(myGirls.concat(myBoys));		// Alima,Sakina,Zohra,Arhaan,Anas,Ahmad,Tamim
+		
+		The concat() method does not change the existing arrays. It always returns a new array.
+		
+	Slicing an Array-	
+		The slice() method slices out a piece of an array into a new array.
+
+		eg:
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		const citrus = fruits.slice(1);
+		document.write(citrus);		// Orange,Lemon,Apple,Mango
+		
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		const citrus = fruits.slice(3);	
+		document.write(citrus);	 	// Apple,Mango
+		
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		const citrus = fruits.slice(1,3);	
+		document.write(citrus);	 	// Orange,Lemon
+		
+	Sorting an Array-	
+		The sort() method sorts an array alphabetically.
+		
+		eg:
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		fruits.sort();
+		document.write(fruits);		// Apple,Banana,Lemon,Mango,Orange
+		
+	Reversing an Array-
+		The reverse() method reversing the array element.
+		We can use it to sort an array in descending order.
+		
+		eg:
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		fruits.sort();        // First sort the elements of fruits
+		fruits.reverse();     // Then reverse the order of the elements
+		
+	Numeric Sort-
+		eg:
+		const points = [40, 100, 1, 5, 25, 10];
+		document.write(points.sort(function(a,b){ return a-b }));
+		
+		We can use the same trick to numeric sort in descending order:
+		
+		eg:
+		const points = [40, 100, 1, 5, 25, 10];
+		document.write(points.sort(function(a,b){ return b-a }));
+		
+Array Iteration->>
+	Array Iteration method operate on every array item.
+	
+	Array.forEach()-
+		The forEach() method calls a function once for each array item.
+		eg:
+		const numbers = [45, 4, 9, 16, 25];
+		let text = "";
+		
+		numbers.forEach(myFun);
+		
+		function myFun(value, index, array){
+			text += value+"<br>";
+		}
+		
+	Array.map()-
+		The map() metod used to creates a new array by performing a function on each array element.
+		The map() method does not change the original array.
+		Below example multiplies each element by 2:
+		
+		eg:
+		const numbers1 = [45, 4, 9, 16, 25];
+		const numbers2 = numbers1.map(myFun);
+		
+		function myFun(value,index,array)
+		{
+			return value*2;
+		}
+		
+		When a callback function uses only the value parameter, the index and array parameters can be omitted:
+
+	Array.filter()-
+		The filter() method used to create a new array with array elements which passes a test.
+		This example creates a new array with array element value larger than the 18.
+		
+		eg:
+		const numbers = [45, 4, 9, 16, 25];
+		const const18 = numbers.filter(myFun);
+		
+		function myFun(value)
+		{
+			return value>18;
+		}
+		
+	Array.reduce()-
+		The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+		The reduce() method works from left-to-right in the array. See also reduceRight().
+		The reduce() method does not reduce the original array.
+		
+		eg:
+		const numbers = [45, 4, 9, 16, 25];
+		const sum = numbers.reduce(myFun);
+
+		function myFun(total,value,index,aray)
+		{
+			return total+value;
+		}
+	
+	Array.every()-
+		The every() method checks if all array values pass a test.
+		
+		eg:
+		const numbers = [45, 4, 9, 16, 25];
+		const allOver18 = numbers.every(myFun);		// false
+		
+		function myFun(value,index,array)
+		{
+			return value>18;
+		}
+		
+	Array.some()-
+		The some() method check if some array values pass a test.
+		This example check if some array values are larger than 18:
+		
+		eg:
+		const numbers = [45, 4, 9, 16, 25];
+		let someOver18 = numbers.some(myFunction);		// true
+
+		function myFunction(value, index, array) {
+		  return value > 18;
+		}
+		
+	Array.indexOf()-
+		The indexOf() method returns the position of the array specified element. First element of array index is 0.
+		
+		eg:
+		const fruits = ["Apple", "Orange", "Apple", "Mango"];
+		let pos = fruits.indexOf("Orange")+1;
+		document.write("Index of Orange: "+pos);		// Index of Orange: 2
+		
+	Array.lastIndexOf()-
+		The lastIndexOf() method is simillar to indexOf(). But it returns the position of the last occurence of specified value in an array.
+		
+		eg:
+		const fruits = ["Apple", "Orange", "Apple", "Mango"];
+		let lastpos = fruits.lastIndexOf("Apple")+1;
+		document.write(lastpos);		// 3
+		
+	Array.includes()-
+		The includes() method returns the boolean value according to specified value is exist or not in an array.
+		
+		eg:
+		const fruits = ["Apple", "Orange", "Kiwi", "Mango"];
+		document.write(fruits.includes("Mango"));	// true
+	
+JS Dates->>
+	JS Dates are works with dates.
+	
+	Createing Date Objects-
+		Date objects are created with the new Date() constructor.
+		There are 4 ways to create a new date object:
+		
+		1) new Date()-
+			new Date() creates a new date object with the current date and time.
+			
+			eg:
+			const d = new Date();
+			document.write(d);		// Tue Oct 05 2021 09:55:21 GMT+0530 (India Standard Time)
+
+		2) new Date(year,month,day,hour,minute,second,millisecond)-
+			new Date(year,month....) is a new method to create a date object with specified values year,month,day,hour,minute,second and millisecond. (in that same order)
+			
+			eg:
+			const d = new Date(2021,09,05,9,50,45,456);
+			document.write(d);		// Tue Oct 05 2021 09:50:45 GMT+0530 (India Standard Time)
+			
+			Javascript counts months from 0(January) to 11(December).
+			In case of assigning the month to more than 11 exceeding the year by one year.
+			simillarly the addition in limit of month more than 31 gets not any error but exceeding the month by one.
+			
+		3) new Date(string)-
+			new Date(DateString) creates an date object with specified date and time.
+			
+			eg:
+			const d = new Date("October 13, 2014 11:13:00");
+			document.write(d);
+			
+		4) new Date(milliseconds)-
+			new Date(milliseconds) creates a date object and returns the date and time according to specified milliseconds. milliseconds are countable from 01 Jan 1970.
+			
+			eg:
+			const d = new Date(0);
+			document.write(d);		// Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+			
+			const d = new Date(100000000000);
+			document.write(d);		// Sat Mar 03 1973 15:16:40 GMT+0530 (India Standard Time)
+			
+			The specified millisecond value in minus will define the date before the 01 Jan 1970 as following example.
+			const d = new Date(-100000000000);
+			document.write(Mon Oct 31 1966 19:43:20 GMT+0530 (India Standard Time));
+			
+	Displaying Dates-
+		Javascript will(by default) output dates in full text string format.
+		When we display a date with method toString(), then its automatically converted into string datatype.
+		
+		The toUTCString() method converts a date to a UTC string (a date display standard).
+		eg:
+		const d = new Date();
+		document.write(d.toUTCString());		// Mon, 31 Oct 1966 14:13:20 GMT
+		
+		The toDateString() method converts a date to a more readable format.
+		eg:
+		const d = new Date();
+		document.write(d.toDateString());		// Tue Oct 05 2021
+		
+		The toISOString() method converts a Date object to a string, using the ISO standard format:
+		eg:
+		const d = new Date();
+		document.write(d.toISOString());		// 2021-10-05T04:45:26.643Z
+		
+	JS Date Get Methods-
+		These below methods used to get the information from a date object.
+		
+		1) getFullYear()-
+			This method return the full Year full 4 digits (YYYY).
+			
+			eg:
+			const d = new Date();
+			document.write(d.getFullYear());		// 2021
+			
+		2) getMonth()-
+			This method return the month as a number(0-11)
+			
+			eg:
+			const d = new Date();
+			document.write(d.getMonth());			// 9
+			
+		3) getDate()-
+			It returns the date between 1-31.
+			
+			eg:
+			const d = new Date();
+			document.write(d.getDate());			// 5
+			
+		4) getHours()-
+			It returns the hour (0-23).
+			
+			eg:
+			const d = new Date();
+			document.write(d.getHours());			// 10
+			
+		5) getMinutes()-
+			It returns the Minutes (0-59).
+			
+			eg:
+			const d = new Date();
+			document.write(d.getMinutes());			// 33	
+			
+		6) getSeconds()-
+			it returns the Seconds (0-59).
+			
+			eg:
+			const d = new Date();
+			document.write(d.getSeconds());			// 44
+			
+		7) getMilliseconds()-
+			It returns the milliseconds (0-999).
+			
+			eg:
+			const d = new Date();
+			document.write(d.getMilliseconds());			// 446
+			
+		8) getTime()-
+			It retuns the time in seconds since January 1, 1970.
+			
+			eg:
+			const d = new Date();
+			document.write(d.getTime());		// 1633410540298
+			
+		9) getDay()-
+			It returns the number between (0-6). where 0 is Sunday, 6 is saturday.
+			
+			eg:
+			const d = new Date();
+			document.write(d.getTime());	// 2 (indicates its "Tuesday")
+			
+	JS Date Set Methods-
+		Set Date methods let you set date values (years, months, days, hours, minutes, seconds, milliseconds) for a Date Object.
+
+		Set Date Methods-
+		Set Date methods are used for setting a part of a date:
+
+		1) setDate()->	Set the day as a number (1-31)
+		2) setFullYear()->	Set the year (optionally month and day)
+		3) setHours()->	Set the hour (0-23)
+		4) setMilliseconds()->	Set the milliseconds (0-999)
+		5) setMinutes()->	Set the minutes (0-59)
+		6) setMonth()->	Set the month (0-11)
+		7) setSeconds()->	Set the seconds (0-59)
+		8) setTime()	Set the time (milliseconds since January 1, 1970)
+
+JS Math-
+	JS Math objects allows we to perform mathematical operations on numbers.
+	
+	Math.PI;            // returns 3.141592653589793
+	
+	Math Properties (Constants)-
+	The syntax for any Math property is : Math.property.
+	JavaScript provides 8 mathematical constants that can be accessed as Math properties:
+	
+	eg:
+	Math.E        // returns Euler's number
+	Math.PI       // returns PI
+	Math.SQRT2    // returns the square root of 2
+	Math.SQRT1_2  // returns the square root of 1/2
+	Math.LN2      // returns the natural logarithm of 2
+	Math.LN10     // returns the natural logarithm of 10
+	Math.LOG2E    // returns base 2 logarithm of E
+	Math.LOG10E   // returns base 10 logarithm of E
+	
+	Math Methods-
+	The syntax for Math any methods is : Math.method.(number)
+
+	Number to Integer-
+	There are 4 common methods to round a number to an integer:
+
+		Math.round(x)	Returns x rounded to its nearest integer
+		Math.ceil(x)	Returns x rounded up to its nearest integer
+		Math.floor(x)	Returns x rounded down to its nearest integer
+		Math.trunc(x)	Returns the integer part of x (new in ES6)
+		
+		1) Math.round()-
+			eg:
+			Math.round(4.9);    // returns 5
+			Math.round(4.7);    // returns 5
+			Math.round(4.4);    // returns 4
+			Math.round(4.2);    // returns 4
+			Math.round(-4.2);    // returns -4
+			
+		2) Math.ceil()-
+			eg:
+			Math.ceil(4.9);     // returns 5
+			Math.ceil(4.7);     // returns 5
+			Math.ceil(4.4);     // returns 5
+			Math.ceil(4.2);     // returns 5
+			Math.ceil(-4.2);     // returns -4
+
+		3) Math.floor()-
+			eg:
+			Math.floor(4.9);    // returns 4
+			Math.floor(4.7);    // returns 4
+			Math.floor(4.4);    // returns 4
+			Math.floor(4.2);    // returns 4
+			Math.floor(-4.2);    // returns -5
+			
+		4) Math.trunc()-
+			eg:
+			Math.trunc(4.9);    // returns 4
+			Math.trunc(4.7);    // returns 4
+			Math.trunc(4.4);    // returns 4
+			Math.trunc(4.2);    // returns 4
+			Math.trunc(-4.2);    // returns -4
+
+		5) Math.sign()-
+			eg:
+			Math.sign(-4);    // returns -1
+			Math.sign(0);    // returns 0
+			Math.sign(4);    // returns 1
+			
+		6) Math.pow()-
+			eg:
+			Math.pow(8, 2);      // returns 64
+
+		7) Math.sqrt()-
+			eg:
+			Math.sqrt(64);      // returns 8
+
+		8) Math.abs()-
+			eg:
+			Math.abs(-4.7);     // returns 4.7
+
+		9) Math.sin()-
+			eg:
+			Math.sin(90 * Math.PI / 180);     // returns 1 (the sine of 90 degrees)
+		
+		10) Math.cos()-
+			eg:
+			Math.cos(0 * Math.PI / 180);     // returns 1 (the cos of 0 degrees)
+
+		11) Math.min()-
+			eg:
+			Math.min(0, 150, 30, 20, -8, -200);  // returns -200
+
+		12) Math.max()-
+			eg:
+			Math.min(0, 150, 30, 20, -8, -200);  // returns 150
+			
+		13) Math.random()-
+			Math.random() returns a random number between 0 (inclusive), and 1 (exclusive):
+
+			eg:
+			Math.random();		// 2
+
+		14) Math.log()-
+			eg:
+			Math.log(1);    // returns 0
+			Math.log(10);    // returns 2.302585092994046
+
+		15) Math.log2()-
+			eg:
+			Math.log2(8);    // returns 3
+		
+		16) Math.log10()-
+			eg:
+			Math.log10(1000);    // returns 3
+
+JS Comparison and Logical Operators-
+	JS Comparison Operators-
+		1) == -> equal to
+		2) === -> equal value and equal type
+		3) != -> not equal to
+		4) !== -> not equal value or not equal type
+		5) > -> greater than
+		6) < -> less than
+		7) >= -> greater than or equal to
+		8) <= -> less than or equal to
+		
+	Logical Operators-
+		1) && -> and 
+		2) || -> or
+		3) !  -> not
+		
+JS Switch Statement->>
+	The switch statement is used to perform different actions based on different conditions.
+	Use the switch statement to select one of many code blocks to be executed according to expression we get.
+	
+	Syntax-
+	switch(expression) {
+	  case x:
+		// code block
+		break;
+	  case y:
+		// code block
+		break;
+	  default:
+		// code block
+	}
+	
+	eg:
+	let day;
+	switch (new Date().getDay()) {
+	  case 0:
+		day = "Sunday";
+		break;
+	  case 1:
+		day = "Monday";
+		break;
+	  case 2:
+		day = "Tuesday";
+		break;
+	  case 3:
+		day = "Wednesday";
+		break;
+	  case 4:
+		day = "Thursday";
+		break;
+	  case 5:
+		day = "Friday";
+		break;
+	  case  6:
+		day = "Saturday";
+	}
+	document.getElementById("demo").innerHTML = "Today is " + day;	// Tuesday
+	
+JS for Loop->>
+	JS Loop used to execute a block of code number of times.
+	Often this is the case when working with arrays.
+	
+	Different Kinds of Loops-
+	JavaScript supports different kinds of loops:
+
+		1) For Loop->
+			The for loop has the following syntax:
+			syntax:
+			for (statement 1; statement 2; statement 3) {
+			  // code block to be executed
+			}
+			
+			Statement 1 is executed (one time) before the execution of the code block.
+			Statement 2 defines the condition for executing the code block.
+			Statement 3 is executed (every time) after the code block has been executed.
+			
+			eg:
+			const friends = ["Shahbaz","Kaleem","Ilham","Zuber"];
+			fLen = friends.length;
+			for(let i=0;i<flen;i++)
+			{
+				document.write(friends[i]+"<br>");
+			}
+			
+			Output-
+			Shahbaz
+			Kaleem
+			Ilham
+			Zuber
+			
+		2) JS Loop In-
+			The JavaScript for in statement loops through the properties of an Object:
+
+			Syntax:
+			for (key in object) {
+			  // code block to be executed
+			}
+			
+			eg:
+			const person = {fname:"Shahbaz",lname:"Patel",age:32};
+			let txt = "";
+			for(let x in person){
+				txt+=person[x];			// Shahbaz Patel 32
+			}
+			
+			For in over Array-
+			The JavaScript for in statement can also loop over the properties of an Array:
+			
+			eg:
+			const num = [45, 4, 9, 16, 25];
+			let txt="";
+			for(let x in num){
+				txt+=num[x];	// 45 4 9 16 25
+			}
+			
+			Do not use for in over an Array if the index order is important.
+			The index order is implementation-dependent, and array values may not be accessed in the order you expect.
+			It is better to use a for loop, a for of loop, or Array.forEach() when the order is important.
+
+		3) forEach()-
+			The forEach() method calls a function (a callback function) once for each array element.
+
+			eg:
+			const num = [45, 4, 9, 16, 25];
+			let txt="";
+			num.forEach(myFun);
+			function myFun(value,index,array)
+			{
+				txt+=value;		// 45 4 9 16 25
+			}
+
+		4) For of-
+			The JavaScript for of statement loops through the values of an iterable object.
+			
+			eg:
+			const friends = ["Shahbaz","Kaleem","Ilham"];
+			let txt="";
+			for(let x of friends)
+			{
+				txt+=x;			// Shahbaz Kaleem Ilham
+			}
+
+			Looping over a string-
+			let lang = "Javascript";
+			let txt="";
+			for(let x of lang)
+			{
+				txt+=x;			// Javascript
+			}
+
+JS While Loop->>
+	Loops can execute a block of code as long as a specified condition is true.
+
+	eg:
+	while (i < 10) {
+	  text += "The number is " + i;
+	  i++;
+	}
+	
+	If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.
+
+	The Do While Loop-
+		The do while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+		
+		eg:
+		do {
+		  text += "The number is " + i;		
+		  i++;
+		}
+		while (i < 10);
+
+		Output-
+		The number is 0
+		The number is 1
+		The number is 2
+		The number is 3
+		The number is 4
+		The number is 5
+		The number is 6
+		The number is 7
+		The number is 8
+		The number is 9
+		
+Javascript Type Conversion->>
+	# Converting Number to String
+	# Converting String to Number
+	# Converting Date to Number
+	# Converting Number to Date
+	# Converting Boolean to Number
+	# Converting Number to Boolean
+	
+	JavaScript variables can be converted to a new variable and another data type:
+		By the use of a JavaScript function
+		Automatically by JavaScript itself
+		
+		1) Converting Stings to Numbers-	
+			The global method Number() converts string to number.
+			Strings containing numbers (like "3.14") convert to numbers (like 3.14).
+			Empty strings convert to 0.
+			Anything else converts to NaN (Not a Number).
+			
+			eg:
+			Number("3.14")    // returns 3.14
+			Number(" ")       // returns 0
+			Number("")        // returns 0
+			Number("99 88")   // returns NaN
+			
+			Number Methods-
+				In the chapter Number Methods, you will find more methods that can be used to convert strings to numbers:
+
+				1) Number -> Returns a number, converted from its argument.
+				2) parseInt -> Returns a number, converted from its argument.
+				3) parseFloat -> Parses a string and returns a floating point number.
+				
+			The Unary + Operator-
+				The Unary Operator (+) used to convert a variable to a number.
+				
+				eg:
+				let y = "5";	// y is a string
+				let x = +y;		// x is a number
+				
+				If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):
+
+				eg:
+				let y = "Sbz";		// y is a string
+				let x = +y;			// x is a NaN
+
+		2) Converting Numbers to Strings-
+			The global method String() can convert numbers to strings.
+			
+			eg:
+			String(x)         // returns a string from a number variable x
+			String(123)       // returns a string from a number literal 123
+			String(100 + 23)  // returns a string from a number from an expression
+			
+			The Number method toString() does the same.
+
+			More methods to convert the numbers to strings are as following,
+			a) toExponential
+			b) toFixed
+			c) toPrecision
+			
+			These methods above are already discussed before.
+			
+		3) Converting Dates to Numbers-
+			The global method String() use to convert dates to strings.
+			
+			eg:
+			String(Date())		// returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)" string datatype
+			
+			simillarly we can use string method toString() as same.
+			
+			In the chapter Date Methods, you will find more methods that can be used to convert dates to strings:
+
+		4) Converting Booleans to Numbers-
+			The global method String() can convert the booleans to numbers.
+			
+			eg:
+			Number(false);			// returns 0
+			Number(true);			// returns 1
+	
+		5) Converting Booleans to Strings-
+			The global method String() can convert booleans to strings.
+			
+			eg:
+			String(false);		// "false"
+			String(true);		// "true"
+			
+		6) Automatic Type Conversion-
+			When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type.
+			The result is not always what you expect:
+
+			eg:
+			5 + null    // returns 5         because null is converted to 0
+			"5" + null  // returns "5null"   because null is converted to "null"
+			"5" + 2     // returns "52"      because 2 is converted to "2"
+			"5" - 2     // returns 3         because "5" is converted to 5
+			"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+			
+JS Errors->>
+	The try statement used to test the block of code for errors.
+	The catch statement lets handle the error.
+	The throw statement lets create custom errors.
+	The final statement lets we execute code, regardless of the result.
+	When executing JavaScript code, different errors can occur.
+	Errors can be coding errors made by the programmer, errors due to wrong input, and other unforeseeable things.
+	In this example we misspelled "alert" as "adddlert" to deliberately produce an error:
+	
+	eg:
+	<p id="demo"></p>
+
+	<script>
+	try {
+	  adddlert("Welcome guest!");
+	}
+	catch(err) {
+	  document.getElementById("demo").innerHTML = err.message;
+	}
+	</script>
+	
+	Output-
+	adddlert is not defined
+	
+	JavaScript catches adddlert as an error, and executes the catch code to handle it.
+	When an error occurs, JavaScript will normally stop and generate an error message.
+	The technical term for this is: JavaScript will throw an exception (throw an error).
+	JavaScript will actually create an Error object with two properties: name and message.
+	
+	The Throw Statement-
+		The throw statement allows you to create a custom error.
+		The exception can be a JavaScript String, a Number, a Boolean or an Object:
+
+		throw "Too Big";
+		throw 500;
+		
+		If we can use the throw together with try and catch, you can control program flow and generate custom error on it.
+		
+	The finally Statement-
+		The finally statement lets you execute code, after try and catch, regardless of the result:
+
+		Syntax:
+			try {
+			  Block of code to try
+			}
+			catch(err) {
+			  Block of code to handle errors
+			}
+			finally {
+			  Block of code to be executed regardless of the try / catch result
+			}
+			
+		eg:
+		function myFunction() {
+		const message = document.getElementById("p01");
+		message.innerHTML = "";
+		let x = document.getElementById("demo").value;
+		try {
+		if(x == "") throw "is empty";
+		if(isNaN(x)) throw "is not a number";
+		x = Number(x);
+		if(x > 10) throw "is too high";
+		if(x < 5) throw "is too low";
+		}
+		catch(err) {
+		message.innerHTML = "Error: " + err + ".";
+		}
+		finally {
+		document.getElementById("demo").value = "";
+		}
+		}
+		
+	Error Object Properties-
+		name-> Sets or Returns an error name
+		message-> Sets or Returns an error message (a string)
+		
+		Six different values can be returned by the error name property:
+		1) Eval Error-
+			Eval Error generally return the error related to syntax error.
+			
+		2) Range Error-
+			A RangeError is thrown if you use a number that is outside the range of legal values.
+			For example: You cannot set the number of significant digits of a number to 500.
+
+			eg:
+			let num = 1;
+			try {
+			  num.toPrecision(500);   // A number cannot have 500 significant digits
+			}
+			catch(err) {
+			  document.getElementById("demo").innerHTML = err.name;
+			}
+			
+		3) Reference Error-
+			A ReferenceError is thrown if you use (reference) a variable that has not been declared:
+
+			eg:
+			let x = 5;
+			try {
+			  x = y + 1;   // y cannot be used (referenced)
+			}
+			catch(err) {
+			  document.getElementById("demo").innerHTML = err.name;
+			}
+			
+		4) Syntax Error-
+			A SyntaxError is thrown if you try to evaluate code with a syntax error.
+
+			eg:
+			try {
+			  eval("alert('Hello)");   // Missing ' will produce an error
+			}
+			catch(err) {
+			  document.getElementById("demo").innerHTML = err.name;
+			}
+			
+		5) Type Error-
+			A TypeError is thrown if you use a value that is outside the range of expected types:
+
+			eg:
+			let num = 1;
+			try {
+			  num.toUpperCase();   // You cannot convert a number to upper case
+			}
+			catch(err) {
+			  document.getElementById("demo").innerHTML = err.name;
+			}
+			
+		6) URI (Uniform Resource Identifier) Error
+			A URIError is thrown if you use illegal characters in a URI function:
+
+			eg:
+			try {
+			  decodeURI("%%%");   // You cannot URI decode percent signs
+			}
+			catch(err) {
+			  document.getElementById("demo").innerHTML = err.name;
+			}
+			
+JS Objects->>
+	In JavaScript, objects are king. If you understand objects, you understand JavaScript.
+
+	In JS, almost everything is an object.
+		1) Booleans can be objects (if defined with the new keyword)
+		2) Numbers can be objects (if defined with the new keyword)
+		3) Strings can be objects (if defined with the new keyword)
+		4) Dates are always objects
+		5) Maths are always objects
+		6) Regular expressions are always objects
+		7) Arrays are always objects
+		8) Functions are always objects
+	
+		Object values are written as name : value pairs (name and value separated by a colon).
+
+		eg:
+		let person = {fName:"Shahbaz",lName:"Patel",age:32,eyeColor:"black"};
+		
+		JS object are the collection of named values.
+		It is a common method to declare the object with const keyword.
+		
+	Object Properties-
+		The named values, in JavaScript objects, are called properties.
+
+		In above example, fName,lName,age and eyeColor are properties of object named "person".
+		
+	Object Method-
+		Methods are actions that can be performed on objects.
+		Object properties can be both primitive values, other objects, and functions.
+		An object method is an object property containing a function definition.
+
+		eg:
+		const person = {
+			fName:"Shahbaz",
+			lName:"Patel",
+			age:32,
+			eyeColor:"black",
+			fullName: function(){
+				return this.fName+" "+this.lName;
+			}
+		};
+	
+		In above example fullName property containing method which return the object fName and lName collectively.
+		Spaces and line breaks are not important. An object definition can span multiple lines as above example.
+
+	Javascript Object are Mutable-
+		Objects are mutable: They are addressed by reference, not by value.
+		If person is an object, the following statement will not create a copy of person:
+		eg:
+		const x = person;  // Will not create a copy of person.
+		
+		The object x is not a copy of person. It is person. Both x and person are the same object.
+		Any changes to x will also change person, because x and person are the same object.
+
+		eg:
+		const person = {
+		  firstName:"John",
+		  lastName:"Doe",
+		  age:50, eyeColor:"blue"
+		}
+		
+		const x = person;
+		x.age = 10;			// Will change both x.age and person.age
+
+Object Properties->>
+	Properties are the most important part of JS Object.
+	Properties are the values associated with the JS Object.
+	A JS Properties are the collection of unordered properties.
+	Properties are usually be changed, added, deleted, but some are read only.
+	
+	Accessing JS Properties-
+		eg:
+		person.fName + " is " + person.age + " years old.";
+		person["fName"] + " is " + person["age"] + " years old.";
+		
+		JS for...in Loop-
+			The JavaScript for...in statement loops through the properties of an object.
+			
+			eg:
+			const person = {
+			  fname:" John",
+			  lname:" Doe",
+			  age: 25
+			};
+
+			for (let x in person) {
+			  txt += person[x];
+			}
+			
+	Adding new Properties-
+		We can add new property to the object by simply giving it a value.
+		In above example, we added new property with value as below,
+		
+		eg:
+		person.nationality = "English";
+
+	Deleting Property-
+		We can delete the property of an object by using delete keyword.
+		
+		eg:
+		delete person.age;
+		
+		delete keyword deletes value of the property as well as property of the object itself.
+		
+	Nested Objects-
+		Nested Objects means object in an object.
+		
+		eg:
+		const person = {
+		  name:"Shahbaz Patel",
+		  age:32,
+		  bikes:{
+			bike1:"FZ 200",
+			bike2:"Hero Splendor+",
+			bike3:"Ather electric X450"
+		  }
+		};
+
+		document.write(person.bikes["bike3"]);		// Ather electric X450
+		
+		document.write(person.bikes.bike2);			// Hero Splendor+
+				
+		document.write(person["bikes"]["bike1"]);		// FZ 200
+		
+	Nested Arrays and Objects-
+		eg:
+		const myObj = {
+		  name: "John",
+		  age: 30,
+		  cars: [
+			{name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+			{name:"BMW", models:["320", "X3", "X5"]},
+			{name:"Fiat", models:["500", "Panda"]}
+		  ]
+		}
+		
+		To access arrays inside arrays, use a for-in loop for each array:
+	
+		x="";
+		for(let i in myObj.cars)
+		{
+			x+="<h1>"+myObj.cars[i].name+"</h1>";
+			for(let j in myObj.cars[i].models)
+			{
+				x+="<p>"+myObj.cars[i].models[j]+"</p>";
+			}
+		}
+
+JS Object Method->>
+	
+	eg:
+	const person = {
+	  firstName: "John",
+	  lastName: "Doe",
+	  id: 5566,
+	  fullName: function() {
+		return this.firstName + " " + this.lastName;
+	  }
+	};
+	
+	person.fullName();		// John Deo
+	person.fullName			// function() { return this.firstName + " " + this.lastName; }
+	
+	Adding a method to an Object-
+		Adding a method to an object as below:
+		
+		eg:
+		person.name = function(){
+			return this.firstName+" "+this.lastName;
+		}
+	
+Object Display->>
+	Displaying a object will output [Object Object].
+	
+	eg:
+	const person = {
+		name:"Shahbaz Patel",
+		age:32,
+		city:"Kolhapur"
+	};
+	
+	document.write(person);			// [Object Object]
+
+	Some common solutions to display javascript object are as follows,
+	
+		1) Displaying Object Properties-	
+			The properties of an object can be displayed as a string:
+
+			eg:
+			document.write(person.name + "," + person.age + "," + person.city);
+			
+		2) Displaying the Object in a Loop-
+			The properties of an object can be collected in a loop:
+
+			eg:
+			let txt="";
+			for(let x in person)
+			{
+				txt+=person[x]+" ";
+			}
+			document.write(txt);
+			
+			We must use person[x]. The person.x will not work here.
+			
+		3) Using Object.values()
+			Any JavaScript object can be converted to an array using Object.values():
+
+			eg:
+			const person = {
+			  name: "John",
+			  age: 30,
+			  city: "New York"
+			};
+
+			const myArray = Object.values(person);
+			document.write(myArray);		// John,30,New York
+			
+		4) Using JSON.stringify()-
+			Any JavaScript object can be stringified (converted to a string) with the JavaScript function JSON.stringify():
+
+			eg:
+			const person = {
+			  name: "John",
+			  age: 30,
+			  city: "New York"
+			};
+
+			let myString = JSON.stringify(person);
+			document.write(myString);	// {"name":"John","age":30,"city":"New York"}
+			
+	Stringify Dates-
+		JSON.stringify converts dates into strings:
+
+		eg:
+		const person = {
+		  name: "John",
+		  today: new Date()
+		};
+
+		let myString = JSON.stringify(person);
+		document.write(myString);		// {"name":"John","today":"2021-10-05T13:26:30.331Z"}
+		
+	Stringify Functions-
+		Cannot stringify functions.
+		eg:
+		const person = {
+		  name: "John",
+		  age: function () {return 30;}
+		};
+
+		let myString = JSON.stringify(person);
+		document.write(myString);	// {"name":"John"}
+
+		This can be "fixed" if you convert the functions into strings before stringifying.
+
+		eg:
+		const person = {
+		  name: "John",
+		  age: function () {return 32;}
+		};
+		
+		person.age = person.age.toString();
+		let myString = JSON.stringify(person);
+		document.write(myString);		// {"name":"John", age:32}
+		
+	Stringify Arrays-
+		It is also possible to stringify JavaScript arrays:
+		
+		eg:
+		const arr = ["John", "Peter", "Sally", "Jane"];
+
+		let myString = JSON.stringify(arr);
+		document.getElementById("demo").innerHTML = myString;		// ["John", "Peter", "Sally", "Jane"]
+		
+		eg:
+		const arr = ["John", "Peter", "Sally", "Jane"];
+
+		let myString = JSON.stringify(arr);
+		document.getElementById("demo").innerHTML = myString;	// ["John","Peter","Sally","Jane"]
+		
+JS Object Accessor-
+	Getters and setters allow you to define Object Accessors (Computed Properties).
+
+	1) JS Getter(The get Keyword)-
+		This example uses a lang property to get the value of the language property.
+
+		eg:
+		// Create an object:
+		const person = {
+		  firstName:"Shahbaz",
+		  lastName:"Patel",
+		  language:"Urdu",
+		  get lang() {
+			return language;
+		  }
+		};
+
+		// Display data from the object using a getter:
+		document.write(person.lang);		// Urdu
+	
+	2) JavaScript Setter (The set Keyword)
+		This example uses a lang property to set the value of language property.
+		
+		eg:
+		const person = {
+		  firstName: "John",
+		  lastName: "Doe",
+		  language: "",
+		  set lang(lang) {
+			this.language = lang;
+		  }
+		};
+		
+		person.lang = "Urdu";
+		document.write(person.language);		// Urdu
+		
+		Why using Getters and Setters?
+			# simpler syntax
+			# It allows equal synatax for properties and methods
+			# It secure the data 
+		
+	3) Object.defineProperty()-
+		The Object.defineProperty() method can also be used to add Getters and Setters:
+
+		eg:
+			const obj = {counter:0};
+			
+			Object.defineProperty(obj,"reset",{
+				get: function(){this.counter=0;}
+			});
+			
+			Object.defineProperty(obj,"increment",{
+				get: function() {this.counter++;}
+			});
+			
+			Object.defineProperty(obj, "decrement", {
+			  get : function () {this.counter--;}
+			});
+			
+			Object.defineProperty(obj, "add", {
+			  set : function (value) {this.counter += value;}
+			});
+			
+			Object.defineProperty(obj, "subtract", {
+			  set : function (value) {this.counter -= value;}
+			});
+		
+			obj.reset;
+			obj.add = 5;
+			obj.subtract = 1;
+			obj.increment;
+			obj.decrement;	// 4
+	
+Object Constructor->>
+	Construct function use to set the object values. it runs when we create an object of this constructor object.
+	
+	eg:
+	function Person(first,last,age){
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+	}
+	
+	const myFather = new Person("Talhab","Patel",61,"black");
+	document.write("My Father full name is "+myFather.firstName+" "+myFather.lastName+". And He is "+myFather.age+" years Old.");
+	
+	const myMother = new Person("Shehnaz","Patel",54);
+	document.write("My Mother full name is "+myMother.firstName+" "+myMother.lastName+". And He is "+myMother.age+" years Old.");
+	
+	Adding Property to an Object-
+		Adding a new property to an existing object is easy rather than to add in Object Constructor.
+		
+		eg:
+		myFather.eyeColor = "Black";
+		
+		The property will be added to myFather. Not to myMother. (Not to any other person objects).
+
+	Adding Method to an Object-
+		Adding a new method to an existing object is easy rather than to add in Object Constructor.
+			
+		eg:
+		myFather.fullName = function(){
+			return this.firstName+" "+this.lastName;
+		}
+		
+	Adding a Property to a Constructor
+		We cannot add a new property to a object constructor the same way we add in a existing object.
+		
+		Person.Nationality = "Indian";		// Wrong
+		
+		To add a new property to a constructor, need to add it in a constructor function.
+		
+		function Person(first, last, age, eyecolor) {
+		  this.firstName = first;
+		  this.lastName = last;
+		  this.age = age;
+		  this.eyeColor = eyecolor;
+		  this.nationality = "English";		// Right
+		}
+		This way object constructor property has a default value.
+		
+	Adding a Method to a Constructor
+		Simillarly as above we will add a new method to the object constructor function.
+		
+		function Person(first, last, age, eyecolor) {
+		  this.firstName = first;
+		  this.lastName = last;
+		  this.age = age;
+		  this.eyeColor = eyecolor;
+		  this.name = function() {
+			return this.firstName + " " + this.lastName;
+		  };
+		}
+		
+		eg:
+		function Person(firstName, lastName, age, eyeColor) {
+		  this.firstName = firstName; 
+		  this.lastName = lastName;
+		  this.age = age;
+		  this.eyeColor = eyeColor;
+		  this.changeName = function(name) {
+			this.lastName = name;
+		  };
+		}
+		
+		Now we can try to change the lastName value using:
+		myMother.changeName("Kazi");
+	
+		JavaScript knows which person you are talking about by "substituting" this with myMother.
+
+	Javascript Object Prototypes-
+		All Objects inherit the properties and methods from the object constructor(prototype).
+		In the previous chapter we learned how to use an object constructor:
+		We also learned that you can not add a new property to an existing object constructor:
+		To add a new property to a constructor, must add it to the constructor function.
+		
+		Prototype Inheritence-
+			All JS objects inherits properties and methods from a prototype.
+			
+			# Date objects inherits from Date.prototype
+			# Array objects inherits from Array.prototype
+			# Person objects inherits from Person.prototype
+			
+			Using the prototype Property-
+				The JavaScript prototype property allows you to add new properties to object constructors:
+
+				eg:
+				function Person(first, last, age, eyecolor) {
+				  this.firstName = first;
+				  this.lastName = last;
+				  this.age = age;
+				  this.eyeColor = eyecolor;
+				}
+				Person.prototype.nationality = "English";
+				const myFather = new Person("John", "Doe", 50, "blue");
+				document.write(myFather.nationality);		// English
+				
+				The JavaScript prototype property also allows you to add new methods to objects constructors:
+
+				eg:
+				function Person(first, last, age, eyecolor) {
+				  this.firstName = first;
+				  this.lastName = last;
+				  this.age = age;
+				  this.eyeColor = eyecolor;
+				}
+				Person.prototype.name = function(){
+					return this.firstName+" "+this.lastName;
+				};
+				const myMother = new Person("Shehnaz","Patel",43,"black");
+				document.write(myMother.name());		// Shehnaz Patel
+				
+Object Iterables->>
+	Objects that can be iterated over with for..of are called iterable.
+	We can iterates over strings, arrays etc as below described.
+	
+	1) Iterating over a String-
+		We can use a for..of loop to iterate over the elements of a string:
+
+		eg:
+		const name = "Shahbaz";
+		for(let x of name)
+		{
+			document.write(x+"<br>");
+		}
+		
+	2) Iterating over an Array-
+		We can iterates an array elements as follows,
+		
+		eg:
+		const marks = [78,47,57,58];
+		for(let x of marks)
+		{
+			document.write(x+"<br>");
+		}
+				
+JS Sets->>
+	A JavaScript Set is a collection of unique values.
+	Each value can only occur once in a Set.
+	A Set can hold any value of any data type.
+
+	Set Methods-	
+		1) new Set() -> Creates a new Set
+		2) add() -> A Set can hold any value of any data type.
+		3) delete()	-> Removes an element from a Set
+		4) has() ->	Returns True if a value exists
+		5) clear() -> Removes all elements from a Set
+		6) forEach() -> Invokes a callback for each element
+		7) values() -> Returns an Iterator with all the values in a Set
+		8) keys() -> Same as values()
+		9) entries() -> Returns an Iterator with the [value,value] pairs from a Set
+
+	Property-
+		size -> Returns the number elements in a Set
+
+	How to Create a Set-
+		You can create a JavaScript Set by:
+
+		# Passing an Array to new Set()
+		# Create a new Set and use add() to add values
+		# Create a new Set and use add() to add variables
+
+		1) The new Set() Method-	
+			Pass an Array to the new Set() constructor:
+
+			eg:
+			const letters = new Set(["a","b","c"]);
+			document.write(letters.size);
+			
+			Create a set and add literal values.
+			
+			eg:
+			const letters = new Set();
+			
+			letters.add("a");	// value "a" added
+			letters.add("b");	// value "b" added
+			document.write("Set size: "+letters.size);		// 2
+			
+			Create a Set and add a variables:
+			
+			eg:
+			const a = "a";
+			const b = "b";
+			const c = "c";
+			
+			const letters = new Set();
+			
+			letters.add(a);
+			letters.add(b);
+			letters.add(c);
+			document.write("Set size"+letters.size);		// 3
+		
+		The forEach() Method-
+			The forEach() method invokes a function for each Set element:
+
+			eg:
+			const letters = new Set(["a","b","c"]);
+			let txt="";
+			letters.forEach(myFun);
+			
+			function myFun(value)
+			{
+				text+=value;
+			}
+			
+			Output-
+			a b calculations
+			
+		The values() Method-
+			The values() method returns an Iterator object containing all the values in a Set:
+
+			eg:
+			const letters = new Set(["a","b","c"]);
+			const myIterator = letters.values();	// Iterator creates
+			
+			text = "";
+			for(let x of myIterator)
+			{
+				text+=x;
+			}
+			
+		The keys() Method-
+			A Set has no keys.
+			keys() returns the same as values().
+			
+			eg:
+			const letters = new Set(["a","b","c"]);
+			document.getElementById("demo").innerHTML = letters.keys();
+			
+			A Set has no keys.
+			keys() returns the same as values().
+			This makes Sets compatible with Maps.
+			
+		The entries() Method-
+			entries() returns [value,value] pairs instead of [key,value] pairs.
+			This makes Sets compatible with Maps:
+
+			eg:
+			const letters = new Set(["a","b","c"]);
+
+			// List all entries
+			const iterator = letters.entries();
+			let text = "";
+			for (const entry of iterator) {
+			  text += entry + "<br>";
+			}
+
+			document.write(text);
+	
+	Sets are Object-
+		For a Set, typeof returns object:
+		typeof letters;      // Returns object
+
+		For a Set, instanceof Set returns true:
+		letters instanceof Set;  // Returns true
+		
+JS Maps->>
+	A Map holds key-value pairs where the keys can be any datatype.
+	A Map remembers the original insertion order of the keys.
+	A Map has a property that represents the size of the map.
+
+	Methods-
+		1) new Map() ->Creates a new Map Object.
+		2) set() ->Sets a value for a key in a Map
+		3) get() ->Gets the value for a key in a Map
+		4) clear()	->Removes all the elements from the Map
+		5) delete() ->Removes a Map element specified by a key
+		6) has() ->Returns true if a key exists in a Map 
+		7) forEach() ->Invokes a callback for each key/value pair in a Map
+		8) entries() ->Returns an iterator object with the [key, value] pairs in a Map
+		9) keys() ->Returns an iterator object with the keys in a Map
+		10) values() ->Returns an iterator object of the values in a Map
+	
+	Property-
+		size ->Returns the number of element in Map
+		
+	How to create a Map-
+		We can create a Map by using-
+		# Passing an array to new Map()
+		# Create a Map and use Map.set() to declare values
+	
+	1) new Map()-
+		You can create a Map by passing an Array to the new Map() constructor:
+
+		eg:
+		// Create a Map
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+
+		document.write(fruits.size+"<br>");			// 3
+		document.write(fruits.get("apples"));		// 500
+		
+	2) Map.set()-
+		We can add elements to a Map with the set() method:
+
+		eg:
+		const fruits = new Map();
+		
+		fruits.set("apples",400);
+		fruits.set("bananas",300);
+		fruits.set("oranges",200);
+		document.write(fruits.size+"<br>");			// 3
+		document.write(fruits.get("apples"));		// 400
+		
+	3) Map.delete()-
+		The delete() method removes a Map element:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+
+		// Delete an Element
+		fruits.delete("apples");
+
+		document.write(fruits.size);	// 2
+		
+	4) Map.clear()-
+		The clear() method removes all the elements from a Map:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+
+		// Clear the Map
+		fruits.clear();
+
+		document.getElementById("demo").innerHTML = fruits.size;
+
+	5) Map.has()-
+		The has() method returns true if a key exists in a Map:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+
+		document.write(fruits.has("apples"));		// true
+		
+	6) Maps are Objects
+		typeof returns object:
+		eg: typeof fruits;		// Object
+		
+		instanceof Map returns true:
+		eg: fruits instanceof Map;	// true
+		
+	7) Map.forEach()-
+		The forEach() method invokes a callback for each key/value pair in a Map:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+		let txt="";
+		fruits.forEach(function(value,index){
+			txt+=key+" = "+value;
+		});
+		document.write(txt);
+		
+	8) Map.keys()-
+		The keys() method returns an iterator object with the keys in a Map:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+		let veggies = "";
+		for(let x of fruits.keys())
+		{
+			veggies+=x;
+		}
+		document.write(veggies);
+		
+	9) Map.values()-
+		The values method returns an iterator object with the values in a Map:
+
+		eg:
+		const fruits = new Map([
+		  ["apples", 500],
+		  ["bananas", 300],
+		  ["oranges", 200]
+		]);
+		let total=0;
+		for(const x of fruits.key){
+			total+=x;
+		}
+		
+Javascript Classes->>
+	Javascript classes are template for related javascript objects.
+
+	Syntax:
+	class ClassName {
+	  constructor() { ... }
+	}
+	
+	eg:
+	class Car
+	{
+		constructor(name,year)
+		{
+			this.name = name;
+			this.year = year;
+		}
+	}
+			
+	Above example creates a class named Car with two initial properties "name" and "year".
+	
+	Using a Class-
+		Class is used to creates an objects with different property values.
+		
+		eg:
+		let myCar1 = Car("Maruti Suzuki Dzire",2010);
+		let myCar2 = Car("Audi Q7",2018);
+		
+		The above example creates a two objects with initial property values. Here constructor function of class is run when a new object is created.
+		
+	Class Method-
+		Syntax:
+		class ClassName {
+		  constructor() { ... }
+		  method_1() { ... }
+		  method_2() { ... }
+		  method_3() { ... }
+		}
+			
+		eg:
+		class Car{
+			constructor(name,year)
+			{
+				this.name = name;
+				this.year = year;
+			}
+			
+			age(){
+				let date = new Date();
+				return date.getFullYear() - this.year;
+			}
+		}
+		
+		let myCar = new Car("Audi Q7",2018);
+		document.writ("My car is " + myCar.age() + " years old.");		// My car is 3 years old.
+		
+class Inheritance->>
+	To create a class inheritence, use the keyword "extends".
+	A class created with a class inheritance, inherits all properties and methods from base class.
+	
+	eg:
+	class Car{
+		constructor(brand)
+		{
+			this.carname = brand;
+		}
+		
+		present(){
+			return 'I have a '+this.carname;
+		}
+	}
+	
+	class Model extends Car {
+		constructor(brand,mod)
+		{
+			super(brand);
+			this.model = model;
+		}
+		show(){
+			return this.present()+', It is a '+this.model;
+		}
+	}
+	
+	let myCar = new Model("Ford","Mustang");
+	document.write(myCar.show());		// I have a Ford, It is a Mustang
+	
+	In above example, super() method refers to parent class.
+	Inheritance is useful for code reusability: reuse properties and methods of an existing class when you create a new class.
+
+	Getters and Setters-
+		Classes also allows to use the getters and setters.
+		It can be smart to use getters and setters for properties,especially if you want to do something special with the value before returning them, or before you set them.
+		To add getters and setters in the class, use the get and set keywords.
+	
+		eg:
+		class Car
+		{
+			constructor(brand)
+			{
+				this.carname = brand;
+			}
+			
+			get cname(){
+				return this.carname;
+			}
+			
+			set cname(x){
+				this.carname =  x;
+			}	
+		}
+		
+		let myCar = new Car("Ford");
+		let carname = myCar.cname;
+	
+		Note: even if the getter is a method, you do not use parentheses when you want to get the property value.
+
+		The name of the getter/setter method cannot be the same as the name of the property, in this case carname.
+		Many programmers use an underscore character _ before the property name to separate the getter/setter from the actual property:
+		
+		eg:
+		class Car
+		{
+			get cname()
+			{
+				return this._carname
+			}
+			
+			set cname(carname)
+			{
+				this._carname = carname;
+			}
+		}
+		
+		let myCar = new Car();
+		myCar.cname = "Maruti";
+		document.write(myCar.cname);
+
+JS Static Methods->>
+	Static class method are defined on the class itself.
+	We cannot call the static method on an object, but only on an object class.
+	
+	eg:
+	class Car{
+		constructor(name){
+			this.name = name;
+		}
+		
+		static hello(){
+			return "Hello Sbz!!";
+		}
+	}
+	
+	let myCar = new Car("Ford");
+	document.write(Car.hello());		// Hello Sbz
+	
+	If you want to use the myCar object inside the static method, you can send it as a parameter:
+
+	eg:
+	class Car {
+	  constructor(name) {
+		this.name = name;
+	  }
+	  static hello(x) {
+		return "Hello " + x.name;
+	  }
+	}
+	let myCar = new Car("Ford");
+	document.write(Car.hello(myCar));
+	
+Javascript HTML DOM->>
+	With the HTML DOM, we can easily access and change all the elements of the HTML document.
+	
+	The HTML DOM (Document Object Model)-
+		When a page is loaded, the browser creates a Document Object Model of the page.
+		The HTML DOM model is constructed as a tree of Objects.
+		With the help of HTML DOM, JS gets all the power it needs to create dynamic HTML.
+
+			# Javascript can change all the HTML elements in the page
+			# Javascript can change all the HTML attributes in the page
+			# Javascript can change all the CSS Styles in the page
+			# JS can remove existing HTML element and attributes
+			# JS can add new HTML elements and attributes
+			# JS can react all HTML event in the page
+			# JS can create new HTML events in the page
+
+	What we will Learn-
+		# How to Change the content of HTML element
+		# How to change the CSS Style of HTML element
+		# How to react to HTML DOM event
+		# How to add and delete HTML event
+		
+Javascript Methods-
+	HTML DOM Methods are the actions we will perform on HTML elements.
+	HTML DOM Properties are values of HTML elements that we can set or change.
+	
+	The following example changes the content of <p> element with id="demo".
+	eg:
+	<p id="demo"></p>
+	
+	<script>
+		document.getElementById("demo").innerHTML = "Hello World";
+	</script>
+	
+	In above example, getElementById is a method and innerHTML is a property.
+	getElementById use to select the HTML element and innerHTML is a property use to select the value of the element.
+	
+JS HTML DOM Document-
+	The HTML DOM document object is the owner of all other objects in a web page.
+	If you want to access any element in an HTML page, you always start with accessing the document object.
+	Below are some examples of how you can use the document object to access and manipulate HTML.
+
+	Finding HTML Elements-
+		1) document.getElementById(Id)	-> Find an element by element id
+		2) document.getElementsByClassName(name) 	-> Find an elements by class name
+		3) document.getElementsByTagName(name)	-> Find an elements by Tag name
+		
+	Changing HTML Elements-
+		# Property-
+			1) element.innerHTML = new html content	-> Change the HTML element value
+			2) element.attribute = new value	-> Change the attribute value of an HTML element
+			3) element.style.attribute = new style -> Change the style attribute of the HTML element
+		
+		# Method-
+			1) element.setAttribute(attribute,value)	-> Change the attribute value of an HTML element
+	
+	Adding and Deleting elements-
+		1) document.createElement(element)	-> Creat a new HTML Element
+		2) document.removeChild(element)	-> Remove an HTML Element
+		3) document.appendChild(element)	-> Add an HTML Element
+		4) document.replaceChild(new,old)	-> Replace an old HTML Element from new HTML Element
+		5) document.write(text)				-> Write into an HTML Output Stream
+		
+	Adding Events Handlers-
+		document.getElementById(id).onclick = function(){}	-> Adding event handler code to an onclick event for HTML Element
+		
+	Finding HTML Objects-
+		1) document.anchors			-> Returns all <a> Elements that have name attributes
+		2) document.baseURI			-> Returns the absolute base URI of the document
+		3) document.body			-> Returns the <body> Element
+		4) document.cookie			-> Returns the document cookies
+		5) document.doctype			-> Returns the document doctype
+		6) document.documentElement -> Return the HTML Element
+		7) document.documentMode	-> Returns the mode used by the browser
+		8) document.documentURI		-> Returns the URI of the document
+		9) document.domain			-> Returns the domain name of the document server
+		10) document.domConfig		-> Obsolete
+		11) document.embeds			-> Returns all <embed> elements	
+		12) document.forms			-> Returns all <form> elements	
+		13) document.head			-> Returns the <head> element	
+		14) document.images			-> Returns all <img> elements	
+		15) document.implementation	-> Returns the DOM implementation
+		16) document.inputEncoding	-> Returns the document's encoding (character set)	
+		17) document.lastModified	-> Returns the date and time the document was updated	
+		18) document.links			-> Returns all <area> and <a> elements that have a href attribute	
+		19) document.readyState		-> Returns the (loading) status of the document	
+		20) document.referrer		-> Returns the URI of the referrer (the linking document)	
+		21) document.scripts		-> Returns all <script> elements	
+		22) document.strictErrorChecking	-> Returns if error checking is enforced	
+		23) document.title			->Returns the <title> element
+		24) document.URL			->Returns the complete URL of the document
+	
+	Finding HTML Elements-	
+		With Javascript, we want to manipulate HTML Elements.
+		To do so,we have to find the elements first. There are serveral ways to do this:
+		
+		# Finding HTML Element by Id
+		# Finding HTML Element by Class Name
+		# Finding HTML Element by Tag Name
+		# Finding HTML Element by CSS selectors
+		# Finding HTML Element by HTML object collections
+		
+		1) Finding HTML Element by Id-
+			eg:
+			<p id="demo">Shahbaz Patel</p>
+			
+			<script>
+				let name = document.getElementById("demo").innerHTML;
+				document.write(name);	// Shahbaz Patel
+			</script>
+			
+		2) Finding HTML Element by Tag Name-
+			eg:
+			<p>Shahbaz Patel</p>
+			<p>Aurwad</p>
+			
+			<script>
+				let elem = document.getElementByTagName("p");
+				document.write(elem[0]);		// return "Shahbaz Patel"
+				document.write(elem[0]);		// return "Aurwad"
+			</script>
+			
+		3) Finding HTML Element by Class Name-
+			If we find all html element by same class name, use getElementsByClassName() to access it.
+			
+			eg:
+			<p class="para">This is a first one paragraph.</p>
+			<p class="para">This is a second paragraph.</p>	
+			<p class="para">This is a third paragraph.</p>
+			
+			<script>
+				let elem = document.getElementsByClassName("para");
+				document.write(elem[1]);		// This is a second paragraph.
+			</script>
+			
+		4) Finding HTML Element by CSS Selectors-
+			If we want to find all HTML Elements that match a specified CSS selector (id, class name, types, attributes, values of attributes etc), use to querySelectorAll() method.
+			Below example returns the all <p> element with class="intro".
+			
+			eg:
+			<p class="intro">Hello World!.</p>
+			<p class="intro">This example demonstrates the <b>querySelectorAll</b> method.</p>
+			
+			<script>
+				let x = document.querySelectorAll("p.intro");
+				document.write("The first paragraph (index 0) with class="intro" is: "+x[0].innerHTML);
+			</script>
+			
+		5) Finding HTML Elements by HTML Object Collections-
+			In following example find the form element with id="frm1" in the form collection and display all element values.
+			
+			eg:
+			<form id="frm1" action="/action_page.php">
+			  First name: <input type="text" name="fname" value="Donald"><br>
+			  Last name: <input type="text" name="lname" value="Duck"><br><br>
+			  <input type="submit" value="Submit">
+			</form> 
+			
+			<script>
+				const x = document.forms["frm1"];
+				let text="";
+				for(let i=0;i<x.length;i++)
+				{
+					text += x.elements[i].value+"<br>";
+				}
+				
+				document.write(text);
+			</script>
+			
+			The following HTML objects also also accessible for different applications for DOM Operations.
+			1) document.anchors
+			2) document.body
+			3) document.documentElement
+			4) document.embeds
+			5) document.forms
+			6) document.head
+			7) document.images
+			8) document.links
+			9) document.scripts
+			10) document.title
+			
+			We will discuss the above objects later.
+			
+	JavaScript HTML DOM - Changing HTML
+		The HTML DOM allows javascript to change the content of HTML Elements.
+		
+		Changing HTML Content-
+			The easieast way to change the content of a HTML element is by using the innerHTML property.
+			Below example change the content of HTML Element:
+			
+			eg:
+			<p id="demo">Hello World</p>
+			
+			<script>
+				document.getElementById("demo").innerHTML = "Hello Sbz!!";
+			</script>
+			
+		Changing the value of an attribute-
+			Please check the below example, where need to change the "src" property of an image.
+			
+			eg:
+			<img id="img" src="smiley.gif">
+			
+			<script>
+				document.getElementById("img").src = "landscape.jpg";
+			</script>
+			
+		Dynamic HTML Content-
+			Javascript can create dynamic content:
+			
+			eg:
+			<script>
+				document.getElementById("demo").innerHTML = "Today Date:"+Date();
+			</script>
+			
+		document.write()-
+			In JS, document.write() method used to write an output on the output stream.
+			
+			eg:
+			<script>
+				document.write(Date());
+			</script>
+		
+			Never use document.write() after the document is loaded. It will overwrite the document.
+
+Javascript Form-
+	We can manipulate the Form element by using HTML DOM in Javascript.
+	
+	Javascript Form Validation-
+		HTML Form validation can be done by Javascript.
+		If a form field is empty, this function alerts a message and returns false, to prevent the form from being submitted.
+		
+		eg:
+		<form name="myForm" action="/action_page.php" method="post" onsubmit="return validateForm()">
+			Name: <input type="text" name="fname">
+			<input type="submit" value="SUBMIT">
+		</form>
+		
+		<script>
+			function validatForm()
+			{
+				const fld = document.forms["myForm"]["fname"].value;
+				
+				if(fld == "")
+				{
+					alert("Name must be filled out.");
+					return false;
+				}
+			}
+		</script>
+	
+	Javascript can validate Numeric value-
+		In below example numeric form field only get the value between 1 to 10.
+		
+		eg:
+		<form name="myForm" action="action_page.php" method="post" onsubmit="return validateNumber()">
+			<input type="number" name="myNum">
+			<input type="submit" value="SUBMIT">
+		</form>
+		
+		<script>
+			function validateNumber()
+			{
+				const myNum = Number(document.forms["myForm"]["myNum"].value);
+				if(myNum>=1 && myNum<=10)
+				{
+					
+				}
+				else
+				{
+					alert("Please enter the Numeric valu between 1 to 10 only.");
+				}
+			}
+		</script>
+	
+JavaScript HTML DOM - Changing CSS->>
+	The HTML DOM allows JavaScript to change the style of HTML elements.
+
+	Changing HTML Style-
+		We can change the style of HTML element as below,
+		
+		eg:
+		<p id="para">This is a paragraph.</p>
+		
+		<script>
+			document.getElementById("para").style.fontSize = "32px";
+		</script>
+			
+	Using Events-	
+		The HTML DOM allows we to execute code when an event occurs.
+		Events are occurs on HTML elements by browser.
+		# An element is clicked on
+		# The page has loaded
+		# Input fields are changed
+		
+		The example below change the content of paragraph with id="demo", when the user clicks a button:
+		
+		eg:
+		<p id="demo">My Heading1</p>
+		<button onclick="sbzFun()"></button>
+		<script>
+			functio sbzFun(){
+				document.getElementById("demo").innerHTML = "Paragraph changed after onclick event occured.";
+			}
+		</script>
+
+Javascript HTML DOM Listener-..
+	The addEventListener() method-
+		
+		eg:
+		document.getElementById("sbzBtn").addEventListener("click",displayDate);
+		
+		function displayDate()
+		{
+			alert("Today Date"+Date());
+		}
+		
+	Add many event handlers to the same Element-
+		The addEventListener() method allows you to add more than one events for same element.
+		
+		eg:
+		var x = document.getElementById("myBtn");
+		x.addEventListener("click",sbzFun);
+		x.addEventListener("click",sbzFun2);
+		
+		function sbzFun(){
+			alert("First event executed!!");
+		}
+		
+		function sbzFun1(){
+			alert("Second event executed!!!!!");
+		}
+		
+		We can add different events of different types to the same element.
+		
+		eg:
+		var x = document.getElementById("myBtn");
+		x.addEventListener("click",sbzFun);
+		x.addEventListener("mouseover",sbzFun2);
+		
+		function sbzFun(){
+			alert("First event executed!!");
+		}
+		
+		function sbzFun1(){
+			alert("Second event executed!!!!!");
+		}
+		
+	Add an Event Handler to the window Object-	
+		eg:
+		window.addEventListener("resize", function(){
+		  document.getElementById("demo").innerHTML = sometext;
+		});
+		
+	Passing Parameters-
+		When passing parameter values, use an "anonymous function" that calls the specified function with the parameters:
+
+		eg:
+		<button id="myBtn">Try it</button>
+
+		<p id="demo"></p>
+		
+		<script>
+			document.getElementById("myBtn").addEventListener("click",function(){
+				sbzFun(p1,p2);
+			});
+			
+			function sbzFun(a,b){
+				document.getElementById("demo").innerHTML = a*b;
+			}
+		</script>
+
+	Event Bubbling or Event Capturing?
+		There are two ways of event propagation in the HTML DOM, bubbling and capturing.
+
+		Event propagation is a way of defining the element order when an event occurs. If you have a <p> element inside a <div> element, and the user clicks on the <p> element, which element's "click" event should be handled first?
+		
+		In bubbling the inner most element's event is handled first and then the outer: the <p> element's click event is handled first, then the <div> element's click event.
+
+		In capturing the outer most element's event is handled first and then the inner: the <div> element's click event will be handled first, then the <p> element's click event.
+
+		With the addEventListener() method you can specify the propagation type by using the "useCapture" parameter:
+		
+		addEventListener(event, function, useCapture);
+
+		The default value is false, which will use the bubbling propagation, when the value is set to true, the event uses the capturing propagation.
+
+		eg:
+		<div id="myDiv1">
+		  <h2>Bubbling:</h2>
+		  <p id="myP1">Click me!</p>
+		</div><br>
+
+		<div id="myDiv2">
+		  <h2>Capturing:</h2>
+		  <p id="myP2">Click me!</p>
+		</div>
+
+		<script>
+		document.getElementById("myP1").addEventListener("click", function() {
+		  alert("You clicked the white element!");
+		}, false);
+
+		document.getElementById("myDiv1").addEventListener("click", function() {
+		  alert("You clicked the orange element!");
+		}, false);
+
+		document.getElementById("myP2").addEventListener("click", function() {
+		  alert("You clicked the white element!");
+		}, true);
+
+		document.getElementById("myDiv2").addEventListener("click", function() {
+		  alert("You clicked the orange element!");
+		}, true);
+		</script>
+	
+	The removeEventListener() method-	
+		The removeEventListener() method removes event handlers that have been attached with the addEventListener() method:
+
+		eg:
+		element.removeEventListener("mousemove", myFunction);
+
+DOM Navigation-
+	With the HTML DOM, we can navigate the node tree using node relationships.
+	According to the W3C HTML DOM standard, everything in an HTML document is a node:
+	# The entire document is a document node
+	# Every HTML element is an element node
+	# The text inside HTML elements are text nodes
+	# Every HTML attribute is an attribute node
+	# All comments are comment nodes
+	
+	With HTML DOM, all nodes in the node tree can be accessible by javascript.
+	New nodes will be created, and all nodes can be modified and deleted.
+	
+	Node Relationships-
+		The nodes in a node tree are hierarchical relationship with each other.
+		The terms parent, child and sibling are used to describe the relationship among them.
+		
+		# In a node tree, the top node is called the root(or root node)
+		# Every node exactly one parent, except the roor node (which has no parent)
+		# A node can have number of children
+		# siblings are node with the same parent
+		
+		eg:
+		<html>
+
+		  <head>
+			<title>DOM Tutorial</title>
+		  </head>
+
+		  <body>
+			<h1>DOM Lesson one</h1>
+			<p>Hello world!</p>
+		  </body>
+
+		</html>
+		
+		From HTML above basic structure, you can get the following assumptions:
+			1) <html> is the root node.
+			2) <html> has no parent
+			3) <html> is the parent of <head> and <body>
+			4) <head> is the first child of <html>
+			5) <body> is the second chidl of <html>
+			
+			and:
+			
+			1) <head> has one child <title>
+			2) <title> has one child(a text node): "DOM Tutorial"
+			3) <body> has two children: <h1> & <p>
+			4) <h1> has one child(a text node): "DOM Lesson one"
+			5) <p> has one child(a text node):  "Hello world!"
+			6) <h1> and <p> are siblings
+			
+	Navigating Between Nodes-
+		We can use the following node properties to navigate between nodes with Javascript:
+		
+			1) parentNode
+			2) childNodes[nodeNumber]
+			3) firstChild
+			4) lastChild
+			5) nextSibling
+			6) previousSibling
+			
+	Child Nodes and Node Values-
+		A common error in DOM processing is to expect an element node to contain text.
+
+		eg:
+		<title id="demo">DOM Tutorial</title>
+		
+		Element node <title> in the above example does not contain text. It contains a txt node with the value of "DOM Tutorial".
+		The value of the text node can be accessed by the node's innerHTML property:
+		i.e:
+			myTitle = document.getElementById("demo").innerHTML;
+			
+		Accessing the innerHTML property is the same as accessing the nodeValue of the firstChild:
+		i.e:
+			myTitle = document.getElementById("demo").firstChild.nodeValue;
+
+		Accessing the first child can also be done like this:
+		i.e:
+			myTitle = document.getElementById("demo").childNodes[0].nodeValue;
+			
+	DOM Root Nodes-	
+		There are two special DOM properties used to access the full document.
+		# document.body -> The body of the document
+		# document.documentElement	-> The full document
+
+		eg:
+		<html>
+			<body>
+			
+				<h2>JavaScript HTMLDOM</h2>
+				<p>Displaying document.body</p>
+
+				<p id="demo"></p>
+
+				<script>
+				document.getElementById("demo").innerHTML = document.body.innerHTML;
+					OR
+				document.getElementById("demo").innerHTML = document.documentElement.innerHTML;
+				</script>
+
+			</body>
+		</html>
+
+	The nodeName Property-
+		The nodeName property specifies the name of the node.
+			# nodeName is read-only
+			# nodeName of an element node is the same as the tag name
+			# nodeName of an attribute node is the attribute name
+			# nodeName of an text node is always text value
+			# nodeName of the document node is always #document
+		
+			eg:
+			<h1 id="id01">My First Page</h1>
+			<p id="id02"></p>
+			
+			<script>
+				document.getElementById("id02").innerHTML = document.getElementById("id01").nodeName;
+			</script>
+
+		Note: nodeName always contains the uppercase tag name of an HTML element.
+
+	The nodeValue Property-
+		The nodeValue property specifies the value of a node.
+		
+		eg:
+		<p id="demo">Shahbaz Patel</p>
+
+		<script>
+		let s = document.getElementById("demo").childNodes[0].nodeValue;
+		document.write(s);
+		</script>
+		
+	The nodeType Property-
+		The nodeType property is read only. It returns the type of node.
+		
+		eg:
+		<h1 id="id01">My First Page</h1>
+		<p id="id02"></p>
+
+		<script>
+		document.getElementById("id02").innerHTML = document.getElementById("id01").nodeType;
+		</script>
+		
+JavaScript HTML DOM Elements (Nodes)->>
+	Adding and Removing Nodes(HTML Elements).
+	
+	Creating New HTML Elements(Nodes)-
+		To add a new HTML element in a DOM, first we must create it and then append it in an existing element.
+		
+		eg:
+		<div id="div1">
+		  <p id="p1">This is a paragraph.</p>
+		  <p id="p2">This is another paragraph.</p>
+		</div>
+		
+		<script>
+			const para = document.createElement("p");
+			const node = document.createTextNode("This is new.");
+			para.appendChild(node);
+			
+			const elem = document.getElementById("div1");
+			elem.appendChild(para);
+		</script>
+		
+	Creating new HTML Elements - insertBefore()-
+		The appendChild() method in the previous example used to append the new element after the last element of the parent.
+		
+		If we dont want it, then able to use the insertBefore() method.
+		
+		eg:
+		<div id="div1">
+		  <p id="p1">This is a paragraph.</p>
+		  <p id="p2">This is another paragraph.</p>
+		</div>
+		
+		<script>
+			const para = document.createElement("p");
+			const node = document.createTextNode("This is new.");
+			para.appendChild(node);
+			
+			const elem = document.getElementById("div1");
+			const child = document.getElementById("p1");
+			elem.insertBefore(para, child);
+		</script>
+		
+	Removing Existing HTML Elements-
+		To remove an HTML element, use the remove() method.
+		
+		eg:
+		<div>
+		  <p id="p1">This is a paragraph.</p>
+		  <p id="p2">This is another paragraph.</p>
+		</div>
+
+		<script>
+			cons elem = document.getElementById("p1");
+			elem.remove();
+		</script>
+		
+	Removing a Child Node-
+		For browsers that does not support the remove() method, you have to find the parent node to remove an element:
+
+		eg:
+		<div id="div1">
+		  <p id="p1">This is a paragraph.</p>
+		  <p id="p2">This is another paragraph.</p>
+		</div>
+		
+		<script>
+			const parent = document.getElementById("div1");
+			const child = document.getElementById("p1");
+			
+			parent.removeChild(child);
+		</script>
+
+	Replacing HTML Element-
+		To replace and existing element from new element, we need to use replaceChild() method:
+			
+		eg:
+		<div id="div1">
+		  <p id="p1">This is a paragraph.</p>
+		  <p id="p2">This is another paragraph.</p>
+		</div>
+		
+		<script>
+			const para = document.createElement("p");
+			const node = document.createTextNode("This is new.");
+			para.appendChild(node);
+			
+			const parent = document.getElementById("div1");
+			const child = document.getElementById("p1");	
+			parent.replaceChild(para, child);
+		</script>
+		
+JavaScript HTML DOM Collections->>
+	The HTMLCollection Object-
+		The getElementsByTagName() method returns an HTMLCollection object.
+		An HTMLCollection object is an array-like list (collection) of HTML elements.
+		The following code selects all <p> elements in a document:
+
+		eg:
+		<p>Hello World!</p>
+		<p>Hello Norway!</p>
+		
+		<script>
+			const myCollection = document.getElementByTagName("p");
+			
+			document.write(myCollection[0].innerHTML);		// Hello Norway!
+		</script>
+		
+	HTML HTMLCollection Length
+		The length property defines the number of elements in an HTMLCollection:
+
+		eg:
+		<p>Hello World!</p>
+		<p>Hello Norway!</p>
+		
+		<script>
+			const myCollection = document.getElementByTagName("p");
+			
+			document.write(myCollection.length);		// 2
+		</script>
+		
+JavaScript Window - The Browser Object Model->>
+	The Browser Object Model (BOM) allows JavaScript to "talk to" the browser.
+
+	The Browser Object Model (BOM)-
+		There are no official standards for the Browser Object Model (BOM).
+		Since modern browsers have implemented (almost) the same methods and properties for JavaScript interactivity, it is often referred to, as methods and properties of the BOM.
+		
+	The Window Object-	
+		The window object supported by all browsers. It represents the browser's window.
+		All global JavaScript objects, functions, and variables automatically become members of the window object.
+		Global variables are properties of the window object.
+		Global functions are methods of the window object.
+		Even the document object (of the HTML DOM) is a property of the window object:
+		
+		window.document.getElementById("header");
+		SAME As
+		document.getElementById("header");
+	
+	Window Size-
+		Two properties can be used to determine the size of the browser window.
+		Both the properties return the sizes in pixel:
+			window.innerHeight - The inner height of the browser window
+			window.innerWidth - The inner width of the browser window
+			
+		The browser window(The browser viewport) is NOT including toolbars and scrollbars.
+		
+		eg:
+		document.write("Browser inner window width: " + window.innerWidth + "px<br>" + "Browser inner window height: " + window.innerHeight + "px");	
+		
+		// Browser inner window width: 718px Browser inner window height: 470px
+		
+	Other Window Methods-
+		Some other methods:
+		# window.open() - open a new window
+		# window.close() - close the current window
+		# window.moveTo() - move the current window
+		# window.resizeTo() - resize the current window
+	
+Javascript Screen->>
+	The window.screen object contains information about the user's screen.
+	
+	Window Screen-
+		The window.screen object can be written without the window prefix.
+		
+		Screen Properties:
+			# screen.width
+			# screen.height
+			# screen.availWidth
+			# screen.availHeight
+			# screen.colorDepth
+			# screen.pixelDepth
+			
+			1) Window Screen With-
+				The screen.width property returns the screen's width in pixels.
+				
+				eg:
+				document.write("Screen Width: "+screen.width);
+				
+			2) Window Screen Height-
+				The screen.width property returns the screen's height in pixels.
+				
+				eg:
+				document.write("Screen Width: "+screen.width);
+				
+			3) Window Screen Available Width-
+				The screen.availWidth property returns the width of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.
+
+				eg:
+				document.write("Available Screen Width: "+screen.availWidth);
+				
+			4) Window Screen Available Height-
+				The screen.availHeight property returns the height of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.
+
+				eg:
+				document.write("Available Screen Height: "+screen.availHeight);
+
+			5) Window Screen Color Depth-
+				The screen.colorDepth property used to returns the number of bits used to display one color.				
+				All modern computers use 24 bit or 32 bit hardware for color resolution:
+				# 24 bits =      16,777,216 different "True Colors"
+				# 32 bits = 4,294,967,296 different "Deep Colors"
+				Older computers used 16 bits: 65,536 different "High Colors" resolution.
+				Very old computers, and old cell phones used 8 bits: 256 different "VGA colors".
+				
+				eg:
+				document.write("Screen Color Depth: "+screen.colorDepth);		// return 24
+	 
+			6) Window Screen Pixel Depth
+				The screen.pixelDepth property returns the pixel depth of the screen.
+
+				eg:
+				document.write("Screen Pixel Depth: "+screen.pixelDepth);		// return 24
+				
+		For modern computers, Color Depth and Pixel Depth are equal.
+
+JavaScript Window Location->>
+	The window.location object can be used to get the current page address (URL) and to redirect the browser to a new page.
+
+	Window Location-	
+		The window.location object can be written without the window prefix.
+
+		1) window.location.href-
+			returns the href(URL) of the current page.
+			
+			eg:
+			document.write("Page Location is "+window.location.href);
+			
+		2) window.location.hostname-
+			returns the name of the internet host(of the current page).
+			
+			eg:
+			document.write("Host Name: "+window.location.hostname);	// www.w3schools.com
+			
+		3) window.location.pathname-
+			returns the pathname of the current page.
+			
+			eg:
+			document.write("Current Path Name: "+window.location.pathname);		// /js/js_window_location.asp
+			
+		4) window.location.protocol-
+			returns the web protocol of the web.
+			
+			eg:
+			document.write("Protocol: "+window.location.protocol);		// https
+			
+		5) window.location.port-
+			returns the number of internet host port(of the current page).
+			
+			eg:
+			document.write("Port Number: "window.location.port);		// 443
+			
+		6) window.location.assign-
+			The window.location.assign method loads a new document web page as assigned.
+			
+			eg:
+			<button onclick="sbzFun()">Click to Load New Page</button>
+		
+			<script>
+				window.location.assign("https://www.google.com/");		// go to google homepage
+			</script>
+			
+JavaScript Window History->>
+	The window.history object contains the browsers history.
+	
+	Window History-
+		The window.history object can be written without the window prefix.
+		To protect the privacy of the users, there are limitations to how JavaScript can access this object.
+
+		Some methods:
+		# history.back() - same as clicking back in the browser
+		# history.forward() - same as clicking forward in the browser
+		
+Javascript Window Navigator->>
+	The window.navigator object contains information about the visitor's browser.
+
+	window.navigator-
+		The window.navigator object can be written without the window prefix.
+
+		Some examples:
+			# navigator.appName
+			# navigator.appCodeName
+			# navigator.platform
+			
+	Browser Cookies-
+		The cookieEnabled property returns true if cookie are enabled, otherwise it false.
+		
+		eg:
+		<p id="demo"></p>
+		
+		<script>
+			document.getElementById().innerHTML = "cookieEnabled is "+navigator.cookieEnabled;
+		</script>
+		
+	Browser Application Name-	
+		The appName property returns the application name of the browser:
+
+		eg:
+		<p id="demo"></p>
+
+		<script>
+		document.getElementById("demo").innerHTML =
+		"navigator.appName is " + navigator.appName;
+		</script>
+		
+		Strange enough, "Netscape" is the application name for both IE11, Chrome, Firefox, and Safari.
+
+	Browser Application Code Name-
+		The appCodeName property returns the application code name of the browser:
+
+		eg:
+		<p id="demo"></p>
+
+		<script>
+		document.getElementById("demo").innerHTML =
+		"navigator.appCodeName is " + navigator.appCodeName;	// Mozilla
+		</script>
+		
+	The Browser Engine-
+		The product property returns the product name of the browser engine:
+
+		eg:
+		document.getElementById("demo").innerHTML = "navigator.product is " + navigator.product;	// Gecko
+		
+		Do not rely on this. Most browsers returns "Gecko" as product name !!
+
+	The Browser Version-
+		The appVersion property returns version information about the browser:
+
+		eg:
+		document.getElementById("demo").innerHTML = navigator.appVersion;
+		
+	The Browser Agent-
+		The userAgent property returns the user-agent property header sent by the browser to the server.
+		
+		eg:
+		document.getElementById("demo").innerHTML = navigator.userAgent;
+		
+	The Browser Platform-
+		The platform property returns the browser platform (operating system):
+
+		eg:
+		document.getElementById("demo").innerHTML = navigator.platform;		// win32
+	
+	The Browser Language-
+		The language property returns the browser's language:
+
+		eg:
+		document.getElementById("demo").innerHTML = navigator.language;		// en-US
+		
+	Is the Browser Online?
+		The onLine property returns true if the browser is online:
+		
+		eg:
+		document.getElementById("demo").innerHTML = navigator.onLine;		// true
+		
+	Is Java Enabled?
+		The javaEnabled() method returns true if Java is enabled:
+
+		eg:
+		document.getElementById("demo").innerHTML = navigator.javaEnabled();
+		
+Javascript Popup Alert->>
+	Javascript has 3 kinds of popup boxes:
+		1) Alert Box
+		2) Confirm Box
+		3) Prompt Box
+		
+		1) Alert Box-
+			An alert box is often used if you want to make sure information comes through to the user.
+			When an alert box pops up, the user will have to click "OK" to proceed.
+
+			eg:
+			window.alert("Hi! I am Shahbaz Patel!!");
+			
+			The window.alert() method can be written without the window prefix.
+
+		2) Confirm Box-	
+			A confirm box is often used if we want the user to verify or accept something.
+			When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+			If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+
+			eg:
+			if(confirm("Press a button"))
+			{ text = "You pressed OK!"; }
+			else
+			{ text = "You pressed Cancel!"; }
+			
+		3) Prompt Box-	
+			A prompt box is often used if you want the user to input a value before entering a page.
+			When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.
+			If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.
+
+			eg:
+			let person = prompt("Please enter your name", "Harry Potter");
+			let text;
+			if (person == null || person == "") {
+			  text = "User cancelled the prompt.";
+			} else {
+			  text = "Hello " + person + "! How are you today?";
+			}
+			
+		To display line breaks inside a popup box, use a back-slash followed by the character n.
+
+		eg:
+		alert("Hello\nHow are you?");
+
+JavaScript Timing Events->>
+	Javascript can be executed in time-intervals.
+	This is called time events.
+	
+	Timing events-
+		The window object allows execution of code at specified time intervals.
+		These time intervals are called timing events.
+		The two key methods to use with JavaScript are:
+		# setTimeout(function, milliseconds)-
+			Executes a function, after waiting a specified number of milliseconds.
+
+		# setInterval(function, milliseconds)-
+			Same as setTimeout(), but repeats the execution of the function continuously.
+		
+		The setTimeout() and setInterval() are both methods of the HTML DOM Window object.
+
+		1) The setTimeout Method-	
+			The window.setTimeout() method can be written without the window prefix.
+			The first parameter is a function to be executed.
+			
+			Following example executes the alert object after 3 seconds:
+			eg:
+			<button onclick="setTimeout(sbzFun,3000)">Click Me</button>
+			
+			<script>
+				function sbzFun(){
+					alert("Alert popup after 3 seconds.");
+				}
+			</script>
+
+			How to Stop the Execution?
+				The clearTimeout() method stops the execution of the function specified in setTimeout().
+				If the function has not already been executed, you can stop the execution by calling the clearTimeout() method:
+
+				Same example as above, but with an added "Stop" button:
+				eg:
+				<button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+
+				<button onclick="clearTimeout(myVar)">Stop it</button>
+				
+		2) The setInterval() Method-
+			The setInterval() method repeats a given function at every given time-interval.
+			The window.setInterval() method can be written without the window prefix.
+			This example executes a function called "myTimer" once every second (like a digital watch).
+
+			eg:
+			<script>
+				setInterval(sbzFun, 1000);
+				
+				function sbzFun(){
+					const d = new Date();
+					document.write(d.toLocaleTimeString());
+				}
+			</script>
+			
+			How to stop the Execution?
+				The clearInterval() method stops the executions of the function specified in the setInterval() method.
+
+				eg:
+				<p id="demo"></p>
+
+				<button onclick="clearInterval(myVar)">Stop time</button>
+
+				<script>
+					let myVar = setInterval(myTimer, 1000);
+					function myTimer() {
+					  const d = new Date();
+					  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+					}
+				</script>
+			
+JavaScript Cookies->>
+	Cookies let we store the user information in web pages.
+	
+	What are Cookies?
+		Cookies are data, stored in small text files on our computer.
+		When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.
+
+		Cookies were invented to solve the problem "how to remember information about the user":
+		# When a user visits a web page, his/her name can be stored in a cookie.
+		# Next time the user visits the page, the cookie "remembers" his/her name.
+		
+		Next time the user visits the page, the cookie "remembers" his/her name.
+		username = Shahbaz Patel
+		
+		When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server gets the necessary data to "remember" information about users.
+
+		None of the examples below will work if your browser has local cookies support turned off.
+
+		Create a cookie with Javascript-
+			Javascript can create, read and delete cookies with the document.cookie property.
+			With JavaScript, a cookie can be created like this:
+
+			eg:
+			document.cookie = "username=Shahbaz Patel";
+			
+			You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:
+			
+			eg:
+			document.cookie = "username=Shahbaz Patel;expires=Thu, 18 Dec 2013 12:00:00 UTC";
+			
+			With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.
+
+			eg:
+			document.cookie = "username=Shahbaz Patel; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+			
+		Read a Cookie with Javascript-
+			With JavaScript, cookies can be read like this:
+
+			eg:
+			let x = document.cookie;
+			
+			document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;
+
+		Change a Cookie with Javascript-	
+			With JavaScript, we can change a cookie the same way as we create it:
+			
+			eg:
+			document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+			
+			The old cookie is overwritten.
+
+		Delete a Cookie with JavaScript
+			Deleting a cookie is very simple.
+			You don't have to specify a cookie value when you delete a cookie.
+			Just set the expires parameter to a past date:
+			
+			eg:
+			document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+			We should define the cookie path to ensure that we delete the right cookie.
+			Some browsers will not let you delete a cookie if you don't specify the path.
+
+		The Cookie String-	
+			The document.cookie property looks like a normal text string. But it is not.
+			If you set a new cookie, older cookies are not overwritten. The new cookie is added to document.cookie, so if you read document.cookie again you will get something like:
+			If you want to find the value of one specified cookie, you must write a JavaScript function that searches for the cookie value in the cookie string.
+
+		Javascript Cookie Example-
+			In the following example, we will create a cookie that stores the name of a visitor.
+			The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie.
+			The next time the visitor arrives at the same page, he/she will get a welcome message.
+			For the example we will create 3 JavaScript functions:
+				1) A function to set a cookie value
+				2) A function to get a cookie value
+				3) A function to check a cookie value
+				
+			1) A function to set a cookie value-	
+				First, we create a function that stores the name of the visitor in a cookie variable:
+				
+				eg:
+				function setCookie(cname,cvalue,exdays){
+					const d = new Date();
+					d.setTime(d.getTime()+(exdays*24*60*60*1000));
+					let expires = "expires"+d.toUTCString();
+					document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+				}
+				
+				The function sets a cookie by adding together the cookiename, the cookie value, and the expires string.
+				
+			2) A function to get a Cookie-
+				Then, we create a function that returns the value of a specified cookie:
+
+				eg:
+				function getCookie(cname) {
+					let name = cname + "=";
+					let decodedCookie = decodeURIComponent(document.cookie);
+					let ca = decodedCookie.split(';');
+					for(let i = 0; i <ca.length; i++) {
+						let c = ca[i];
+						while(c.charAt(0) == ' ') {
+						  c = c.substring(1);
+						}
+						if(c.indexOf(name) == 0) {
+						  return c.substring(name.length, c.length);
+						}
+					}
+					return "";
+				}
+				
+			3) A function to Check a Cookie-	
+				Last, we create the function that checks if a cookie is set.
+				If the cookie is set it will display a greeting.
+				If the cookie is not set, it will display a prompt box, asking for the name of the user, and stores the username cookie for 365 days, by calling the setCookie function:
+
+				eg:
+				function checkCookie() {
+					let username = getCookie("username");
+					if (username != "") {
+						alert("Welcome again " + username);
+					} else {
+						username = prompt("Please enter your name:", "");
+						if (username != "" && username != null) {
+						  setCookie("username", username, 365);
+						}
+					}	
+				}
+				
+				
+
+				
+			
+
+				
+
+
+
+
+
+
+
+
+		
+		
+			
+
+
+	
+
+	
+	
+	
+	
+	
+
+
+	
+		
+		
+			
+			
+			
+
+
+
+	
+
+
+			
+
+

@@ -1,0 +1,623 @@
+				$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+				$$$$$$$$$$$$$$$$$$$$$$$ NodeJs Tutorial $$$$$$$$$$$$$$$$$$$$$$$
+				$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+				
+				
+Q	What is NodeJs?
+	- Before understanding NodeJs, we need to understand Javascript runs on different JS Engine in a browser(Basically every browser using engine to run the javascript code).
+	- Chrome's V8 Engine is one of them powerful and popular engine used to run the javascript code on browser.
+	- But Ryan Dahl Embedded V8 engine with C++, and creates an engine which is compatible to run on outside the browser.
+	- Now Here we can run the Javascript Code on the machine level(means at a platform side i.e Windows, Mac, Unix etc).
+	- So we can use the NodeJs to run or create the server independent of any platform or OS.
+	- NodeJs is a runtime environment for running javascript.
+	- Now we can perform some file and database related functions in Engine using javascript.
+	- It's open source - freely available on internet to use.
+	
+Q	Why we use NodeJs?
+	- Nodejs is used to create APIs.
+	- We write code in javascript, so we already knows it and easily get command on it.
+	- Node is super-fast for APIs creation.
+	- With Node and javascript, we can become full stack developer.
+	
+Q	Javascript & NodeJs are the same?
+	- javascript & nodeJs codebase is same.
+	- If we know javascript, then easily to understand the NodeJs.
+	- We can't connect javascript to DB, but we can using NodeJs.
+	- NodeJs can runs on server side, instead javascript runs on browser.
+	
+Q	How we can use NodeJs?
+	- Just want to download & install the NodeJs Install Package from internet which contains npm by default in it.
+	- npm we used to manage the node server in our machine.
+	
+Q 	How to check Node version?
+	- Open the cmd, write command "node -v" shows the version of node if already installed on the machine.
+	- Simillarly we can check the npm version with below command write in cmd:
+		# npm -v
+		
+Q 	How we can write & run the command of nodeJs?
+	- There are 2 ways to write nodeJs command:
+		1) in cmd ->>
+			Here we can just write command "node" and enter. The node server will starts to write the command to execute.
+			- node ->> node server starts
+			
+			- console.log("Sbz");	->> This commmand will print Sbz on next line in cmd
+			- var name = "Shahbaz Patel";	->> declare name with name value
+			- console.log(name);			->> command to print name
+			
+		2) create folder and write our above same javascript command on the js file
+			now in terminal, we can write command to run the file as below,
+			# node index.js
+			
+			############### index.js ###############
+			var a=20;
+			var b=30;
+			var c=40;
+			console.log(a+b+c);	
+			############### index.js ###############
+			
+Q	How to import export works in NodeJs?
+	- NodeJs uses a basic JS. So if we want to work in NodeJs needs some basic knowledge of javascript.
+	- Here we can learn to export import concept used in NodeJs which is different as compared to javascript. Here we explain it in the following example,
+	
+	Eg:
+		################# app.js ################
+		module.exports = {		// here we exported the module
+			x:10,
+			y:20,
+			z: funciton() {
+				return 10;
+			}
+		}
+		################# app.js ################
+		
+		
+		
+		################# index.js ################
+		const app = require("./app");	//	 here we imported the app.js module to use in this file
+		
+		console.log(app.z());			// print 10
+		################# index.js ################
+		
+	- below is a filter function use to filter an array in NodeJs.
+	
+		const arr = [2,4,7,1,3,8,3];	
+
+		const result = arr.filter((item) => {
+			return item === 3;
+		});
+
+		console.log(result);
+		
+Q	What is core modules in NodeJs?
+	- NodeJs is consists of modules. There are different types of modules as below,
+	1) Core Module
+	2) External Module
+	
+	- Here we are discussing about core modules. Basically modules which are already defined to use in NodeJs called core modules of NodeJs. We can use directly by invoking its method in NodeJs.
+	- But Core Modules also have 2 types:
+		1) Global
+		2) Non-global
+		
+		1) Global Module:
+			Global Modules are the NodeJs modules to use for particular application in NodeJs project where we don't want to import it before it's use(We directly use it without any import). for example "console" is a global module use directly in NodeJs project without any declaration.
+
+			Eg:
+				console.log("Sbz");
+
+		2) Non-global Module:
+			Non-global module also very simillar to the Global Module of NodeJs which are use for particular applications in NodeJs project. But here before use we need to import it in the project. Below is example of fileSystem NodeJs module where we import the "fs" module and using this module reference we can create one file with content which we defined using fs method "fileWriteSync".
+
+			Eg:
+				const fs = require("fs");
+				
+				fs.fileWriteSync("sbz.txt","Sbz urf Shahbaz Talhab Patel");
+				
+Q	How to make a server in NodeJs?
+	- We can create server in NodeJs to use for day to day operations in our project.
+	- We runs the server on particular "port" to listen at server side using below code(before create server we need to import one non-global module "http"):
+	
+	Eg:
+		const http = require("http");	// import http module
+			
+		http.createServer((req, res) => {		// create server
+			console.log("Request comes from browser....");	
+			// on successfully request, console this message on server side
+			res.end("Response from Server....");	// here response sent to the client from server
+		}).listen(8000, () => {		// here server listening the client req. on 8000 port
+			console.log("connection establish successfully!!!");	
+			// on successfull completion calling callback function which print this message on serverside
+		});
+		
+Q	What is package.json file in project & how to create it?
+	- package.json is a meta data file which contains all the data about the project.
+	- This file contains data related to project name, version, supported npm packages etc.
+	- we can create this file("node_modules") by following npm command:
+		# npm init
+	- once we install any one external package in our project. Related details are automatically add to the package.json and new directory "node_modules" will be created automatically at first package installation.
+	- If we want to push the same project, then don't need to push "node_modules" on the github.
+	- just create ".gitignore" file and add following line to it, so this file prevent to push "node_modules" on the github.
+		# /node_modules
+	- Now when any developer pull the same project at their side, before run the project, should run following command. so the "node_modules" directory automatically creates on their side and then he/she can run the project and start working on it.
+		# npm install	// this command automatically install all external packages according to package.json file
+	
+Q	How to create simple & basic API in NodeJs with example?
+	- Basically we can create simple API by creating plain response using 3 steps:
+		1) writeHead() ->> passing 2 arguments, 1st is set to response status code, 2nd is content type of response
+		2) write() ->> write method use to pass response in stringify format as following as desbribed below.
+		3) finally end the response with command res.end() method
+	- Following is a simple API written in NodeJs:
+	
+	Eg:
+		const http = require("http");
+		
+		http.createServer((req, res) => {
+			res.writeHead(200, {"Content-Type": "application/json"});
+			res.write(JSON.stringify({name: "Shahbaz Shaikh", email: "shahbaz42.shaikh@gmail.com"}));
+			res.end();
+		}).listen(8000,() => {
+			console.log("Server Starts Successfully!!! Ready to Communicate!!");
+		})
+	
+Q	How to get input from command prompt in NodeJs?
+	- We can get input params from command prompt when running file in NodeJs on command prompt.
+	- When running particular file on command prompt, we are getting one parameter "process" where we will get all the information which was sent by user(Here it means filename which we are running as well as extra parameter which we are sending through it as given below example).
+	
+	Eg:
+		# node runFile.js sbz 34	
+			- Here we are running file "runFile.js" & passing 2 params as "sbz" & "34". So we can get the same in running file runFile.js in "process.argv" as an array,
+			
+			console.log(process.argv);
+			
+			Output:
+				[
+				  'C:\\Program Files\\nodejs\\node.exe',
+				  'C:\\Users\\shahb\\OneDrive\\Desktop\\NODEJS-PROJECTS\\FirstProject\\runFile.js',
+				  'sbz',
+				  '34'
+				]
+				
+			Here we are getting 4 data, but out of that index2 and index3 is a data which were passed while running the file. "argv" is an array containing all the data we were passed through the command prompt.
+			So we can get it by using below and upon which we can do any operations on it.
+			
+			console.log(process.argv[2])	// sbz
+			console.log(process.argv[3])	// 34
+			
+	- Now we can consider below code where we are going to pass argument and add and remove the file according to that,
+	
+	Eg:
+	
+	const fs = require("fs");
+
+	const input = process.argv;
+	console.log(input);
+
+	if(input[2] === "remove") {
+		fs.unlinkSync(input[3]);		// delete given file
+		console.log("remove successfully!!!");
+	} else if(input[2] === "add") {
+		fs.writeFileSync(input[3], input[4]);		// write into the file
+		console.log("added successfully!!!");
+	} else {
+		console.log("Invalid Input!!!!");
+	}
+	
+Q	How to create a directory and display contain files list in command prompt?
+	- In this process first need to create new directory(not in a root directory) and then in same directory create some files. then read these all files in below example,
+	
+	Eg:
+		const fs = require("fs");
+
+		const path = require("path");	
+
+		const dirPath = path.join(__dirname, "files");	// creating path of files directory
+
+		console.log("=> "+dirPath);
+
+		for(i=0;i<5;i++) {
+		    fs.writeFileSync(dirPath+"/hello"+i+".txt", "a simple text file");	// creates new files in "files" folder
+		}
+
+		fs.readdir(dirPath, (err, files) => {	
+			files.forEach((file) => {
+				console.log("file name is ", file);
+			})
+		})
+			
+	- readdir method of filesystem getting 2 arguments, first is "dirPath" and second is callback function which will call when file found, it contains all related files of that directory. so using forEach we will access or read all files.
+
+Q	How to perform CRUD operations with File System.
+	- Generally we are using "fs" module when working with files in NodeJs, as well as if we want to work with inner directories in the project, so we want to use additional module called "path".
+	- In below example we are going to perform file operations on root directory:
+	
+	Eg:
+		const fs = require("fs");
+		fs.writeFileSync("apple.txt","new file apple.txt created by sbz.");
+		
+	- Here we created "apple.txt" file in root directory. But if we want to add the same file in another folder called "crud" in the root file present, so it should be like below example,
+	
+	Eg:
+		const fs = require("fs");
+		const path = require("fs");
+		console.log(__dirname);		// prints current root directory of the project
+		
+		const dirPath = path.join(__dirname, "crud");	// it returns the path of "crud" folder in a root folder
+		// we have a full path, so we can creates a "apple.txt" file in the crud folder as below
+		
+		const filePath = dirPath+"/apple.txt";	// directory combine with file name here in a seperate variable to use
+		fs.writeFileSync(filePath, "new file apple.txt created in crud folder by sbz.")
+		
+	- Till here we created directory in root folder & create new file also write the content in the same file.
+	Now we want to read that data using file system function "readFile()" which asyncrhonous function we using,
+	
+	Eg: (continue as above example)
+	
+		fs.readFile(filePath, "utf-8", (err, item) => {
+			console.log("file content read ->>"+item);
+		});
+		
+	- Even we can append the more data in the same file as below,
+	
+	Eg: (continue as above example)
+	
+		fs.appendFile(filePath, " and it is appended data you see in this file.", (err) => {
+			if(!err) {
+				console.log("file was successfully updated...");
+			}
+		});
+		
+	- Now we want to change or rename the file name as below,
+	
+	Eg: (continue as above example)
+	
+		fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
+			if(!err) {
+					console.log("file renamed successfully!!!");
+			}
+		});
+		
+Q	What is Synchronous & Asynchronous Programming Execution?
+	1) Synchronous Programming Execution ->>
+		- Synchronous programming execution is start execution flow in which the one command executes after another completes.
+		- Here the execution is carried out one by one in synchronous in line manner.	
+		- So if first command gives 4 mins time to executes then after 4 mins only the second one command could start execute in a series.
+		- PHP is a example of programming language which follows syncrhonous programming execution. 
+	Eg:
+		console.log("first command executes...");
+		console.log("second command executes...");
+		console.log("third command executes...");
+		
+		Output ->>
+			first command executes...
+			second command executes...
+			third command executes...
+	
+	2) Asynchronous Programming Execution ->>	
+		- Asynchronous programming execution is a parallel execution in which all the commands are running simultaneously and which takes less time to executes.
+		- Asynchronous programming saves time which is very useful to improve performance of the server execution.
+		- NodeJs uses Asynchronous Programming which is too convenient for like chat applications.
+		- Below is example of asynchronous program, which will executes and the output is shown below,
+		
+	Eg: 
+		console.log("first command executes...");
+		
+		setTimeOut(() => {
+			console.log("second command executes...");
+		}, 2000);
+		
+		console.log("third command executes...");
+		
+		Output ->>
+			first command executes...
+			third command executes...
+			second command executes...
+			
+		- In the above example, second command executes after 2 seconds, so here third command will run or executes just after first one. And due to timeout in second command it will be print at third position instead of 2nd position. 
+		- Asynchronous programming has some limitations which should be overcome from it using different techniques which will be discussed in next point.
+
+Q	How to handle Asynchronous Data in NodeJs?
+	- Now consider the following example where we first declare 2 let variables and then change the value of b with 2 seconds timeout and atlast console the value of result.
+	
+	Eg:
+		let a = 20;
+		let b = 0;
+
+		setTimeout(() => {
+			b = 30;
+		}, 2000);
+
+		console.log(a+b);
+		
+	- Here the result should expects the 50, but it is 20. Because here the 3rd console command runs before the value assigning to variable "b"(which is 2nd command).
+	- Now due to asynchronous such a technical issues would be arise, so we can overcome it by using "promise function" mentioned in the below example,
+
+	Eg:
+		let a = 20;
+		let b = 0;
+
+		let waitingData = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve(30);
+			},2000);
+		});
+		 
+		waitingData.then((data) => {
+			b = data;
+			console.log(a+b);
+		})
+	
+	- Here we pass the setTimeout function through Promise method(it contains resolve and reject 2 parameters), just we want to set the calculated value to the resolve method, so after carried out this operation "then" and only execute that data for further calculations on last step. Here if Promise method rejection happens, then function will not carried out forward with "then" method.
+	
+Q	What is NodeJs Architecture?
+	- 
+
+Q	What is ExpressJs? How to install it?
+	- ExpressJs is a NodeJs framework, using it we can easily write a code as well as manage properly as we want.
+	- We can easily do the file related operations, http operations, easily make APIs(same code which we were wrote in NodeJs, but it makes very easy in ExpressJs framework).
+	- ExpressJs provides a middleware to easily carried out our operations in very minimal amount of time.
+	- We can easily write the server side rendering code using ExpressJs at server side.
+	- Easily add a CSS in the HTML at server side rendering pages.
+	- We can install it in the NodeJs project by using below npm command in command prompt.
+		# npm install express
+	- Now the express is successfully could installed to use in NodeJs project.
+	
+Q 	How to handle routing in ExpressJs?
+	- ExpressJs is used to handle the routes at the server side.
+	- According to different routes request from browser comes from, according to that we can handle the routes at server side using ExpressJs very easily.
+	- Below is an example where we are going to handle the routes according to the different path on browser.
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const app = express();		// creates its executable state so we can use it further in the code
+	
+		app.get("/", (req, res) => {
+			res.send("Hello, Its shahbaz from server side...");
+		});
+		
+		app.get("/about", (req, res) => {
+			res.send("Hello, Its a About Us Page.");
+		});
+		
+		app.get("/help", (req, res) => {
+			res.send("Hello, Its a Help Page.");
+		});
+		
+		app.listen("8000");
+		
+Q	How to handle request & response in ExpressJs?
+	- In previous example no any single data sent from browser(client-side) so we have nothing to do any provision to do regarding handling parameters which are pass from the browser(client-side).
+	- But consider that user want to send some parameters from browser from particular route that is home page as below shown,
+		# http://localhost:8000?name=shahbaz
+		
+	- Now we want to handle this params on the server side using some tricks as mentioned in the below code we have,
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		app.get("/", (req, res) => {
+			console.log("data sent by browser ->>> ", req.query.name);
+			res.send("Hello, "+req.query.name);
+		})
+
+		app.get("/about", (req, res) => {
+			res.send("Hello, Its a About Us Page.");
+		})
+
+		app.listen("8000");
+	
+	- In above example, we are getting query param "name" which are passed through the browser, so we can access it at server side as above shown.
+	- You can observed in above example, we are getting query param name using "req.query.name" and send it in response as wrote above.
+	
+Q How do we render HTML and JSON data from server to browser side?
+	- Below example shows that the HTML tags send to the requested route using res.send() method.
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		app.get("/", (req, res) => {    
+			res.send(`
+				<h1>Hello, Welcome to HomePage.</h1>
+				<a href="/about">Go to About Page</a>
+			`);   //  render with h1 HTML tag at browser side 
+
+		})
+
+		app.get("/about", (req, res) => {
+			// here we can receive query parameter from browser and pass it as value in input field below
+			let name = req.query.name;  
+			
+			console.log("name -->>"+ name);
+			
+			// render input and button on about route at browser on request
+			res.send(`
+				<input type="text" placeholder="Enter Name" value=${name} />
+				<button>Submit</button><br />
+				<a href="/">Go to HomePage</a>
+			`);
+			
+		})
+
+		app.get("/help", (req, res) => {
+			// render json data on help route at browser on request
+			res.send({
+				name:"shahbaz patel",
+				age: "34",
+				email: "sbz@gmail.com"
+			});
+		})
+
+		app.listen("8000");
+		
+Q	How to access the static content HTML files from any folder in a root directory using ExpressJs?
+	- Here first we want to create one directory called "public" which contain one static html file named as "about.html".
+	- Now first we need to access this folder and then using express method we can access that static content HTML file as below example,
+	- If this directory contains index.html, then first it loads to the homepage.
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const path = require("path");
+
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		const publicDir = path.join(__dirname, "public");
+		console.log(publicDir);
+
+		app.use(express.static(publicDir));
+
+		app.listen("8000");
+		
+	- "express.static" method is directly point to that directory which is present in the root directory. So if have index.html file in it, we can directly access this html file using browser request of "http://localhost:8000".
+	- simillarly if we want to access "about.html" present in this public folder so we can render it directly by hitting url "http://localhost:8000/about.html".
+		
+Q	How we remove the file extensions from above example to access without it in Express?
+	- In above example we need to access those files with an extensions. But in some cases or for security reasons we don't want to show the extensions while access those pages.
+	- so at that time we should use response method of route "res.sendFile" instead of "res.send".
+	- Below example shows how we can access the page without mention any extension of this file.
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const path = require("path");
+
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		const publicDir = path.join(__dirname, "public");
+		console.log(publicDir);
+
+		// app.use(express.static(publicDir));
+
+		app.get("/", (req, res) => {
+			res.sendFile(`${publicDir}/index.html`);
+		});
+
+		app.get("/about", (req, res) => {
+			res.sendFile(`${publicDir}/about.html`);
+		})
+
+		app.get("/help", (req, res) => {
+			res.sendFile(`${publicDir}/help.html`);
+		})
+
+		app.listen("8000");
+		
+	- Now we can access the "about" page by url "http://localhost/about", simillarly "help" page by url "http://localhost/help" where no any extensions mentioned here.
+
+Q 	How to handle page which is not present on Server side.
+	- Sometimes the user requesting a page which is not present at server side to render. So here we should create here 404 page which shows that requested page not found. 
+	- Below example mentioned this situation, where first step we need to create one file which handle this request named as "pageNotFound.html".
+	
+	Eg: (just add this code in above example)
+		app.get("/*", (req, res) => {
+			res.sendFile(`${publicDir}/pageNotFound.html`)
+		})
+		
+Q	What is Template Engine used for?
+	- A template engine in Node.js is a technology that lets you use static template files in your application to create dynamic content.
+	- We should install "ejs" template package by using following command:
+		# npm install ejs
+	- Now we need to create one directory "views" which is default configuration required to work with any template engine.
+	- Here we are going to use ejs template engine, so first we need to add it in the program like below,
+		# app.set("view engine", "ejs");	// here we mentioned which template engine going to use
+	- Now the files which are present in the "views" directory contains ejs files(i.e profile.ejs).	Its is simillarly look alike a HTML page.
+	- Now observe the below example to understand the ejs template engine for dynamic data use in state files in NodeJs.
+	
+	Eg:
+		const express = require("express");		// import the express global package
+		const path = require("path");
+
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		const publicDir = path.join(__dirname, "public");
+		console.log(publicDir);
+		
+		app.set("view engine", "ejs");		// here we set the template engine
+		
+		app.get("/profile", (req, res) => {     // handles profile route here
+			// this is dynamic data want to send from server to browser on profile page
+			const user = {          
+				name: "Shahbaz Patel",
+				email: "sbzpatel@gmail.com",
+				city: "Kolhapur",
+				skills: ["React Native", "NodeJs", "ReactJs"]
+			}
+			res.render("profile", {user});	// first argument route name, second one is data object
+		})
+
+		app.listen("8000");
+		
+	- Now we set all the data to send to the route "profile" present in the view directory. And we can handle it in "profile.ejs" file as below,
+	
+		################## profile.ejs ###################
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Profile Page</title>
+		</head>
+		<body>
+			<h1>Welcome <%=  user.name %></h1>
+			<h3>Email: <%= user.email %></h3>
+			<h3>City: <%= user.city %></h3>
+			<ul>
+				<% user.skills.forEach((item) => { %>
+					<li><%= item %></li>
+				<% }) %>
+			</ul>
+		</body>
+		</html>
+		################## profile.ejs ###################
+	
+	- In above example we used skills and then render the skills in profile page in loop using forEach as above.
+	
+@	How to make a common header and add it in other routes in Nodejs?
+	- Basically we have already one route "profile" also need to create one more route called "login".
+	- And again create new route "header" and attached to the both route "profile" and "login" in below example,
+	
+	Eg: (We are going to include header in login route as below, first declare header route then use it in login route )
+		const express = require("express");		// import the express global package
+		const path = require("path");
+
+		const app = express();		// creates its executable state so we can use it further in the code
+
+		const publicDir = path.join(__dirname, "public");
+		console.log(publicDir);
+		
+		app.set("view engine", "ejs");		// here we set the template engine
+		
+		app.get("/profile", (req, res) => {     // handles profile route here
+			// this is dynamic data want to send from server to browser on profile page
+			const user = {          
+				name: "Shahbaz Patel",
+				email: "sbzpatel@gmail.com",
+				city: "Kolhapur",
+				skills: ["React Native", "NodeJs", "ReactJs"]
+			}
+			res.render("profile", {user});	// first argument route name, second one is data object
+		})
+		
+		app.get("/login", (req, res) => {
+			res.render("login");
+		})
+
+		app.listen("8000");
+	
+		################## login.ejs ###################
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Login Page</title>
+		</head>
+		<body>
+			<%- include('common/header'); %>	// include header using this syntax
+			<h1>Login Page</h1>
+		</body>
+		</html>
+		################## login.ejs ###################
+	
+	- Simillarly you can include the common "header" element in the "profile" route also.
+	- Here also you can observed that, for "=" used during we are going to add javascript code. But for include any common element we need to use "-"(observe above example).
+
+Q	What is Middlewares in ExpressJs?
