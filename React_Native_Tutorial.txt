@@ -3715,7 +3715,95 @@ export default MyUseMemo
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 28/12/2024 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 04/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+################################ Drawer Navigation  ###################################
+<NavigationContainer
+	screenOptions={
+		{
+			drawerStyle: {
+				backgroundColor: "lightgrey",
+				width: 270
+			},
+			drawerLabelStyle: {
+				fontSize: 18,
+				color: "#fff"
+			},
+			headerStyle: {
+				backgroundColor: "hotpink"
+			},
+			headerTintColor: "#fff",
+			headerTitleAlign: "center"
+		}
+	}
+>
+	<Drawer.Screen name="Home" component={Home} />
+	<Drawer.Screen name="Login" component={Login} />
+	<Drawer.Screen name="Signup" component={Signup} />
+</NavigationContainer>
+################################ Drawer Navigation  ###################################
 
+################################ BottomTab Navigation  ###################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+const getTabBarIcon = (routeName, focused, color, size) => {
+	let iconName;
+	
+	if(routeName === "Home") {
+		iconName = focused ? "home" : "home-outline";
+	} else if(routeName === "Login") {
+		iconName = focused ? "login" : "login-outline";
+	} else if(routeName === "Signup") {
+		iconName = focused > "singup" : "signup-outline";
+	}
+	
+	return <Icon name={iconName} color={color} size={size} />
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+<NavigationContainer
+	screenOptions={
+		({route}) => ({
+			tabBarIcon: ({focused, color, size}) => getTabBarIcon(route.name, focused, color, size),
+			tabBarActiveTintColor: "green",
+			tabBarStyle: {
+				height: 60,
+				paddingTop: 12
+			}
+		})
+	}
+>
+	<BottomTab.Screen name="Home" component={Home} />
+	<BottomTab.Screen name="Login" component={Login} />
+	<BottomTab.Screen name="Signup" component={Signup} />
+</NavigationContainer>
+################################ BottomTab Navigation  ###################################
+
+################################ TopTab Navigation  ###################################
+<NavigationContainer
+	screenOptions={
+		{
+			tabBarActiveTintColor: "#fff",
+			tabBarInactiveTintColor: "grey",
+			tabBarStyle:{
+				backgroundColor: "#e2e2e2",
+				height: 60,
+				paddingTop: 5,
+			},
+			tabBarIndicatorStyle: {
+				backgroundColor: "hotpink",
+				height: 70
+			},
+			tabBarLabelStyle: {
+				fontSize: 18
+			}
+		}
+	}
+>
+	<TopTab.Screen name="Home" component={Home} />
+	<TopTab.Screen name="Login" component={Login} />
+	<TopTab.Screen name="Signup" component={Signup} />
+</NavigationContainer>
+################################ TopTab Navigation  ###################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 04/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 
