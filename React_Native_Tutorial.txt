@@ -2925,6 +2925,8 @@ const SubChild = () => {
 
 ########################## Redux ##########################
 ############################ App.js ###########################
+import {Provider} from "react-redux";
+
 <Provider store={store}>
 	<ReduxCounter />
 </Provider>
