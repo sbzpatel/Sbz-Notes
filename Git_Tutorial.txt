@@ -398,6 +398,9 @@ See 'git help git' for an overview of the system.
 	->> git config --global user.name "ShahbazPatel"
 	->> git config --global user.email "shahbazpatel1989@gmail.com"
 	
+
+	->> git config --list
+	
 	
 	->> pwd
 	->> ls
