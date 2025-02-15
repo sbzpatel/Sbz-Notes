@@ -1469,8 +1469,6 @@
 			- npm install @react-navigation/native-stack
 		4) Run the following command to build the React Native App,
 			- npm react-native run-android
-		5) In case we need to use Stack, then required one that dependency to use it in our App as below,
-			- npm install @react-navigation/native-stack
 			
 	- Now we can start to create React Stack Navigator in our React Native App as below example,
 
