@@ -3807,6 +3807,29 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 04/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 16/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+################################### JSON Server Commands ###################################
+->> Before use JSON Server we need to install it globally in our system
+	npm install -g json-server
+
+->> We can start the JSON Server using following command
+	json-server --watch db.json
+
+->> We can host the localhost server to the Local IP address by using following command
+	json-server --host 0.0.0.0 db.json
+
+->> Find our local IP address using command given below,
+	ipconfig (IP Address: 192.147.3.46)
+
+->> To confirm JSON Server running on Local IP Address on below URL
+	http://192.147.3.46/users
+
+->> We can connect Local IP address with emulator using below URL
+	http://10.0.2.2/users (In code, we are going to use this URL to access JSON Server APIs)
+################################### JSON Server Commands ###################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 16/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 
 
 Q 	What is Current Stable Version of React Native?
