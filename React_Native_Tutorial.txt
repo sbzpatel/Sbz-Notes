@@ -1745,8 +1745,7 @@
 	
 	- Now for Bottom Tab we need one more package to install in current React Native app as below,
 		# @react-navigation/material-bottom-tabs
-	
-	
+
 	Eg: (Bottom Tabs Navigation)
 		import React, {useState} from 'react';
 		import {Text, View, StyleSheet, Button, TextInput} from 'react-native';
