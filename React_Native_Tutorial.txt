@@ -1458,7 +1458,7 @@
 		c) Tab	
 	- In case of large no. of screens, we should use Drawer Navigation in React Native which is more convenient than other Stack or Tab Navigation.
 
-@ 	How to Install & Create Navigation in React Native? Explain it by one example?
+@ 	How to Install & Create Stack Navigation in React Native? Explain it by one example?
 	- React Navigation is important point where we need to install some packages and plugins to use it in App.
 	- Below is a Procedure to start React Navigation dependencies as follows,
 		1) Install below package,
@@ -1538,6 +1538,76 @@
 		})
 
 		export default App;
+
+@	How to install & create Drawer Navigation in React Native? Explain it with example?
+	- Below is a procedure to install dependencies and create Drawer Navigation:
+
+	1) npm install @react-navigation/drawer
+
+	2) npm install react-native-gesture-handler react-native-reanimated
+
+	3) After above both package installation, write the below line in index.js,
+		import 'react-native-gesture-handler';
+
+	4) Now start coding as below example to add the Drawer in App.js file:
+
+	Eg:
+		import React, { useState } from 'react';
+		import { View, Text, Button, TextInput, FlatList, StatusBar } from 'react-native';
+		import { NavigationContainer } from '@react-navigation/native';
+		import { createDrawerNavigator } from '@react-navigation/drawer';
+
+		const Drawer = createDrawerNavigator();
+
+		const App = () => {
+			return (
+				<View style={{ flex: 1 }}>
+					<StatusBar
+						backgroundColor={"#0a2857"}
+						barStyle='light-content'
+					/>
+
+					<NavigationContainer>
+						<Drawer.Navigator
+							screenOptions={{
+								headerTintColor: "white",
+								headerStyle: {
+								backgroundColor: "#174182"
+								},
+								headerTitleAlign: "center",
+								drawerStyle: {
+								backgroundColor: "#174182",
+								width: 310
+								},
+								drawerLabelStyle: {
+								color: "#fff",
+								fontSize: 18
+								},
+								drawerActiveBackgroundColor: "#0b2352"
+							}}
+						>
+							<Drawer.Screen 
+								name="Login"
+								component={SimpleLoginForm}
+							/>
+							
+							<Drawer.Screen 
+								name="Sign Up"
+								component={SimpleSignupForm}
+							/>
+
+							<Drawer.Screen 
+								name="User"
+								component={UserData}
+							/>
+						</Drawer.Navigator>
+					</NavigationContainer>
+				</View>
+			)
+		}
+
+		export default App;
+		
 
 @ 	How to add Buttons in Task Bar in React Native? How to pass value between screens of Task Bar?
 	- Please check the below example to understanding both the aspect in asked questions as below,
