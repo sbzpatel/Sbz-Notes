@@ -3813,7 +3813,16 @@ export default MyUseMemo
 ################################ Drawer Navigation  ###################################
 
 ################################ BottomTab Navigation  ###################################
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+->> First need to install below package for vector icons,
+	npm install --save react-native-vector-icons
+
+->> Add below line in "android/app/build.gradle" file in bottom
+	apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+
+->> Install below package to add Bottom Tab in React Native App
+	npm install @react-navigation/bottom-tabs
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@ function returning icon with color size @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const getTabBarIcon = (routeName, focused, color, size) => {
 	let iconName;
 	
@@ -3827,16 +3836,17 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 	
 	return <Icon name={iconName} color={color} size={size} />
 }
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ function returning icon with color size @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 <NavigationContainer
 	screenOptions={
 		({route}) => ({
 			tabBarIcon: ({focused, color, size}) => getTabBarIcon(route.name, focused, color, size),
 			tabBarActiveTintColor: "green",
+			tabBarInactiveTintColor: "grey",
 			tabBarStyle: {
 				height: 60,
-				paddingTop: 12
+				paddingBottom: 8
 			}
 		})
 	}
