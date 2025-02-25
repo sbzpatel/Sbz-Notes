@@ -3846,7 +3846,8 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 			tabBarInactiveTintColor: "grey",
 			tabBarStyle: {
 				height: 60,
-				paddingBottom: 8
+				paddingBottom: 6,
+              	paddingTop: 6
 			}
 		})
 	}
@@ -3858,25 +3859,27 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 ################################ BottomTab Navigation  ###################################
 
 ################################ TopTab Navigation  ###################################
+->> Need to install both below packages to use Top Tab Navigation in React Native App
+	1) npm install @react-navigation/material-top-tabs
+
+	2) npm install react-native-pager-view
+
 <NavigationContainer
-	screenOptions={
-		{
-			tabBarActiveTintColor: "#fff",
-			tabBarInactiveTintColor: "grey",
-			tabBarStyle:{
-				backgroundColor: "#e2e2e2",
-				height: 60,
-				paddingTop: 5,
-			},
-			tabBarIndicatorStyle: {
-				backgroundColor: "hotpink",
-				height: 70
-			},
-			tabBarLabelStyle: {
-				fontSize: 18
-			}
+	screenOptions={{
+		tabBarActiveTintColor: "#fff",
+		tabBarInactiveTintColor: "grey",
+		tabBarStyle: {
+			backgroundColor: "#0a2857",
+			height: 60,
+			paddingTop: 8
+		},
+		tabBarLabelStyle: {
+			fontSize: 16
+		},
+		tabBarIndicatorStyle: {
+			backgroundColor: "green"
 		}
-	}
+	}}
 >
 	<TopTab.Screen name="Home" component={Home} />
 	<TopTab.Screen name="Login" component={Login} />
