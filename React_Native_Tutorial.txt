@@ -53,7 +53,7 @@
 	
 @ 	How to do the Style Design in React Native?
 	- We are using a Javascript in React Native to design a User Interface.
-	- All React Native Component allow prop "style" to styling in the Application using Reat Native.
+	- All React Native Component allow prop "style" to styling in the Application using React Native.
 	- Style names in React Native are mostly simillar to CSS except camelCasing pattern use in React Native.
 	- Also we can use StyleSheet.create to define all styling parameters in a single place to avoid complexity of program.
 	
@@ -2990,7 +2990,12 @@ const SubChild = () => {
 
 
 
-########################## Redux ##########################
+########################## Redux Toolkit ##########################
+->> First we need to install npm packages as below:
+
+	1) npm install @reduxjs/toolkit
+	2) npm install react-redux
+
 ############################ App.js ###########################
 import {Provider} from "react-redux";
 
@@ -3077,7 +3082,7 @@ export const store = configureStore({
     }
 })
 ############################ store.js ###########################
-########################## Redux ##########################
+########################## Redux Toolkit ##########################
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 17/11/2024 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -3910,6 +3915,122 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 	http://10.0.2.2:3000/users (In code, we are going to use this URL to access JSON Server APIs)
 ################################### JSON Server Commands ###################################
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 16/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 26/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+################################### Getting JSON SERVER Data & display using FlatList ###################################
+import { View, Text, StyleSheet, FlatList, Alert, ActivityIndicator } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import ExStyles from '../css/ExStyles'
+
+const Users = () => {
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        getUserData();
+    }, []);
+
+    const getUserData = async () => {
+        console.log("getUserData calling...");
+
+        const URL = "http://10.0.2.2:3000/users";
+        try {   
+            let result = await fetch(URL);
+            console.log(result);
+            let response = await result.json();
+    
+            console.log(response);
+            setUserData(response);
+
+            if(response.length == 0) {
+                Alert.alert("Alert", "Something went wrong when fetching data...");
+            }
+        } catch(err) {
+            console.log("Error:", err);
+        }
+        
+    }
+
+    return (
+        <View style={{ ...ExStyles.container, margin: 15 }}>
+            <Text style={ExStyles.heading}>User's Data from API</Text>
+
+            {
+            userData.length == 0 ?
+                <View style={{flex: 1, justifyContent: "center"}}>
+                    <ActivityIndicator color={"red"} size={90} />
+                </View>
+            :
+                <FlatList 
+                    data={userData}
+                    renderItem={({item}) => (
+                        <View style={styles.box}>
+                            <View style={styles.entries}>
+                                <Text style={styles.heading}>Name</Text>
+                                <Text style={styles.field}>{item.name}</Text>
+                            </View>
+
+                            <View style={styles.entries}>
+                                <Text style={styles.heading}>Email</Text>
+                                <Text style={styles.field}>{item.email}</Text>
+                            </View>
+
+                            <View style={styles.entries}>
+                                <Text style={styles.heading}>Age</Text>
+                                <Text style={styles.field}>{item.age}</Text>
+                            </View>
+
+                            <View style={styles.entries}>
+                                <Text style={styles.heading}>Gender</Text>
+                                <Text style={styles.field}>{item.gender}</Text>
+                            </View>
+
+                            <View style={styles.entries}>
+                                <Text style={styles.heading}>Marital Status</Text>
+                                <Text style={styles.field}>{item.married ? "Yes" : "No"}</Text>
+                            </View>
+                        </View>
+                    )}
+                    showsVerticalScrollIndicator={true}
+                />
+            }
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    box: {
+        flexDirection: "column",
+        width: "100%",
+        height: 160,
+        borderWidth: 2,
+        borderStyle: "solid",
+        borderColor: "grey",
+        borderRadius: 7,
+        marginBottom: 10
+    },
+    entries: {
+        flexDirection: "row",
+        justifyContent: "flex-start"
+    },
+    heading: {
+        fontSize: 15,
+        width: "40%",
+        paddingVertical: 5,
+        paddingHorizontal: 25,
+        fontWeight: "600"
+    },
+    field: {
+        fontSize: 15,
+        width: "60%",
+        paddingVertical: 5,
+        // paddingHorizontal: 15
+    }
+})
+
+export default Users
+################################### Getting JSON SERVER Data & display using FlatList ###################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 26/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 
