@@ -4223,3 +4223,30 @@ Q	What is Redux Architecture?
 		It holds the application state which is singleton object and provides methods to access this state across different components in application without prop drilling.
 
 ######################### React Native (Work-Book) #########################
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ OCTANE Mobile App @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Octane Mobile Application is Embee's product which sales to its clients.
+Octane Mobile Applicaiton is HRMS Solution for organizations which consist of different modules like
+	1) Online & Offline Attendance
+	2) Leave Requisition & Short Leaves
+	3) Reimbursement Requisition
+	4) Asset Requisition
+	5) Profile Details
+	6) All Requisition status in graphs
+	7) Holiday Listing
+
+Different functionalites in App:
+	1) QR Scanner (react-native-qrcode-scanner)
+	2) date-time picker (react-native-community/datetimepicker)
+	3) Async Storage (async-storage/async-storage)
+	4) Document & Image Picker (react-native-image-picker, react-native-document-picker)
+	5) notifee & RN linking used to notify to the employee once manager approved any request
+	6) Using third party package to enable and use current location in app using below packages
+		a) react-native-android-location-enabler
+		b) npm i @react-native-community/geolocation
+		c) npm react-native-maps
+	7) First we used AsyncStorage, but due to security reasons changed to EncryptedStorage npm package where the data will be saved with encryptions for data security 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ OCTANE Mobile App @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
