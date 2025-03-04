@@ -4250,3 +4250,11 @@ Different functionalites in App:
 		c) npm react-native-maps
 	7) First we used AsyncStorage, but due to security reasons changed to EncryptedStorage npm package where the data will be saved with encryptions for data security 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ OCTANE Mobile App @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ MRF Tyre Selector @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+MRF Tyre Selector is a Hybrid Mobile Application made for MRF Tyre clients to fulfill there dealers requirements, where they can see all the record of tyres which MRF Tyres made. 
+1) Login with dealer code and authentication with 6 digit code
+2) first page contain the filters where we can search the tyre according to its modal and make but the second option where we can search using its size, tyre type & their patterns
+3) App contains the detailed information of that tyre with caraousal image where we use 3rd party npm package "react-native-reanimated-carousel" to integrate it in the app
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ MRF Tyre Selector @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
