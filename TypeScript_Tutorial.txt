@@ -1,0 +1,824 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TypeScript Tutorial @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Q	Why we use TypeScript?
+	- TypeScript is a superset of JavaScript that adds static typing and other features to enhance JavaScript development.
+	- It was developed by Microsoft on Oct 1, 2012, and is now open source project with a large community of contributors.
+	- TypeScript had extra features like Interfaces, Tuples, Enums, Generic, Classes etc over JavaScript.
+	- TypeScript catches error on compile time instead of runtime, which makes debugging easier and reduces the bugs which will be produce in production.
+	
+	Eg:
+		let fname:string = "Shahbaz Patel";
+		// fname = true;	//	error comes on this line
+		fname = "Kaleem Patel";
+		
+		console.log(fname);
+		
+	
+Q	What is static typing?
+	- Static typing means that the type of a variable is defined at compile-time instead of runtime. So, once a variable is declared to be a certain type in statically typed language, we cannot redeclare it to be another type later.
+	
+	
+Q	What is Type Annotations?
+	- In TypeScript, type annotation is a way of explicitly specifying the type of a variable, function parameters and function's return value.
+	
+	Eg:
+		const sum = (a:number, b:number):number => {
+			return a+b;
+		}
+
+		console.log(sum(5,4));
+	
+	
+Q	What is Type "any" in TypeScript?
+	- The any type is most flexible type in javascript, where it turns off all type checking for the variables or expressionns it is applied to.
+	- It working with dynamic data which comes from user inputs, network responses, or deserialized JSON objects.
+	
+	Eg:
+		let num:any = 5;
+		num = "Shahbaz";
+		num = 7;
+		console.log(num);
+		
+		
+Q	How to write function in TypeScript?
+	- We can write function in TypeScript with declaring its data types in below code:
+	Eg:
+		function greet(name:string, id:number) {
+			console.log(`Welcome ${name}, your id is ${id}.`)
+		}
+
+		greet("Shahbaz", 1);
+		
+	- Simillarly, we can write arrow function in TypeScript as below:
+	Eg:
+		const greet = (name:string, id:number) => console.log(`Welcome ${name}, your id is ${id}.`);
+
+		greet("Shahbaz", 1);
+		
+	- If we want to return a specific type of value in TypeScript, then we should declare it as below:
+		const greet = (name:string, id:number):string => `Welcome ${name}, your id is ${id}.`;
+
+		console.log(greet("Shahbaz", 1));
+
+	- Below function getting string parameter and returning boolean value to check that string is palindrom or not(if its palindrom then it return 'true' otherwise it return 'false').
+	Eg:
+		const checkPalindrom = (strPhrase: string):boolean => {
+			let obtainedPhrase:string = strPhrase.split("").reverse().join("");
+			return obtainedPhrase === strPhrase;
+		}
+
+		console.log(checkPalindrom("MadaM"));
+
+
+Q	What is Type Inference in TypeScript?
+	- Type Inference in TypeScript refers to the ability of the TypeScript Compiler to automatically determine and assign types to variables, expressions and function returns value according to it's context.
+	- 
+	Eg:
+		const num = 4;		// here clearly indicates that num variable has type of "number"
+		// So we don't need to add type annotation, type annotation is simply opposite of "type inference"
+
+		console.log(num);
+		
+
+Q	What is Optional & Default Parameters in TypeScript?
+	- TypeScript allows to define optional & default parameters in functions.
+	- In below example we defined default value to the functional parameter. If we not passed any argument during function invoke, then the default value will be given.
+	
+	Eg:
+		const greet = (name:string, id:number=786) => console.log(`Welcome ${name}, your id is ${id}.`);
+
+		greet("Shahbaz", 1);
+			
+		// here we don't pass any value, so 786 is takes a default value which already mentioned during function definition 
+		greet("Kaleem");
+		
+	- In below code id is optional, according to that our code will be change like below:
+	
+	Eg:
+		const greet = (name:string, id?:number) => {
+			if(id) {
+				console.log(`Welcome ${name}, your id is ${id}.`);
+			} else {
+				console.log(`Welcome ${name}`);
+			}
+		}
+		
+		greet("Shahbaz", 1);
+		greet("Kaleem");
+		
+		
+Q	How to declare and use arrays in TypeScript?
+	- There are 3 ways to declare the arrays in TypeScript as below:
+	
+	1) Using square brackets:
+		const marks:number[] = [45, 78, 89, 95, 67];
+		
+	2) Using the Array constructor:
+		const marks:number[] = new Array(45, 78, 89, 95, 67);
+		
+	3) Using the Array.of method:
+		const friends = Array.of("Shahbaz", "Kaleem", "Ilham");
+		
+	- Also we can use array elements using its index reference as below:
+		console.log(marks[1]);		// 78
+		
+		console.log(friends[0]);	// Shahbaz
+		
+		
+Q	How to write object in TypeScript with type annotation?
+	- Below is a code where we write object "person":
+	
+	Eg:
+		const person:{
+			name:string;
+			email:string;
+			isStudent:boolean;
+			address: { city:string; country:string }
+		} = {
+			name: "Shahbaz T Patel", 
+			email: "shabya@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Pune",
+				country: "India"
+			}
+		}
+		
+		person.name = 1243;		// Wrong, We can't assign number type value in a string variable
+		
+		person.name = "Shahbaz Patel";		// Right
+
+		console.log(person);
+		
+	
+Q	What is Type "Alias" in TypeScript?
+	- A Type "Alias" is a way to define a specific type or combination of types, which allows to create custom name for a type making it easier to reuse and refer to the same type in different parts of our code.
+	- In below code we use type alias to prevent from repeatitive code:
+	
+	Eg:
+		type Person = {			// type alias "Person" which reference gives to all 3 objects in below
+			name:string;
+			email:string;
+			isStudent:boolean;
+			address: { city:string; country:string }
+		};
+
+
+		const sbz:Person = {
+			name: "Shahbaz T Patel", 
+			email: "shabya@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Pune",
+				country: "India"
+			}
+		}
+
+		const shaikh:Person = {
+			name: "Shahbaz A Shaikh", 
+			email: "shaikhu@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Lanja",
+				country: "India"
+			}
+		}
+
+		const kaleem:Person = {
+			name: "Kaleem M Patel", 
+			email: "kalya@gmail.com",
+			isStudent: true,
+			address: {
+				city: "Dar-e-salaam",
+				country: "Africa"
+			}
+		}
+
+		console.log(sbz);
+		
+		
+Q	What is function call signature in TypeScript?
+	- The function call signature refers to the declaration or definition of a function, which includes the function's name, parameters and return type.
+	- It defines the structure and type information of a function without including the function's implementation or body.
+	
+	Eg:
+	
+	
+Q	What is enums in TypeScript?
+	- Enums in TypeScript are commonly used when we want to represent a set of related values and choose one value from multiple options.
+	- Enums provide a convenient way to define a set of named values and associate them with specific meanings.
+	
+	Eg:
+		enum Roles {
+			admin = "admin",
+			user = "user"
+		}
+
+		type LoginDetails = {
+			name?:string;
+			email:string;
+			password:string;
+			role:Roles
+		}
+
+		const user1:LoginDetails = {
+			name: "Shahbaz Patel",
+			email: "shabya@gmail.com",
+			password: "sbz2234",
+			role: Roles.admin
+		}
+
+		const user2:LoginDetails = {
+			name: "Kaleem Patel",
+			email: "shabya@gmail.com",
+			password: "sbz2234",
+			role: Roles.user
+		}
+
+		const isAdmin = (user1:LoginDetails): string => {
+			const {name, email, password, role} = user1;
+
+			if(role === "admin") {
+				return `${name} is allow to edit the website...`;
+			} else {
+				return `${name} is allow to use the website...`;
+			}
+		}
+
+		console.log(isAdmin(user1));
+		console.log(isAdmin(user2));
+		
+		
+Q	What are Tuples in TypeScript?
+	- Tuples are data structure that allow to store a fixed-size collection of elements of different types.
+	- They are simillar to array, but with a key difference: 
+		a) the types of elements in tuples are fixed and declared at the time of creation
+		b) and number of elements(size) in tuples are also already predefined during its declaration
+		
+	Eg:
+		type personInfo = [string, number, boolean];
+
+		const person1:personInfo = ["Shahbaz Patel", 35, true];
+		const person2:personInfo = ["Kaleem Patel", 60, false];
+
+		const displayPersonInfo : (person: personInfo) => void = (person: personInfo) : void => {
+			const [name, age, hasDrivingLicense] = person;
+
+			console.log(`Name: ${name}, Age: ${age}, Driver's License: ${hasDrivingLicense? "Yes": "No"}`)
+		}
+
+		displayPersonInfo(person1);
+		displayPersonInfo(person2);
+		
+		
+Q	What is Union type in TypeScript?
+	- Union types allow to specify that a variable can hold values of multiple types. Here we can use pipe symbol(|) to define a union type.
+	
+	Eg:
+		const inputValue = (value:string|number):any => {
+			if(typeof value === "number") {
+				return value*2;
+			} else if(typeof value === "string"){
+				return value.toUpperCase();
+			}
+		}
+
+		console.log(inputValue(5));
+
+		console.log(inputValue("Shahbaz"));
+		
+		
+Q	What is Interaction type in TypeScript?
+	- Interaction type allow to combine multiple types into a single type. here we can use ampersand symbol(&) to define an interaction type.
+
+	Eg:
+		type Person = {
+			name:string;
+			age:number
+		}
+
+		type Employee = {
+			emp_id:number;
+			department:string
+		}
+
+		type EmployeeDetail = Person & Employee;		// create new type by interaction of type "Person" & "Employee"
+
+		const employee:EmployeeDetail = {
+			name: "Shahbaz Patel",
+			age: 35,
+			emp_id: 786,
+			department:"IT"
+		}
+		
+		const personal:Person = {		Its an object of type "Person", here we not using any "intersection" type
+			name: "Shahbaz Patel",
+			age: 35
+		}
+
+	Eg: (Another detailed example)
+		type User = {
+			name:string;
+			age:number
+		}
+
+		type MyLocation = {
+			city:string;
+			country:string
+		}
+
+		const user:User = { name: "Shahbaz Patel", age: 35 };
+		const myLocation:MyLocation = { city: "Pune", country: "India" }
+
+		const createUserProfile = (user:User, myLocation:MyLocation):any => {
+			// return `My name is ${user.name}. And I am living in ${myLocation.city}.`;
+			return { ...user, ...myLocation };      // here we return both type of object data
+		}
+
+		const myCompleteInfo:User & MyLocation = createUserProfile(user, myLocation);   
+		// use "&"(intersection type) type to asking to return both type of data "User" & "MyLocation" collectively and return to the "myCompleteInfo"
+
+		console.log(myCompleteInfo);
+		
+		
+Q	What is Generics datatypes in TypeScript?
+	- Generics in TypeScript allow to create reusable components or functions that can work with multiple data types.
+	
+	Eg:
+		function logAndReturn(value: number | string): number | string {
+			return value;
+		}
+
+		const numberResult:string | number = logAndReturn(786);
+
+		const stringResult:string | number = logAndReturn("Shahbaz");
+
+		const booleanResult: string | number = logAndReturn(true);	
+		// At this line the error will occurred because we are passing boolean value which is not allowed that only allowed to pass number or string. but in large application we can handle this by using generics in typescript which explained in below next eample.
+
+		console.log(numberResult);
+		console.log(stringResult);
+		
+	Eg: (Overcome above error with typescript feature "generics" type declaration)
+		function logAndReturn<T>(value: T): T {
+			return value;
+		}
+
+		const numberResult = logAndReturn<number>(786);
+		const stringResult = logAndReturn<string>("Shahbaz");
+		const booleanResult = logAndReturn<boolean>(true);
+
+		console.log(numberResult);
+		console.log(stringResult);
+		console.log(booleanResult);
+		
+	Below example of function which creates a sum of two parameters where we are using generics data types(which overcome the method overloading concept):
+	
+	Eg:
+		function sum<T>(a: T,b: T): void {
+			console.log(typeof a);
+			console.log(typeof b);
+		}
+
+		sum<number>(5,4);
+
+		sum<string>("Shahbaz", "Patel");
+		
+	- But what if I am passing different type of variables with calling function "sum", here this above function definition will be failed to executes. So to overcome from this issue, we will use multiple generic types in function defintion as below,
+
+	Eg:
+		function sum<T, U>(a: T,b: U): void {
+			console.log(typeof a);
+			console.log(typeof b);
+		}
+
+		sum<number, number>(5,4);
+
+		sum<string, string>("Shahbaz", "Patel");
+
+		sum<string, number>("Shahbaz", 5);
+
+		sum<number, string>(7, "Patel");
+		
+	- Above example where we are passing 2 arguments with a same data types or different types.
+		
+		
+Q	What is Interface in TypeScript?
+	- In TypeScript, an interface is a powerful feature that allow to define a contract for an object's shape. It specifies the properties and their types that an object must have to be considered of that particular interface type.
+	- It is primarily used for type-checking and do not generate any javascript code at runtime.
+	
+	interface Greet {
+		name:string;
+		age:number
+	}
+
+	const greet:Greet = {
+		name: "Shahbaz Patel",
+		age: 35
+	}
+
+	const Greeting = (greet: Greet):string => {
+		return `Hello ${greet.name}, Your mentioned age is ${greet.age}.`;
+	}
+
+	console.log(Greeting(greet));
+
+
+Q	What is class in JavaScript?
+	- A class in terms of OOP is a blueprint of creating objects.
+	- constructor is a method which calls on creation of an object, generally we are using it to assigning a value to the object properties.
+	
+	Eg:
+	class Person {
+		name: string;
+		age: number;
+		hobbies: string[];
+
+		constructor(name:string, age:number, hobbies:string[]) {
+			this.name = name;
+			this.age = age;
+			this.hobbies = hobbies
+		}
+	}
+
+	// above is a class and using it we can create multiple instance of it which called an object
+
+	const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
+	const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Mobiling"]);
+
+	console.log(person1);
+	console.log(person2);
+	
+	
+Q	What is Inheritance in TypeScript?
+	- Inheritance allow a class to reuse the functionality of an existing class without rewriting it.
+	- In below example we covered class inheritance, its constructor, how to write constructor in child class and inherites the parent's constructor as well as use parent's class methods in child class using super class and at last how to access different methods of child as well as parent class by calling it using "new" keyword.
+	
+	Eg:
+		class Person {
+			name: string;
+			age: number;
+			hobbies: string[];
+
+			constructor(name:string, age:number, hobbies:string[]) {
+				this.name = name;
+				this.age = age;
+				this.hobbies = hobbies
+			}
+
+			introduce():string {
+				return `Hi, I'm ${this.name} and I'm ${this.age} years old. I love ${this.hobbies.join(",")}.`;
+			}
+		}
+
+		// here "Student" class accessing all functionalities of class "Person"
+		// so we can create object of "Student" class & use all functionalites mentioned in "Student" class as mentioned below
+		class Student extends Person {      
+			grade: number;
+
+			constructor(name:string, age:number, hobbies:string[], grade:number) {
+				super(name, age, hobbies);
+				this.grade = grade;
+			}  
+
+			// introduce():string {
+			//     return `Hi, I'm ${this.name} and I'm ${this.age} years old. I am in ${this.grade} class. I love ${this.hobbies.join(",")}.`;
+			// }
+
+			introduce():string {
+				return `${super.introduce()}. I am in class ${this.age}`;
+			}
+		}
+
+		// above is a class and using it we can create multiple instance of it which called an object
+
+		const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
+		const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Mobiling"]);
+		const student1:Student = new Student("Shahrukh", 55, ["Acting", "Laughing", "Styling"], 10);
+
+		// console.log(person1);
+		// console.log(person2);
+
+		// console.log(person1.introduce());
+		// console.log(person2.introduce());
+
+		console.log(student1);
+		console.log(student1.introduce());
+		
+
+Q	What is Access Modifiers in OOPs in TypeScript?
+	- Access Modifiers are the keywords which are used to defined the class properties and methods accessibility levels outside the class.
+	- There are 3 types of Access Modifiers which are 1) private 2) public 3) protected
+	
+	1) private ->> This type of properties and methods only access within the class where we declared it.
+	2) protected ->> this type of properties and methods we can access within the current class where we declared and its child classes.
+	3) public ->> This type of properties and methods we can access throught any where like within a class, its child class and outside  	
+	   the class where we creates its object. by default every functionality(properties & methods) of class is a public. 
+	
+	Eg:	(public modifier)
+		class Person {
+			public name: string;
+
+			constructor(name: string) {
+				this.name = name;
+			}
+			
+			public greet() {
+				console.log(`Hello, my name is ${this.name}`);
+			}
+		}
+		const person = new Person('Alice');
+		console.log(person.name); // Accessible
+		person.greet(); // Accessible
+		
+	Eg: (private modifier) 
+		class Person {
+			private age: number;
+
+			constructor(age: number) {
+				this.age = age;
+			}
+			public showAge() {
+				console.log(`My age is ${this.age}`);
+			}
+		}
+		
+		const person = new Person(30);
+		console.log(person.age); // Error: Property 'age' is private and only accessible within class 'Person'.
+		person.showAge(); // Works fine
+		
+	Eg: (protected modifier) 
+		class Person {
+			protected name: string;
+
+			constructor(name: string) {
+				this.name = name;
+			}
+		}
+
+		class Employee extends Person {
+			public getName() {
+				return this.name; // Accessible in derived class
+			}
+		}
+		
+		const employee = new Employee('Bob');
+		console.log(employee.getName()); // Works fine
+		console.log(employee.name); // Error: Property 'name' is protected and only accessible within class 'Person' and its subclasses.
+		
+		
+Q	How to shorthand properties of class in Typescript?
+	- Obviously we can shorthand properties of class in TypeScript using passed the access modifiers within constructor arguments in class.
+	- Below is same as written in above inheritance example, but with shorthand properties of class in Typescript:
+	
+	Eg:
+		class Person {
+
+			constructor(public name:string, public age:number, public hobbies:string[]) {}
+
+			introduce():string {
+				return `Hi, I'm ${this.name} and I'm ${this.age} years old. I love ${this.hobbies.join(",")}.`;
+			}
+		}
+
+		// here "Student" class accessing all functionalities of class "Person"
+		// so we can create object of "Student" class & use all functionalites mentioned in "Student" class as mentioned below
+		class Student extends Person {
+
+			constructor(name:string, age:number, hobbies:string[], public grade:number) {
+				super(name, age, hobbies);
+			}  
+
+			// introduce():string {
+			//     return `Hi, I'm ${this.name} and I'm ${this.age} years old. I am in ${this.grade} class. I love ${this.hobbies.join(",")}.`;
+			// }
+
+			introduce():string {
+				return `${super.introduce()}. I am in class ${this.age}`;
+			}
+		}
+
+		// above is a class and using it we can create multiple instance of it which called an object
+
+		const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
+		const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Mobiling"]);
+		const student1:Student = new Student("Shahrukh", 55, ["Acting", "Laughing", "Styling"], 10);
+
+		// console.log(person1);
+		// console.log(person2);
+
+		// console.log(person1.introduce());
+		// console.log(person2.introduce());
+
+		// console.log(student1);
+		// console.log(student1.introduce());
+		
+		
+Q	What is getter and setter methods in TypeScript?
+	- In TypeScript classes, we can use getter and setter methods to control the access and modification of class properties.
+	- Getter method allow to retrieve the value of a property, while setter method allow to set the value of a property with additional logic or validation.
+	
+	Eg:
+		
+		
+Q	What is static properties & methods in classes?
+	- In TypeScript, static methods and properties belong to the class itself rather than to instance of the class.
+	- By making methods and properties static, we can access them directly from the class without needing to create an object of the class. This is useful for utility functions or properties that don't rely on instance-specific data.
+	
+	Eg:
+		class MathOperations {
+			public static PI:number = Math.PI;
+
+			public static add(num1:number, num2:number):number {
+				return num1+num2;
+			}
+
+			public static sub(num1:number, num2:number) {
+				return num1-num2;
+			}
+		}
+
+		console.log(MathOperations.PI);
+		console.log(MathOperations.add(5,4));
+		console.log(MathOperations.sub(5,4));
+		
+		
+Q	What is abstract class in TypeScript?
+	- Abstract classes provide a way to define common properties and methods that multiple derived(child) classes can share. This promotes code reuse and helps establish a common interface for related classes.
+	- abstract class can't be instantiated.
+	- abstract classes focus on class inheritance and sharing common functionalities across different classes.
+	
+	Eg:
+		abstract class Shape {
+			constructor(protected color: string){}
+
+			abstract calculateArea(): number;
+
+			abstract displayArea(): void;
+		}
+
+		class Circle extends Shape {
+			constructor(protected color: string, protected radius: number) {
+				super(color);
+			}
+
+			public calculateArea(): number {
+				return Math.PI * this.radius * this.radius;
+			}
+
+			public displayArea(): void {
+				console.log(`This is a ${this.color} circle with radius ${this.radius}.`);
+			}
+		}
+
+		const circle = new Circle("green", 5);
+		circle.calculateArea();
+		circle.displayArea();
+		
+		
+Q	What is Type vs Interface in TypeScript?
+	- We should use custom types when we need unions, intersections and mapped types.
+	- Use interfaces when defining object shapes or classes that adheref to a contract.
+	- Interfaces can extend other interfaces to inherits their members.
+	- Custom types can use unions and interactions for more complex type compositions.
+	
+	
+	Eg:	(type alias with intersection), simillarly we can use |(Union)
+		type Stud = {
+			name: string;
+			age: number
+		}
+
+		type StudAdd = {
+			city: string;
+			state: string
+		}
+
+		const bioData:Stud & StudAdd = {
+			name: "Shahbaz",
+			age: 35,
+			city: "Pune",
+			state: "Maharashtra"
+		}
+
+		console.log(`Name: ${bioData.name}`);
+		console.log(`Age: ${bioData.age}`);
+		console.log(`City: ${bioData.city}`);
+		console.log(`State: ${bioData.name}`);
+		
+	Eg: (Using Interface)
+		interface Stud {
+			name: string;
+			age: number
+		}
+
+		interface StudAdd {
+			city: string;
+			state: string
+		}
+
+		interface Data extends Stud, StudAdd {}
+
+		const bioData:Data = {
+			name: "Shahbaz",
+			age: 35,
+			city: "Pune",
+			state: "Maharashtra"
+		}
+
+		console.log(`Name: ${bioData.name}`);
+		console.log(`Age: ${bioData.age}`);
+		console.log(`City: ${bioData.city}`);
+		console.log(`State: ${bioData.name}`);
+		
+	Eg: (Here we extend the Stud with city & state further as written below)
+		interface Stud {
+			name: string;
+			age: number
+		}
+
+		interface Stud {
+			city: string;
+			state: string
+		}
+
+		interface Data extends Stud {}
+
+		const bioData:Data = {
+			name: "Shahbaz",
+			age: 35,
+			city: "Pune",
+			state: "Maharashtra"
+		}
+
+		console.log(`Name: ${bioData.name}`);
+		console.log(`Age: ${bioData.age}`);
+		console.log(`City: ${bioData.city}`);
+		console.log(`State: ${bioData.name}`);
+		
+	- When we want to dealing the interface with the class then we should use 'implements' instead of 'extends' which explained in the below example:
+	
+	Eg: (interface with classes)
+		interface Stud {
+			name: string;
+			age: number
+		}
+
+		interface StudAdd {
+			city: string;
+			state: string
+		}
+
+		interface Data extends Stud, StudAdd {}
+
+		class BioData implements Data {
+			constructor(public name:string, public age:number, public city:string, public state:string) {}
+		}
+
+		const myBioData = new BioData("Shahbaz Patel", 35, "Mumbai", "Maharashtra");
+
+		console.log(myBioData);
+		
+
+Q	What is Type Narrowing(Type Safety with Typeof guards) in TypeScript?
+	- A typeof guard in TypeScript lets you narrow down the type of a variable based on its runtime value.
+	- In TypeScript, type narrowing allows we to write type-safe code by ensuring only operate on the correct type under certain circumstances. 
+	- This is particularly useful with union types and generic types.
+	
+	Eg:
+		const favHobbies = (hobby: string | string[]) => {
+			return hobby.map(() => {		// Here "error" will be occurred (Property 'map' does not exist on type 'string | string[]'.
+  Property 'map' does not exist on type 'string'.)
+
+			})
+		}
+		
+	- Please see above example where we can send both type of hobby(string or array of string), but map function not accepting it in context of type "string", to overcome from it we are using type narrowing in TypeScript.
+	
+	Eg:
+		const favHobbies = (hobby: string | string[]): string[] | void => {
+			// return hobby.map(() => {});
+
+			if(typeof hobby === "object" && Array.isArray(hobby)) {
+				return hobby.map((item): string => {
+					return item;
+				})
+			} else {
+				console.log(hobby);
+			}
+		}
+
+		// Here we handling both type of types(string & array of strings) by using type narrowing concept
+		favHobbies("Playing");
+		console.log(favHobbies(["playing", "Kissing", "Cricket"]));
+	
+	
+Q	What should we use (Function or Classes) in TypeScript for MERN & Front-End Projects?
+	- 
+		
+		
+	
+	
+
+ 	
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TypeScript Tutorial @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

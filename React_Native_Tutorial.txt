@@ -4032,197 +4032,280 @@ export default Users
 ################################### Getting JSON SERVER Data & display using FlatList ###################################
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 26/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+######################### React Native (Work-Book) #########################
 
 
 
-Q 	What is Current Stable Version of React Native?
-	- 0.76 is a stable version of React Native.
+######################### React Native (QnA) #########################
+1) What is React Native?
+	- React Native is an open source React Framework to build mobile apps for android & iOS devices using its predefined core components(like Text, View, ScrollView, TextInput, Image & Button).
 	
-Q	What is React Native?
-	- React Native is an open source React Framework to build mobile apps for android as well as iOS devices using its core components.
+2) What is Current Stable Version of React Native?
+	- 0.78 is a stable version of React Native.
 	
-Q	What are the core components of React Native?
-	- Components are the basic building blocks of React Native using it we are creating React Native Apps. There are some important components are follows:
-		1) View ->> Use as a single wrapper or container to display other Components
-		2) Text ->> used to display text
-		3) TexInput ->> used to input text by user
-		4) ScrollView ->> used to creates a scrolling container (extended version of View Component)
-		5) Image ->> use to create Image Component
-		6) Button ->> use to create basic button in React Native
-		7) StyleSheet ->> use to insert style object (styling purposes)
-		
-Q	What coding languages are compatible with React Native?
-	- Generally the javascript is a coding language of React Native, but we can use python, C++, C also through the framework's Java Native Interface(JNI).
+4) What is architecture of a React Native app.
+	- A React Native App Architecture contains a Javascript Layer, a bridge for communication, and a Native Layer.
+	- Javascript Layer allow developers to write apps logic & UI using javascript and React components.
+	- The Bridge Layer is a communication hub between the Javascript Layer and Native Layer, that allowing developers to interaction of javascript code with native modules of the underlying platform to leverage the app capabalities. 
+	- The Native Layer contains the platform-specific code(like Swift for iOS and Java or Kotlin for Android) to add platform's native functionalities in the app.
 	
-Q 	How does React Native works?
-	- React Native converts the JSX to Native code through so called "Bridge". Basically Bridge converts JS thread to Native thread and vice versa.
-	- So we can create or build the app for Android & iOS platforms with same codebase.
-	
-Q	What is difference between hot reloading vs live reloading in React Native?
-	- Hot Reloading updates only that part of app where developer makes changes and saved. It is very less time consuming due to small changes made in the app code.
-	- But Live reloading is something opposite of hot reloading where after changes it updates the whole app to reflect the changes on screen, which is very time consuming process to happen.
-	
-Q	What is npm?
-	- npm stands for "node package manager" available with node.js used to install & manages the different required node packages(dependencies) using different npm commands.
-	
-Q 	What is command use to configure/create new react native project with current version using npm?
-	- npx react-native-community/cli init MyApp
+5) What is command use to configure/create new react native project with current version using cli?
+	- npx @react-native-community/cli init MyApp
 	But if we want to configure the project with older version then write below command,
 	- npx react-native@0.75.2 init MyApp --version="0.75.2"
 	
-Q	What is JSX?
-	- JSX stands for Javascript XML(also known as javascript extension) which allows us to write and add HTML like markups in React Native for developer convinience.
+6) What coding languages are compatible with React Native?
+	- Generally the javascript is a coding language of React Native, but also use Python, C++ & C through the framework's Java Native Interface(JNI).
 	
-Q	What is Component in React Native?
-	- Component is a reusable piece of code which shows a part of mobile app interface. View, Text & Button these are basic build-in components use in react native.
-	
-Q	How many types of components in React Native?
-	- Basically there are 2 types of components in React Native,
-	1) Function Component ->>
-		Function components are the basic javascript functions which returns a HTML like element in React Native.
-	2) Class Component ->>
-		Class Components are very simillar as class which are extends from a base class "React.Component" that renders the HTML like element in React Native.
+7) What is Component?
+	- Component is a reusable piece of code that define how a part of an app's user interface(UI) looks and behaves.
+	- Components are the building blocks of React Native which is used to build apps and it returns JSX content.
+	- There are some basic React Native components:
+		1) Text: Renders text
+		2) View: Renders a container
+		3) Image: Renders an image
+		4) ScrollView: Renders a scrollable view for content which larger than the screen
+		5) TextInput: Renders a text input fields
+		6) Button ->> use to create basic button in React Native
 		
-Q	What is State in Component?
-	- State is component's memory, where on state's update the related component and its child component will re-render with new or updated state value unlike any simple variable.
+8) What is JSX?
+	- JSX is a syntax extension for a javascript, which allow to write HTML or HTML-like code directly inside javascript.
 	
-Q	What is Props in React Native?
-	- Props are properties which are used to passing data from one component to another component in a unidirectional flow(from parent to child component).
+9) What is Functional Component?
+	- A Functional Component is a javascript function that returns a JSX to define the UI of a component. 
 	
-Q	What is FlatList in React Native?
-	- FlatList is react native component used to render large data lists which provides scrolling, pull-to-refresh and item selection inbuilt features.
+10) What is class component?
+	- A class component is a javascript class which inherites the properties & methods of its parent class "React.Component" to create a component.
 	
-Q	What is Grid?
-	- Grid is a set of horizontal and vertical lines that divides the screen into columns and rows which used to create responsive mobile app design.
-	
-Q	What is Component's Life Cycle Methods?
-	- These are Component's methods which will going to executes on different stages/phases of component like mounting, updating and unmounting.
-	
-Q	What is hook in React Native?
-	- Hooks are substitution of class component's life cycle methods(componentDidMount, componentDidUpdate & componentWillUnmount etc) which are basically functions that allow user's to access React's state and lifecycle features within a functional components(we are not using hooks in class components).
-	
-Q	What is Touchable Components in React Native?
-	- Touchable Components are provides basic functionality like handling onPress events and offering visual feedback through opacity changes just like Button. But there are much more functionality and styling options than Button in React.
-	
-Q 	What is Pressable compared to other Touchable Components in React Native?
-	- Pressable React Native element is more rich features(onLongPress, onMouseIn, onMouseOut) than other Touchable Components like TouchableOpacity & TouchableHighlight.
-	
-Q	What is React Navigation in React Native?
-	- React Navigation provides a straightforward navigation solution for Mobile Applications, to move from one screen to another with data and different type of navigations like stack navigation, tabbed navigation and drawer navigation on both Android & iOS devices.
-	
-Q	What is Ref in React Native?
-	- A Ref is essentially a reference to a DOM element for access and modify it without using props and states.
-	
-Q	What is AsyncStorage in React Native?
-	- AsyncStorage is an unencrypted, asynchronous, persistent key-value pair storage system that is global to the app.
-	
-Q	What is HOC(High-Order Component) in React-Native?
-	- A HOC is a design pattern in React Native that allows you to wrap a component for additional functionality, used for authentication, data fetching and making code more modular & reusable.
-	
-Q	What is architecture of a React Native app.
-	- A React Native app follows a component-based UI which works in 3 layers which are javascript layer, bridge layer and native layer.
-	- Javascript Layer is a first layer where developer write a code in javascript or React to create a component based Mobile UI and React Native uses virtual DOM to efficiently update the UI, just like in React for the web.
-	- The Bridge Layer is used as a communication hub between the Javascript Layer and Native Layer that allowing developers to use native capabilities of underlying platform. 
-	- The Native Layer contains the platofrm-specific code like for iOS its written in Swift and for Android its written in Java or Kotlin.
-	
-Q	What is the role of 'navigator' in React Navigation?	
-	- 'Navigator' is a core component in React Navigation that manages the navigation flow between screens in a React Native app. It defines the app's navigation structure, handles transitions, and maintains the navigation stack.
-	
-Q	What is Platform module in React Native?
-	- Platform module describes the current device's platform which will be write to handle platform specific functionality and coding in React Native App.
-	
-Q	What is WebView Component in React Native?
-	- WebView is used to display web content in React Native Application.
-	
-Q	What is Prop Drilling?
-	- Props drilling occurs when props are passing from top-level component to multiple nested components, even though some intermediate components doesn't want that props to use, which reducing the code maintainability.
-	- To avoid it we can use Context API & Redux in React Native apps.
-	
-Q	What is the importance of gesture handling for creating rich and responsive user interfaces in React Native?
-	- Gesture handling is vital for natural and responsive user interfaces. It's needed for swipe navigation, pinch-zoom, drag-and-drop, animations, carousels, pull-to-refresh, long-press actions, and rotations.
-	
-Q 	What is "shouldComponentUpdate" in React Native?
-	- shouldComponentUpdate is a lifecycle method that allows to whether a component should update and re-render when its props or state change.
-	- By default, React component re-renders whenever there's any changes in state or props.
-	
-Q	What is Virtual DOM in React Native?
-	- It is Virtual Representation of UI is kept in memory and synced with the real DOM by a library such as ReactDOM. Here the Real DOM will be updated that part only according to changes occurs in Virtual DOM in previous and present one state. It saves a time which lead to increase in performance of the application.
-	
-Q	What is PixelRatio in React Native?
-	- The PixelRatio module in React Native is used by developers to handle the differences in screen pixel densities across various devices to make every devices user friendly irrespect of different pixel densities.
-	
-Q	What is NativeBase?
-	- It is open source UI Component library for React Native that provides set of pre-designed, customizable and platform-specific components to create fast development with aesthetically pleasing design across different platforms.
-	
-Q	What is Babel?
-	- Babel is a javascript compiler to converts modern javascript code (ES6/ES7) into an older version(ES5) that is compatible with most browser and environments for reliability.
-	
-Q	What is "code signing" and its importance in React Native App Deployment?
-	- Code signing is a security practice used in app deployment to ensure the authenticity and integrity of the app.
-	- In React Native, we built an app for distribution(iOS and Android) which is digitally signed using cryptographic signatures and linking it with developer's developer account for authenticity purposes which ensures any unauthorized modifications in app's code and confirms app comes from trusted source.
-	
-Q	What is PureComponent in React Native?
-	- PureComponent is a base class of React Native that is use to optimizes the rendering performance of a component by prevents from unnecessary re-renders when there are no changes in state and props.
-	
-Q 	What is Deep Linking in React Native?
-	- Deep Linking is a feature of React Native that lets users navigate to specific content within an app by clicking on URLs or interacting with external sources which can improve the user experience.
-	
-Q	What is "Imperative VS Declarative" animations in React Native?
-	- Imperative animations involve controlling animation process through step-by-step instructions. For example, using 'Animated.timing' to specify the animation properties and durations explicitly.
-	- But Declarative animations describes the desired outcome, and the library handles the details to achieve the outcomes. In React Native, the "Animated" library supports declarative animations by allowing to define the end state values.
-	
-Q	What is "Bridgeless" architecture in React Native?
-	- The Bridgeless architecture is a concept introduced in the Hermes javascript engine which is alternative runtime for React Native apps which reduces the communication overhead between javascript and native code by optimizing the execution of javascript code on the native side.
-	- It leads to improved app startup performance and reduced memory consumption.
-	
-Q	What is "NetInfo"?
-	- "NetInfo" is a module in React Native that provides information about the device's network connectivity which allows to monitor the network state, detects changes in connection status, and respond accordingly.
-	
-Q	What is React Native Fabric?
-	- 'React Native Fabric' is an ongoing effort by the React Native community to rewrite and improve the core architecture of React Native. It aims to enhance performance, reduce memory usage, and provide better synchronization between JavaScript and native threads.
-	
-Q	What is "BackHandler" in handling Android back button events.
-	- 'BackHandler' is a module in React Native used to handle the Android hardware back button. It provides methods to register event listeners for back button presses and allows you to define custom behavior when the back button is pressed.
-	
-Q	What is the role of "Error Boundaries" in React Native?
-	- 'FlatList' and 'SectionList' are designed to handle dynamic data rendering efficiently. You provide these components with a data array, and they automatically render the items based on the data. By setting the 'data' prop and the 'renderItem' or 'renderSectionHeader' callback, you ensure that the UI updates whenever the data changes.
-	
-Q	What is "useMemo" and "useCallBack" hooks in React Native?
-	- "useMemo" and "useCallBack" are the performance optimization hooks in React Native that help improve performance by memoizing values and functions.
-	- "useMemo" memoizes values, preventing large recalculations when dependencies remain unchanged.
-	- "useCallBack" memoizes functions, these are only re-call when it required to call.
-	
-Q 	What is "PanResponder" module in React Native?
-	- PanResponder is a module in React Native used to handle touch gestures and user interactions like dragging, swiping and pinch-to-zoom by creating a custom touch responders. 
+11) What is State?
+	- The state is a built-in React object used to contain data or information about the component.
+	- A component's state can change over time; whenever it change, the component re-render with updated state value.
 
-Q	Which database is best for React Native?
-	- SQLite database.
+12) What is Props?
+	- Props is a special keyword in React that stands for properties which pass it from one component to another component in a unidirectional flow i.e. From parent to child component.
 	
-Q	What is Axios?
-	- Axios is a popular library for making http requests from the React Native Framework allows us to make GET, POST, PUT and DELETE request types and fetch the data to render the same on app's user interface.
+13) What is Flatlist?
+	- Flatlist is a react native component used to render large data lists which provide scrolling, pull-to-refresh and item selection features. 
+		
+14) What is Grid?
+	- Grid is a set of horizontal and vertical lines that divides the screen into columns and rows to create responsive mobile app design.
 	
-Q	What is Firebase?
+15) What is lifecycle methods?
+	- lifecycle methods of component is a series of methods that are invoked in different stages of the component's existence.
+	- There are different lifecycle methods of component is as below:
+	1) Initialization:
+		This is a stage where component is constructed with the given props and default states. This is done in the constructor of a component class.
+	
+	2) Mounting: 
+		Mounting is a stage of rendering the JSX returned by the render method itself.
+		
+	3) Updating:
+		Updating is the stage when the stage of component is updated and application is re-rendered.
+		
+	4) Unmounting:
+		It is the final stage of the component lifecycle where the component is removed from the page(component's tree).
+		
+16) What is "shouldComponentUpdate" in React Native?
+	- shouldComponentUpdate is a React's lifecycle method that decides whether a component should re-render when its state or props changed.
+	- By default, React component re-renders whenever state or props changed.
+
+17) What is hook in React Native?
+	- Hooks are build-in functions which were added in React version-16.8.
+	- Hooks allow functional components to deal with its state and other lifecycle features.
+
+18) What is useState hook?
+	- useState hook is use to store and manage the functional component's state, enabling dynamic updates and re-renders when the state changes.
+	- useState returns a stateful value, and it has a setter function to update its value.
+	
+19) What is useEffect hook?
+	- The useEffect hook is allow to perform side effects in functional component, like fetching data, setting up subscriptions and manipulating a DOM after component renders or re-renders.
+	
+20) What is Flexbox in React Native?
+	- A component can specify the layout of its children using flexbox algorithm. Flexbox is designed to provide a consistent(responsive) layout on different screen sizes.
+	
+21) What is touchable in React Native?
+	- Touchable makes component or it parts touchable.
+	- Touchables are creating event, on successfully event called there are some changes occured in a response like background color darkened, opacity changes in a feedback.
+	- There are 3 types of touchables below:
+	
+	1) TouchableHighlight - Its a touchable area and its background will be darkened when the user press down on this part.
+	
+	2) TouchableOpacity - Its a touchable area, once user press then changes the opacity of that area in its feedback.
+	
+	3) TouchableWithoutFeedback - If we need to add a tap gesture but dont want any feedback in response of user press that area, we are using TouchableWithoutFeedback.
+	
+22) What is npm?
+	- npm stands for "node package manager" which is free to use.
+	- npm is the world's largest Software library used to install and manage different packages for an application purpose.
+	
+23) What is navigation in react native?
+	- Navigation in React Native is the process of moving between screens in an app. It allow users to easily interact with different parts of the app.
+	- There are 3 types of navgiation in React Native as below:
+	
+	1) Stack Navigation -
+		- In this kind of navigation, a stack of screens are maintained.
+		- Each time we visit a screen, it push to the stack, and pressing back arrow will pop the item from the stack and show the last screen.
+		
+	2) Tab Navigation - 
+		- Tab Navigation having tabs on the page which used to navigate to other screens. Tabs can be either on the top of the screen or bottom.
+		- There are 2 types of Tab Navigations as below:
+			a) Bottom Tab Navigation - 
+				A simple tab bar on the bottom of the screen.
+			b) Top Tab navigation - 
+				A material-design-themed tab bar on the top of the screen.
+		
+	3) Drawer Navigation - 
+		- Drawer Navigation has drawer to open from a left side which contains different links to navigate other page.
+		
+24) What is Deep linking?
+	- Deep linking is a way of allowing users to navigate directly to the specific screen or content within an application.
+				
+25) What is Fetch API in Javascript?
+	- The Fetch API is a modern interface in javascript that allow us to make HTTP request.
+	- It replace the older XMLHttpRequest method and provides a cleaner and more flexible way to fetch resources asynchronously.
+	- Here Fetch API uses promise object or async-await function to work with asynchronous data handling operations.
+	
+	Syntax:
+		fetch(url, option)
+			.then((result) => result.json())
+			.then((data) => console.log(data))
+			.catch((err) => console.log("Error:", err))
+			
+		a) url ->> The API endpoint from where data is fetched.
+		b) options (optional) ->> Specifies method, headers, body, etc.
+		c) result.json() ->> It parse the result as JSON.
+		d) .catch(err) ->> handles any errors occurs during the asynchronous operation at server side.
+		
+	- There are different type of methods as below, which performs different type of requests to perform a tasks:
+	
+	1) Basic Fetch (GET)Method:
+		Its a simple Get method used to fetch data from an API.
+		
+	2) POST Method:
+		POST Method is used to submit data with body and headers.
+		
+	3) PUT Method:
+		PUT Method is used to update the existing data by passing id refrence, body and headers.
+		
+	4) DELETE Method:
+		DELETE Method used to delete the existing data by passing id refrence to the URL.
+		
+26) What is Axios?
+	- Axios is a javascript library that allow to make HTTP request to API endpoint for access external resources from within a React Component.
+	- There are some important features over fetch method are Automatic JSON parsing and error handling.
+	
+27) What is useRef() hook?
+	- The useRef is a built-in React hook that returns a mutable reference object that persists across renders.
+	- Unlike state variables, updating a ref does not trigger a component re-render.
+	
+28) What is forwardRef() hook?
+	- forwardRef is a utility function that allows a parent component to access the DOM node of child component by forwarding a "ref" passed to it(Child component).
+	- This is particularly useful when we need to interact with a child component's DOM element directly, such as focusing input or measuring its dimensions. 
+	
+29) What is AsyncStorage() function in React Native?
+	- AsyncStorage is an unencrypted, asynchronous, persistent, key-value storage system that is global to the app.
+
+30) What is NativeWind?
+	- NativeWind allow us to use Tailwind CSS in React Native components for a styling purpose.
+	
+31) What is Context API in React Native?
+	- Context API is used to share data across the multiple components without passing the props manually through every level of the component tree. Also it solves the problem of prop drilling in React.
+	- Prop drilling is a process of passing data(props) from a parent component down to deeply nested child components through multiple intermediate components, even those intermediate components do not directly use that data. this type of situation leads to unnecessary code complexity and reduce its maintainability, which is solved through Context API. 
+	
+32) What is Firebase?
 	- Firebase is a powerful tool provided by google for mobile and web app development platform which provides many services to help in building fast and high quality apps, grow user base, and earn more money without managing infrastructure.
 	- It is Database as a Service(DBaaS) tool, which provides a scalable cloud database to store and sync data for client and server-side development.
 	- Some key features of firebase are authentication, Real-time database, cloud messaging, crash reporting and analytics.
 	- Firebase is a freemium model, not an open source model. We can use its services free until we don't pass the limit of its free tier.
 	
-Q	What is Redux?
-	- Redux is a javascript library that helps manage the application state by providing a centralized store where developers can save and modify state, which can be shared across multiple screens of an app without prop drilling.
+33) What is Redux?
+	- Redux is a javascript library that helps to manage the application state by providing a centralized store where developers can save and modify state, which can be shared across multiple screens of an app without prop drilling.
 	
-Q	What is Redux Architecture?
+34) What is Redux Architecture?
 	- Basically Redux consist of 3 parts which are Actions, Reducers & Stores.
 	
 	1) Actions:
-		Actions represent the events which happens in an application, their are objects that have a type property to identify the action type, along with any additional data to perform the action. 
+		Actions represent the events which happens in an application, their are objects which contain type property to identify the action, along with additional data to perform the action. 
 		
 	2) Reducers:
-		Reducers are functions responsible for handling state transition in application by taking current state and an action type as input, and returns the new state according to action type.
+		Reducers are functions responsible for handling state transition in application by taking current state and an action type as an input, and returns the new state.
 		
 	3) Store:
-		It holds the application state which is singleton object and provides methods to access this state across different components in application without prop drilling.
-
-######################### React Native (Work-Book) #########################
+		It holds the application state which is singleton object and provide methods to access these states across different components in application without prop drilling.
+		
+35) What is Redux-Toolkit?
+	- 
+	
+36) What is Typescript?
+	- Typescript is syntactic superset of javascript which includes static typing feature. 
+	- Static typing means that the type of a variable is known at compile time instead of runtime. So once a variable is declared to be a certain type in a statically typed language, it cannot be redeclare to be a different type later. 
+	
+37) What is "BackHandler" in handling Android back button events.
+	- 'BackHandler' is a module in React Native used to handle the Android's hardware back button events. It provide methods to register event listeners and allow us to define custom behavior when the back button pressed.
+	
+38) What is PermissionsAndroid?
+	- PermissionsAndroid access to Android M's new permission model.
+	- So called normal persmissions are granted by default when the application is installed as long as they appear in "AndroidManifest.xml" file.
+	- However, "dangerous" permissions require a dialog prompt to get user permission. So to call these dialog prompt we are using PermissionsAndroid module of React Native.
+	
+39) What is "useMemo" and "useCallBack" hooks in React Native?
+	- "useMemo" and "useCallBack" are the performance optimization hooks in React Native that helps to improve performance by memoizing values and functions.
+	- "useMemo" memoizes values, preventing large recalculations when dependencies remain unchanged.
+	- "useCallBack" memoizes functions, these are only re-call when it required to call.
+	
+40) What is Hot Reloading & Live Reloading in React Native?
+	- Hot Reloading allow developers to see changes which are made to their code in real-time, without any manual refresh the app. It automatically reloads only the modified code, preserving the state of the app.
+	- Live Reloading allow developers to see changes which are made to their code in real-time, without any manual refresh the app. It reloads the entire app, discarding the current state. This means that if developer has made changes that affect the state of the app, they will not be preserved.
+	
+41) What is High-Order Component(HOC)?
+	- High-Order Component(HOC) simply takes the one component as a props and return new components with enhanced features, which is an advanced method of reusing the component functionality logic.
+	
+42) What is Webview in React?
+	- Webview is an embedded browser used to display web pages within the React Native Application.
+	
+43) What is Virtual DOM?
+	- The Virtual DOM(VDOM) is an in memory representation of Real DOM, enabling efficient UI updates by minimizing direct DOM manipulations and optimizing performance.
+	- When the component's state change, React Native creates a new VDOM tree. And new VDOM tree is compared with the previous VDOM to identify changes.
+	- So according to difference, React only update that part of the real DOM which needed.
+	
+44) What is Babel?
+	- Babel is a javascript compiler that converts modern javascript code (ES6/ES7) and JSX into an older version of JS(ES5) that will be compatible with most browsers and environments for a code reliability and compatibility purposes.
+	
+45) What is "code signing" and its importance in React Native App Deployment?
+	- Code signing is a security practices in app deployment to ensure the authenticity and integrity of the app.
+	- In React Native, we built an app for distribution(iOS and Android) which is digitally signed using cryptographic signatures and linking it with developer's developer account for authenticity purposes which ensures any unauthorized modifications in app's code and confirms app comes from trusted source.
+	
+46) What is PureComponent in React Native?
+	- PureComponent is a base class of React Native that is use to optimize the rendering performance of a component which prevents from unnecessary re-renders when no any changes occurred in state and props.
+	
+47) What is "NetInfo"?
+	- "NetInfo" is a module in React Native that provides information about the device's network connectivity which allows to monitor the network state, detects changes in connection status, and respond accordingly.
+	
+48) What is "PanResponder" module in React Native?
+	- PanResponder is a module in React Native used to handle touch gestures and user interactions like dragging, swiping and pinch-to-zoom by creating a custom touch responders.
+	
+49) What is SQLite?
+	- SQLite is a free, open source & relational database management system(RDBMS) that's used to store structured data in a database file.
+	- SQLite is ideal for small-scale application and local storage.
+	
+50) What is JEST testing framework?
+	-
+	
+51) What is Metro in React Native?
+	- The Metro bundler is the default javascript bundler for React Native Projects where it is responsible for transforming, bundling and serving the javascript code to the development server or packaging it for production.
+	- Metro is highly optimized for the React Native environment, providing a seamless development experience.
+	- If we created a React Native project using React Native CLI, then the Metro is already included in it to use.
+	
+52) What is Uncontrolled Components?
+	- Uncontrolled Components are the components that do not rely on the React state to update the component but are handled by the DOM(Document Object Model) manipulations using the help of "refs".
+	
+53) What is "Bridgeless" architecture in React Native?
+	- The Bridgeless architecture is a concept introduced in the Hermes javascript engine which is alternative runtime for React Native apps which reduces the communication overhead between javascript and native code by optimizing the execution of javascript code on the native side.
+	- It leads to improve app startup performance and reduced memory consumption.
+	
+54) What is React Native Fabric?
+	- 'React Native Fabric' is an ongoing effort by the React Native community to rewrite and improve the core architecture of React Native. It aims to enhance performance, reduce memory usage, and provide better synchronization between JavaScript and native threads.
+######################### React Native (QnA) #########################
 
 
 
