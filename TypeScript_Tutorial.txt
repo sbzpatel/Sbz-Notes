@@ -235,8 +235,8 @@ Q	What is enums in TypeScript?
 			role: Roles.user
 		}
 
-		const isAdmin = (user1:LoginDetails): string => {
-			const {name, email, password, role} = user1;
+		const isAdmin = (user:LoginDetails): string => {
+			const {name, email, password, role} = user;
 
 			if(role === "admin") {
 				return `${name} is allow to edit the website...`;
@@ -407,47 +407,48 @@ Q	What is Interface in TypeScript?
 	- In TypeScript, an interface is a powerful feature that allow to define a contract for an object's shape. It specifies the properties and their types that an object must have to be considered of that particular interface type.
 	- It is primarily used for type-checking and do not generate any javascript code at runtime.
 	
-	interface Greet {
-		name:string;
-		age:number
-	}
+	Eg:
+		interface Greet {
+			name:string;
+			age:number
+		}
 
-	const greet:Greet = {
-		name: "Shahbaz Patel",
-		age: 35
-	}
+		const greet:Greet = {
+			name: "Shahbaz Patel",
+			age: 35
+		}
 
-	const Greeting = (greet: Greet):string => {
-		return `Hello ${greet.name}, Your mentioned age is ${greet.age}.`;
-	}
+		const Greeting = (greet: Greet):string => {
+			return `Hello ${greet.name}, Your mentioned age is ${greet.age}.`;
+		}
 
-	console.log(Greeting(greet));
+		console.log(Greeting(greet));
 
 
 Q	What is class in JavaScript?
 	- A class in terms of OOP is a blueprint of creating objects.
-	- constructor is a method which calls on creation of an object, generally we are using it to assigning a value to the object properties.
+	- constructor is a method which calls on creation of an object, generally we are using it to assign a value to the object properties.
 	
 	Eg:
-	class Person {
-		name: string;
-		age: number;
-		hobbies: string[];
+		class Person {
+			name: string;
+			age: number;
+			hobbies: string[];
 
-		constructor(name:string, age:number, hobbies:string[]) {
-			this.name = name;
-			this.age = age;
-			this.hobbies = hobbies
+			constructor(name:string, age:number, hobbies:string[]) {
+				this.name = name;
+				this.age = age;
+				this.hobbies = hobbies
+			}
 		}
-	}
 
-	// above is a class and using it we can create multiple instance of it which called an object
+		// above is a class and create multiple instance of it, called class "Person"s object
 
-	const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
-	const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Mobiling"]);
+		const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
+		const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Honking"]);
 
-	console.log(person1);
-	console.log(person2);
+		console.log(person1);
+		console.log(person2);
 	
 	
 Q	What is Inheritance in TypeScript?
