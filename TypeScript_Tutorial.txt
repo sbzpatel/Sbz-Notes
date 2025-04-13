@@ -651,7 +651,7 @@ Q	What is abstract class in TypeScript?
 	
 	Eg:
 		abstract class Shape {
-			constructor(protected color: string){}
+			constructor(protected color:string) {}
 
 			abstract calculateArea(): number;
 
@@ -659,22 +659,22 @@ Q	What is abstract class in TypeScript?
 		}
 
 		class Circle extends Shape {
-			constructor(protected color: string, protected radius: number) {
+			constructor(protected color:string, protected radius: number) {
 				super(color);
 			}
 
-			public calculateArea(): number {
-				return Math.PI * this.radius * this.radius;
+			calculateArea() {
+				return this.radius*this.radius*Math.PI;
 			}
 
-			public displayArea(): void {
-				console.log(`This is a ${this.color} circle with radius ${this.radius}.`);
+			displayArea() {
+				console.log(`This is a ${this.color} circle with radius ${this.radius}. Also Its Area is around ${this.calculateArea()}.`);
 			}
 		}
 
-		const circle = new Circle("green", 5);
-		circle.calculateArea();
-		circle.displayArea();
+		const c1 = new Circle("Green", 4);
+		c1.calculateArea();
+		c1.displayArea();
 		
 		
 Q	What is Type vs Interface in TypeScript?
