@@ -574,7 +574,6 @@ Q	How to shorthand properties of class in Typescript?
 	
 	Eg:
 		class Person {
-
 			constructor(public name:string, public age:number, public hobbies:string[]) {}
 
 			introduce():string {

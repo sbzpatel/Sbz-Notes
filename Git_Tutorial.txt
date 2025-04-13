@@ -435,7 +435,7 @@ See 'git help git' for an overview of the system.
 	
 	
 	->> git diff feature1 (we should on main branch)
-	->> git merge feature1 (changes will be reflects on feature1 of main)
+	->> git merge feature1 (changes will be reflects on "main" branch from "freature1")
 	->> git push origin main (after merge push that local code to the repo "main" branch)
 	
 	
