@@ -618,7 +618,46 @@ Q	What is getter and setter methods in TypeScript?
 	- In TypeScript classes, we can use getter and setter methods to control the access and modification of class properties.
 	- Getter method allow to retrieve the value of a property, while setter method allow to set the value of a property with additional logic or validation.
 	
-	Eg:
+	Eg: (Getter example) 
+		class Person {
+			private _name:string;
+			
+			constructor(name:string) {
+				this._name = name;
+			}
+			
+			get name():string {
+				return this._name;
+			}
+		}
+
+		const p1 = new Person("Shahbaz");
+		console.log(p1.name);
+
+	Eg: (Setter example)
+		class Person {
+			private _name:string;
+			
+		// 	constructor(name:string) {
+		// 		this._name = name;
+		// 	}
+
+			set name(value: string) {
+				if(value.length < 2) {
+					throw new Error("Name is too short!!!");
+				} else {
+					this._name = value; 
+				}
+			}
+			
+			get name():string {
+				return this._name;
+			}
+		}
+
+		const p1 = new Person();
+		p1.name = "Shahbaz";
+		console.log(p1.name);
 		
 		
 Q	What is static properties & methods in classes?
