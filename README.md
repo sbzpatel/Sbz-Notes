@@ -164,3 +164,121 @@
 54) Previous state in functional component
 55) Redux
 56) NextJs vs ReactJs
+
+# React Native Tutorial Points
+1) What is React Native?
+2) How to Setup React Native in Windows OS?
+3) React Native App File Structure
+4) View, Text & Button
+5) JSX
+6) Components
+7) Button and onPress event
+8) state
+9) props
+10) Styling in React Native Project(Inline, Internal, External)
+11) Handling TextInput Component
+12) Basic Form in React NATIVE
+13) FlatList
+14) List with map function
+15) Grid Layout
+16) Component in Loop with FlatList
+17) SectionList
+18) Class Component
+19) State & Props in Class Components
+20) Life cycle phases and methods
+21) Hooks
+22) useEffect hook as a life cycle methods in functional component
+23) componentDidUpdate()
+24) Toggle, show & Hide Component
+25) componentDidUnmount
+26) Responsive Layout with Flexbox
+27) TouchableHighlight
+28) How to make radio buttons in React NATIVE
+29) Activity Indicator
+30) Modal | Dialog Box in React NATIVE
+31) Pressable
+32) StatusBar
+33) Platform
+34) How to install npm package
+35) React Native Navigations
+36) Stack Navigation
+37) Drawer Navigation
+38) Tab Navigation
+39) API call using Fetch API (List with API Data)
+40) FlatList with API Data
+41) JSON Server
+42) Test API with Postman
+43) GET Method API
+44) POST Method API
+45) Form Validation
+46) DELETE Method API
+47) PUT Method API
+48) Ref & useRef
+49) Change app icon for android app
+50) AsyncStorage
+51) Element Inspector
+52) Redux
+53) TouchableOpacity
+54) Axios library for GET, POST, PUT, PATCH, DELETE Method API
+55) Image & ImageBackground
+56) Context API
+57) Redux Toolkit
+58) NativeWind
+59) Firebase Setup & Introduction
+60) Firebase Authentication using Email
+61) Firebase Reset Password
+62) Firebase Firestore CRUD
+63) Firebase Realtime Database
+64) Splash Screen
+65) Switch
+66) Transform
+67) ToastAndroid
+68) useMemo
+69) useCallback
+70) Pure Component
+71) Forward Ref
+72) EncryptedStorage
+73) shouldComponentUpdate
+74) Custom Permissions in React Native App
+75) Deep Linking
+76) Keyboard Listeners
+77) Alert
+78) How to debug a React Native App?
+79) How to Optimize performance in a React Native Application?
+80) HOC(Higher Order Component)
+81) Architecture of React Native app
+82) Expo
+83) Prop drilling
+84) Offline storage in React Native App
+85) Virtual DOM
+86) Responsive design in React Native app
+87) PixelRatio
+88) Push Notifications in React Native app
+89) SafeAreaView
+90) Custom font in React Native app
+91) AppState module in React Native
+92) Bridge communication in React NATIVE
+93) Native modules in React NATIVE
+94) How to handle Background taks in React Native app
+95) Babel
+96) ErrorUtils
+97) 'Code Signing' in React Native app deployment
+98) React Native WebView
+99) Handling of the global app state without Redux and Context API
+100) GeoLocation for User's current location in React Native App
+101) Bridgeless Architecture(Hermes engine) in React Native app
+102) NetInfo
+103) What is GraphQL? Why we are using it?
+104) PanResponder
+105) CodePush
+106) React Native Fabric
+107) BackHandler
+108) Error Handling in React Native
+109) Difference between ReactJs and React Native
+110) componentDidMount
+111) XCode
+112) Gradle
+113) Offline Storage (SQLite, Realm or Firebase)
+114) S. O. L. I. D principles and Design Patterns
+115) Responsive Mobile App Design
+116) How to optimize memory consumption and App Performance
