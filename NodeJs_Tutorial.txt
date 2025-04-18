@@ -408,7 +408,7 @@ Q	How to handle request & response in ExpressJs?
 	- In above example, we are getting query param "name" which are passed through the browser, so we can access it at server side as above shown.
 	- You can observed in above example, we are getting query param name using "req.query.name" and send it in response as wrote above.
 	
-Q How do we render HTML and JSON data from server to browser side?
+Q 	How do we render HTML and JSON data from server to browser side?
 	- Below example shows that the HTML tags send to the requested route using res.send() method.
 	
 	Eg:
@@ -420,7 +420,6 @@ Q How do we render HTML and JSON data from server to browser side?
 				<h1>Hello, Welcome to HomePage.</h1>
 				<a href="/about">Go to About Page</a>
 			`);   //  render with h1 HTML tag at browser side 
-
 		})
 
 		app.get("/about", (req, res) => {
@@ -502,7 +501,7 @@ Q	How we remove the file extensions from above example to access without it in E
 		
 	- Now we can access the "about" page by url "http://localhost/about", simillarly "help" page by url "http://localhost/help" where no any extensions mentioned here.
 
-Q 	How to handle page which is not present on Server side.
+Q 	How to handle page which is not present on Server side?
 	- Sometimes the user requesting a page which is not present at server side to render. So here we should create here 404 page which shows that requested page not found. 
 	- Below example mentioned this situation, where first step we need to create one file which handle this request named as "pageNotFound.html".
 	

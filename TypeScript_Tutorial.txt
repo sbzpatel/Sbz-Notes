@@ -425,7 +425,7 @@ Q	What is Interface in TypeScript?
 		console.log(Greeting(greet));
 
 
-Q	What is class in JavaScript?
+Q	What is class in TypeScript?
 	- A class in terms of OOP is a blueprint of creating objects.
 	- constructor is a method which calls on creation of an object, generally we are using it to assign a value to the object properties.
 	
@@ -827,7 +827,7 @@ Q	What is Type Narrowing(Type Safety with Typeof guards) in TypeScript?
 	Eg:
 		const favHobbies = (hobby: string | string[]) => {
 			return hobby.map(() => {		// Here "error" will be occurred (Property 'map' does not exist on type 'string | string[]'.
-  Property 'map' does not exist on type 'string'.)
+  Property 'map' does not exist on type 'string')
 
 			})
 		}
