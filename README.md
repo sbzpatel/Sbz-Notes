@@ -106,3 +106,61 @@
 20) Undoing(Reset) Changes, 1) Reset Staged Changes 2) Reset Committed Changes
 21) What is Commit Hash Code in Git & How we can use it to reset committed changes?
 22) What is Fork in Github?
+
+# ReactJS Tutorial Points
+1) What is REACTJS
+2) Component
+3) Functional Component
+4) Class Component
+5) JSX
+6) Click event and function
+7) State
+8) State in Class Component
+9) Props
+10) Props in Class Component
+11) Get input box value
+12) Hide, Show & Toggle React Component
+13) Conditional Rendering
+14) Pass Function as Props
+15) Life Cycle Method
+16) Constructor
+17) componentDidMount
+18) componentDidUpdate
+19) shouldComponentUpdate
+20) componentWillUnmount
+21) React Hooks
+22) useEffect
+23) styling in React
+24) Install Boostrap with React Project
+25) Array Listing with map function
+26) Bootstrap Table
+27) Nested List
+28) Reuse Component in Loop
+29) Send Data from Child to Parent Class
+30) Pure Component
+31) useMemo
+32) useRef
+33) forwardRef
+34) Controlled & Uncontrolled Component
+35) HOC (High Order Component)
+36) React Router
+37) Links
+38) Navbar
+39) Anchor Tag
+40) 404 Page
+41) Dynamic Routing with params
+42) Link & Nav Link Style
+43) Active Link
+44) use searchParams & setSearchParams
+45) Navigation on click
+46) Nested Routing
+47) useLocation Hooks
+48) Protected route
+49) Postman
+50) GET Method in REST API
+51) POST Method in REST API
+52) DELETE Method in Rest API
+53) PUT Method in Rest API
+54) Previous state in functional component
+55) Redux
+56) NextJs vs ReactJs
