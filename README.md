@@ -3,7 +3,7 @@
 
 <p>This is entry level concept which are cleared by me for a better understanding and start working as a MERN STACK DEVELOPMENT as a Mobile Application Development using React Native Technologies. </p>
 
-# JavaScript Tutorial Points
+# JAVASCRIPT Tutorial Points
 1) console method
 2) alert method
 3) Variable
@@ -54,7 +54,7 @@
 49) Async Await Function
 50) Fetch API
 
-# TypeScript Tutorial Points
+# TYPESCRIPT Tutorial Points
 1) About TypeScript
 2) Static Typing
 3) Type Annotation
@@ -107,7 +107,7 @@
 21) What is Commit Hash Code in Git & How we can use it to reset committed changes?
 22) What is Fork in Github?
 
-# ReactJS Tutorial Points
+# REACTJS Tutorial Points
 1) What is REACTJS
 2) Component
 3) Functional Component
@@ -165,7 +165,7 @@
 55) Redux
 56) NextJs vs ReactJs
 
-# React Native Tutorial Points
+# REACT NATIVE Tutorial Points
 1) What is React Native?
 2) How to Setup React Native in Windows OS?
 3) React Native App File Structure
@@ -283,7 +283,7 @@
 115) Responsive Mobile App Design
 116) How to optimize memory consumption and App Performance
 
-# MongoDB Tutorial Points
+# MONGODB Tutorial Points
 1) What is MONGODB
 2) Mongo Shell
 3) Database
@@ -320,5 +320,27 @@
 34) PATCH Request in REST API using NodeJs & MONGODB
 35) Adding Express Router in REST API
 
-
-
+# NODEJS Tutorial Points
+1) What is NodeJs?
+2) Why we use NodeJs?
+3) import export in NodeJs
+4) Core Module
+5) How to make a server?
+6) What is package.json file in project & how to create it?
+7) How to create simple & basic API in NodeJs with example?
+8) How to get input from command prompt in NodeJs?
+9) How to creates directory/folder & display contain files list in command prompt?
+10) How to perform CRUD operations with file system.
+11) What is Synchronous & Asynchronous Programming Execution?
+12) How to handle Asynchronous Data in NodeJs?
+13) What is NodeJs Architecture?
+14) What is ExpressJs? How to install it?
+15) How to handle Routing in ExpressJs?
+16) How to handle request & response in ExpressJs?
+17) How do we render HTML and JSON data from server to browser side?
+18) How to access the static content HTML files from any folder in a root directory using ExpressJs?
+19) How we remove the file extensions from above example to access without it in Express?
+20) How to handle page which is not present on Server side?
+21) What is Template Engine used for?
+22) How to make a common header and add it in other routes in Nodejs?
+23) What is Middlewares in ExpressJs?
