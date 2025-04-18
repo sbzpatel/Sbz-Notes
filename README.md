@@ -83,3 +83,26 @@
 26) Type vs Interface in TypeScript
 27) Type Narrowing in TypeScript
 
+# GITHUB Tutorial Points
+1) Git & GITHUB
+2) Create account on GITHUB Portal
+3) How to create a new repo on GITHUB
+4) What is README.md file & Why we are using it?
+5) Commit process in GIT & GITHUB
+6) Setting up Git on Windows
+7) Configuring Git Account in Local Machine
+8) How to clone project on local machine from GITHUB
+9) Different status of files in Git
+10) How to Add & Commit the file changes in Git
+11) What is Push Command
+12) How to Push the Local side Project first time on the Git Remote Side(GITHUB)
+13) Git Branches
+14) How to Create, Checkout, Delete, Modify the branches
+15) Merging Code / Merging Branches
+16) What is Pull Request & How to handle it in Git?
+17) What is Merge Conflicts & How to handle it?
+18) What are Current chnages & Incoming Changes in Github & How to handle it?
+19) What is Pull Command in Git?
+20) Undoing(Reset) Changes, 1) Reset Staged Changes 2) Reset Committed Changes
+21) What is Commit Hash Code in Git & How we can use it to reset committed changes?
+22) What is Fork in Github?
