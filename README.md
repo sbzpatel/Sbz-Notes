@@ -54,6 +54,32 @@
 49) Async Await Function
 50) Fetch API
 
-
-
+# TypeScript Tutorial Points
+1) About TypeScript
+2) Static Typing
+3) Type Annotation
+4) "any" Type
+5) Function in TypeScript
+6) Type Inference in TypeScript
+7) Optional parameter
+8) Default parameter
+9) Declaration of arrays in TYPESCRIPT
+10) Object in TypeScript
+11) Type Alias in TypeScript
+12) Function call signation in TypeScript
+13) enum
+14) Tuples
+15) Union(|) Type
+16) Interaction(&) Type
+17) Generic Data Types
+18) Interface
+19) Classes in TypeScript
+20) Inheritance in TypeScript
+21) Access Modifiers in OOPs
+22) Shorthand Properties of class in TypeScript
+23) Getter & Setter method in TypeScript
+24) Static Properties & Methods of Class
+25) Abstract Classes
+26) Type vs Interface in TypeScript
+27) Type Narrowing in TypeScript
 
