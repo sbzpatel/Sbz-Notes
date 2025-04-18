@@ -282,3 +282,43 @@
 114) S. O. L. I. D principles and Design Patterns
 115) Responsive Mobile App Design
 116) How to optimize memory consumption and App Performance
+
+# MongoDB Tutorial Points
+1) What is MONGODB
+2) Mongo Shell
+3) Database
+4) Collections
+5) Documents
+6) Fields
+7) Installation of MongoDB in Windows
+8) Create Database, Collections and Documents
+9) Create or Insert Documents into Collections
+10) Read or Queries the Documents into Collections
+11) Update the Documents in Collections
+12) Delete the Documents from Collections
+13) What is Mongo Compass, How to install it?
+14) What is Mongoose
+15) Connect NodeJs(Express) with MongoDB using Mongoose
+16) Create and Insert the Documents using Express in MongoDB using Mongoose
+17) Mongoose Schema & Models
+18) How to insert multiple documents in one line in Mongoose
+19) How to read or querying the documents using Mongoose in Express App
+20) MongoDB Comparison Query Operators using Mongoose & Node(Express JS)
+21) MongoDB Logical Query Operators using Mongoose & Node(Express JS)
+22) MongoDB Sorting & Count Query Methods using Mongoose & Node(Express JS)
+23) MongoDB Update the Documents using Mongoose in Express App
+24) MongoDB Delete the Documents using Mongoose in Express App
+25) Mongoose Build-In Validation using MongoDB in Express App
+26) Create Own Custom Validation using MongoDB in Express App
+27) Using NPM Validator Package for Validation in Express App
+28) What is REST API? 
+29) What is POSTMAN?
+30) Create Own RESTful API of GET Method in Express App
+31) Create RESTful API of POST Method in Express App
+32) Build RESTful API using Async await function in Express App
+33) Handling DELETE Request in REST API using NodeJs & MongoDB
+34) PATCH Request in REST API using NodeJs & MONGODB
+35) Adding Express Router in REST API
+
+
+
