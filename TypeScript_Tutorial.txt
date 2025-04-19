@@ -491,7 +491,7 @@ Q	What is Inheritance in TypeScript?
 			}
 		}
 
-		// above is a class and using it we can create multiple instance of it which called an object
+		// above is a class and for using it we can create multiple instance which is called an object
 
 		const person1:Person = new Person("Shahbaz Patel", 35, ["Playing", "Reading", "Surfing"]);
 		const person2:Person = new Person("Arru", 4, ["Vatvat", "Playing", "Mobiling"]);
