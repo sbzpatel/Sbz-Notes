@@ -2998,6 +2998,7 @@ const SubChild = () => {
 
 ############################ App.js ###########################
 import {Provider} from "react-redux";
+import store from './Components/reduxToolkit/store/store';
 
 <Provider store={store}>
 	<ReduxCounter />
@@ -3005,11 +3006,11 @@ import {Provider} from "react-redux";
 ############################ App.js ###########################
 
 
-############################ ReduxContext.js ###########################
+############################ ReduxCounter.js ###########################
 import { View, Text, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { increment, decrement, reset } from './redux/slice/counterSlice';
+import { increment, decrement, reset } from './reduxToolkit/slice/counterSlice';
 import externalStyle from './externalStyle';
 
 const ReduxCounter = () => {
@@ -3043,13 +3044,13 @@ const ReduxCounter = () => {
 }
 
 export default ReduxCounter
-############################ ReduxContext.js ###########################
+############################ ReduxCounter.js ###########################
 
 
 ############################ counterSlice.js ###########################
 import { createSlice } from "@reduxjs/toolkit"
 
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
     name: "counter",
     initialState: {
         value: 0,
@@ -3076,11 +3077,13 @@ export default counterSlice.reducer;
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../slice/counterSlice";
 
-export const store = configureStore({
+const store = configureStore({
     reducer: {
         counter: counterReducer
     }
 })
+
+export default store;
 ############################ store.js ###########################
 ########################## Redux Toolkit ##########################
 
@@ -3134,17 +3137,24 @@ plugins: ['nativewind/babel']	->> "babel.config.js" file
 
 ########################## Firebase configuration & setup ##########################
 ->> open "firebase console" and "rnfirebase.io" in chrome
+
 ->> create new project in "firebase console" (Here we need some data to put it on the firebase console as below)
 	- package name (present in "android\app\src\main\java\com\reactnativetutorialnew\MainActivity.kt)
 	- SHA1 key (go to "android" folder and run "./gradlew signingRepoprt")
+
 ->> run "npm install --save @react-native-firebase/app
+
 ->> With these both data start to register the app and generate file "google-services.json" from firebase console
+
 ->> download this json file and paste it in "root/android/app"
+
 ->> goto "root/android/build.gradle" file & changes as mentioned in rnfirebase.io website
+
 ->> goto "root/android/app/build.gradle" file & put the following line at the top
 	- apply plugin: 'com.google.gms.google-services'
 	In "dependencies" section add below line after the line "implementation("com.facebook.react:react-android")"
 	- implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+
 ->> run "npx react-native run-android" & check that whether app is working as before
 ########################## Firebase configuration & setup ##########################
 
@@ -3198,7 +3208,7 @@ export const loginUser = async (email, password) => {
             case "auth/wrong-password":
                 errorMessage = "Incorrect Password";
             break;
-            case "auth/usernot-found":
+            case "auth/user-not-found":
                 errorMessage = "No user found!";
             break;
             default:
