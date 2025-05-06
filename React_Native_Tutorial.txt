@@ -3241,7 +3241,82 @@ export const sendPasswordResetEmail1 = async (email) => {
 }
 ########################## Firebase authentication ##########################
 
+########################## Firebase Firestore Database ##########################
+- Firebase Firestore, officially called Cloud Firestore, is a cloud-based NoSQL database provided by Google Firebase. It's designed to store, sync, and query data for web, mobile, and server applications.
 
+- Key Features ->>
+	1) NoSQL document database
+	2) Real-time updates
+	3) Offline support
+	4) Strong security
+	
+- Example structure ->>
+		users (collection)
+	└── userId123 (document)
+		├── name: "Alice"
+		├── email: "alice@example.com"
+		└── age: 25
+
+- Firestore is particularly popular for apps that need real-time updates like chat apps, collaborative tools, and dashboards.
+
+- Below are the all CRUD related methods used to perform operationns as below
+
+- First we need to install package as below,
+	npm install @react-native-firebase/firestore;
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Firestore CRUD Operations Code $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//userCRUDFirestore.js
+
+	import firestore from "@react-native-firebase/firestore";
+
+	// Fetch Data
+	const getUserData = async () => {
+		try {
+			const usersSnapshot = await firestore().collection('users').get();
+			const users = usersSnapshot.docs().map(doc => ({ id: doc.id, ...doc.data() }));
+			
+			console.log("User's data successfully fetched...");
+			return users;
+		} catch(error) {
+			console.log("Error: ", error);
+		}
+		
+	}
+
+
+	// Add Data
+	const addUserData = async (userData) => {
+		try {
+			await firestore().collection('users').add(userData);
+			console.log("User's data successfully added...");
+		} catch(error) {
+			console.log("Error: ", error);
+		}
+	}
+
+
+	// Update Data
+	const updateUserData = async (id, updatedData) => {
+		try {
+			await firestore().collection('users').doc(id).update(updatedData);
+			console.log("User's data successfully updated...");
+		} catch(error) {
+			console.error("Error: ", error);
+		}
+	}
+
+
+	// Delete Data
+	const deleteUserData = async (id) => {
+		try {
+			await firestore().collection('users').doc(id).delete();
+			console.log("User's data successfully deleted...");
+		} catch(error) {
+			console.error("Error: ", error);
+		}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Firestore CRUD Operations Code $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+########################## Firebase Firestore Database ##########################
 
 <Switch
 	trackColor={{ false: "grey", true: "green" }}
@@ -4042,7 +4117,414 @@ export default Users
 ################################### Getting JSON SERVER Data & display using FlatList ###################################
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 26/02/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 03/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+################################### SQLite (Offline storage) ###################################
+- In React Native, SQLite is a way to store data locally on the device using a small, fast, lightweight database engine. Think of it like having a mini database inside your app — no internet needed.
+
+- To install SQLit use command:
+	npm install --save react-native-sqlite-storage
+
+
+
+import React, { useEffect } from 'react';
+import { View, Text, Button } from 'react-native';
+import SQLite from 'react-native-sqlite-storage';
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create/Open Database $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	let db = openDatabase(
+		{name: "UserDatabase.db", location: "default"}
+		() => console.log('Database created/opened successfully!!!'),
+		(error) => console.error('Error opening database:', error)
+	)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create/Open Database $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create Table $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	db.transaction(tx => 
+		tx.executeSql(
+			`CREATE TABLE IF NOT EXISTS Users (
+				id INTEGER PRIMARY KEY AUTOINCREMENT,
+				name TEXT,
+				age INTEGER
+			)`,
+			[],
+			() => console.log('Table created successfully!!!'),
+			(error) => console.error('Error creating table:', error)
+		)
+	)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create Table $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Insert Row(Data) $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	const insertUser = () => {
+		db.transaction(tx => 
+			tx.executeSql(
+				`INSERT INTO Users(name, age) VALUES (?, ?)`,
+				[name, age],
+				(tx, result) => console.log('User added successfully!!!'),
+				(error) => console.error('Error inserting user:', error)
+			)
+		)
+	}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Insert Row(Data) $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Reading Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	const fetchUser = () => {
+		db.transaction(tx => 
+			tx.transaction(tx =>
+				tx.executeSql(
+					`SELECT * from Users`,
+					[],
+					(tx, result) => {
+						let rows = result.rows;
+						for(let i=0;i<=rows.length;i++) {
+							console.log(rows.item(i));			// logs each row
+						}
+					},
+					(error) => console.error('error fetching users:', error);
+				)
+			)
+		)
+	} 
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Reading Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Updating Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	const updateUser = (id, name, age) => {
+		db.transaction(tx => 
+			tx.executeSql(
+				`UPDATE Users SET name = ?, age = ? WHERE id = ?`,
+				[name, age, id],
+				() => console.log('User updated successfully!!!'),
+				(error) => console.error('Error fetching users:', error);
+			)
+		)
+	}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Updating Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Deleting Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	const deleteUser = (id) => {
+		db.transaction(tx => 
+			tx.executeSql(
+				`DELETE from Users WHERE id = ?`,
+				[id],
+				() => console.log('User deleted successfully!!!'),
+				(error) => console.error('Error deleting user:', error)
+			)
+		)
+	}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Deleting Table Data $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Drop Table $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	db.transaction(tx => 
+		tx.executeSql(
+			`DROP TABLE IF EXISTS Users`,
+			[],
+			() => console.log('Table successfully dropped!!!'),
+			(error) => console.error('Error droping table:', error)
+		)
+	)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Drop Table $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+################################### SQLite (Offline storage) ###################################
+
+
+
+############################################ Realm Local Storage (CRUD Operations) ############################################
+
+- Realm is a popular mobile database that you can use for local storage in a React Native application.
+- Here’s an example of a React Native app that uses Realm to perform CRUD (Create, Read, Update, Delete) operations on product details:
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Install Realm $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	->> npm install realm
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Install Realm $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Set Up Realm Schema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// ProductModel.js
+
+	- Define your Realm schema in a file, e.g., ProductModel.js:
+
+	import Realm from 'realm';
+
+	class ProductModel extends Realm.Object {}
+	ProductModal.schema = {
+		name: 'Product',
+		properties: {
+			id: 'int',
+			name: 'string',
+			description: 'string',
+			price: 'double'
+		}
+	};
+
+	export default ProductModel;
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Set Up Realm Schema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create a Realm Service (CRUD Operationns) $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// RealmService.js
+
+	import Realm from 'realm';
+	import ProductModel from './ProductModel';
+
+	const realm = new Realm({ schema: [ProductModel] });
+
+	const RealmService = {
+		getAllProducts: () => realm.objects('Product'),
+		
+		// Addition of Product
+		addProduct: (product) => {
+			realm.write(() => {
+				realm.create('Product', product);
+			}
+		},
+		
+		// Update of Product
+		updateProduct: (id, updatedProduct) => {
+			const product = realm.objectForPrimaryKey('Product', id);
+			
+			if(product) {
+				realm.write(() => {
+					Object.keys(updatedProduct).forEach((key) => {
+						product[key] = updatedProduct[key];
+					})
+				})
+			}
+		},
+		
+		// Delete Product
+		deleteProduct: (id) => {
+			const product = realm.objectForPrimaryKey('Product', id);
+			
+			if(product) {
+				realm.write(() => {
+					realm.delete(product);
+				});
+			}
+		}
+	}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create a Realm Service (CRUD Operationns) $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create React Native Components $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// ProductList.js
+
+	import React, {Text, View} from 'react';
+	import {Text, View, FlatList, Button} from 'react-native';
+	import RealmService from './RealmServices/RealmService';
+	
+	const ProductList = () => {
+		const [products, setProducts] = useState([]);
+	
+		useEffect(() => {
+			fetchData();
+		}, []);
+		
+		// Fetch Product Data
+		const fetchData = () => {
+			const allProducts = RealmService.getAllProducts();
+			setProducts(allProducts);
+		}
+		
+		
+		// Delete product Data
+		const deleteData = (id) => {
+			RealmService.deleteProduct(id);
+			const updatedProducts = RealmService.getAllProducts();
+			setProducts(updatedProducts);
+		}
+	
+		return (
+			<View>
+				<FlatList 
+					data={products}
+					keyExtractor={(item) => item.id.toString()}
+					renderItem={({item}) => (
+						<View>
+							<Text>{item.name}</Text>
+							<Text>{item.description}</Text>
+							<Text>{item.price}</Text>
+							
+							<Button 
+								title="Delete"
+								onPress={() => deleteData(item.id)}
+							/>
+						</View>
+					)}
+				/>
+			</View>
+		)
+	}
+	
+	export default ProductList;
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Create React Native Components $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+- Simillarly, we can do different CRUD Operations like Add, Update, Delete etc.
+
+############################################ Realm Local Storage (CRUD Operations) ############################################
+
+
+
+############################################ JWT Token for Authentication ############################################
+
+- A JSON WEB Token(JWT) is a secure way to exchange information between 2 or more parties using json format, often used for authentication.
+- Basically, when user login to an application using username and password(Login API), the server returns the JWT and user can hold it in local storage for further use in API calling for authentication.
+- Here we are passing this token during API calling through its header, so server can authenticate the user is valid which is logged in.
+- As the user interacts with an application, a token is attached in the header of each request so the server knows this is a logged-in user without the user-provided credentials each time until the JWT expires.
+- Server sending 2 types of tokens 1) Access Token 2) Refresh Token, Access Token(short-lived) & Refresh Tokenn(long-lived).
+- Once the Access Token is expired the server will response with 401 error code. So we can generate the new Access Token using Refresh Token which is long lived to expired. In this case we don't want to call again with username and password, instead of it we are calling refreshToken API to generate or update new JWT Token for further use.
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Front Setup in React Native $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+- We are using 2 npm package as below
+
+	1) Axios ->> used to call HTTP REST APIs
+	2) @react-native-async-storage/async-storage ->> for storing tokens (Here we can use any other secure encrypted option)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Front Setup in React Native $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Login & Store JWT Token $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+// login.js
+
+	import AsyncStorage from '@react-native-async-storage/async-storage';
+	import axios from 'axios';
+	
+	const login = async (email, password) => {
+		try {
+			const response = await axios.post('https://your-api.com/login', {
+				email,
+				password
+			});
+			
+			const { accessToken, refreshToken } = response.data;
+			
+			// store token
+			await AsyncStorage.setItem('accessToken', accessToken);
+			await AsyncStorage.setItem('refreshToken', refreshToken);
+			
+			return true;
+		} catch(err) {
+			console.error('Login failed', error);
+			return false;
+		}
+	}	
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Login & Store JWT Token $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Protected API Requests with Token $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+- Here we can use Axios instance with interceptors to attach the token automatically:
+
+	const api = axios.create({
+		baseURL: 'https://your-api.com',
+	});
+	
+	api.interceptors.request.use(async (config) => {
+		const token = await AsyncStorage.getItem('accessToken');
+		
+		if(token) {
+			config.headers.Authorization = `Bearer ${token}`;
+		}
+		
+		return config;
+	})
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Protected API Requests with Token $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Token Expiry & Refresh $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	api.interceptors.response.use(
+		response => response,
+		async error => {
+			const originalRequest = error.config;
+			
+			if(error.response.status == 401 && !originalRequest._retry) {
+				originalRequest._retry = true;
+				
+				await refreshToken = await AsyncStorage.getItem('refreshToken');
+				
+				try {
+					const res = await axios.post('https://your-api.com/refreshAPI', {
+						refreshToken
+					});
+					
+					const newAccessToken = res.data.accessToken;
+					
+					await AsyncStorage.setItem('accessToken', newAccessToken);
+					
+					originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+					
+					return api(originalRequest);
+				} catch(err) {
+					await AsyncStorage.clear();
+					return Promise.reject(err);
+				}
+			}
+			
+			return Promise.reject(error);
+		}
+	)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Token Expiry & Refresh $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Logout App $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	const logout = async () => {
+		await AsyncStorage.clear();
+	}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Logout App $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+############################################ JWT Token for Authentication ############################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 03/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 ######################### React Native (Work-Book) #########################
+
+
+
 
 
 
