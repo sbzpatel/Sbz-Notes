@@ -4519,7 +4519,229 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Logout App $$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Logout App $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 ############################################ JWT Token for Authentication ############################################
+
+
+
+############################################ Deep Linkinng ############################################
+- Deep linking in React Native allows you to open specific screens or routes in your app using a URL. It’s useful for navigating to specific content within the app, handling external links, or integrating with other apps or web content.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  Setup Navigation $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+- Below are the npm package need to install for Deep Linking:
+	1) npm install @react-navigation/native
+	2) npm install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated react-native-vector-icons
+	3) npm install @react-navigation/native-stack
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  Setup Navigation $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Configure Linking in Navigation $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// App.js
+
+	import { View, Text, Button, TouchableOpacity, Modal, FlatList, SectionList, ActivityIndicator } from 'react-native'
+	import React, { useEffect, useState } from 'react'
+	import { createNativeStackNavigator } from '@react-navigation/native-stack'
+	import { NavigationContainer } from '@react-navigation/native';
+	import LinkingScreen from './Components/LinkingScreen';
+	import ScreenC from './Components/ScreenC';
+	import ScreenB from './Components/ScreenB';
+	import ScreenA from './Components/ScreenA';
+
+	const Stack = createNativeStackNavigator();
+
+	// configure Linking
+	const linking = {
+	  prefixes: ['myapp://app'],
+	  config: {
+		screens: {
+		ScreenA: 'a',
+		ScreenB: {
+			path: "b/:message",
+			parse: {
+			  message: (message) => `${message}`
+			}
+		},
+		ScreenC: 'c',
+		}
+	  }
+	};
+
+	const App = () => {
+	  return (
+		<NavigationContainer linking={linking}>
+		  <Stack.Navigator>
+			<Stack.Screen
+			  name="ScreenA"
+			  component={ScreenA}
+			/>
+			<Stack.Screen
+			  name="ScreenB"
+			  component={ScreenB}
+			/>
+			<Stack.Screen
+			  name="ScreenC"
+			  component={ScreenC}
+			/>
+			<Stack.Screen
+			  name="LinkingScreen"
+			  component={LinkingScreen}
+			/>
+		  </Stack.Navigator>
+		</NavigationContainer>
+	  )
+	}
+
+	export default App
+	
+--------------------------------------------------------------------------------------------------------
+	
+// ScreenA.js
+
+	import { View, Text, TouchableOpacity } from 'react-native'
+	import React from 'react'
+	import { ExStyles } from './css/ExStyles'
+
+	const ScreenA = (props) => {
+		return (
+			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+				<Text style={ExStyles.heading}>ScreenA</Text>
+
+				<TouchableOpacity onPress={() => props.navigation.navigate('ScreenB', {message: 'Comes from Screen A'})} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>Go to ScreenB</Text>
+				</TouchableOpacity>
+			</View>
+		)
+	}
+
+	export default ScreenA
+
+--------------------------------------------------------------------------------------------------------
+	
+// ScreenB.js
+
+	import { View, Text, TouchableOpacity } from 'react-native'
+	import React from 'react'
+	import { ExStyles } from './css/ExStyles'
+
+	const ScreenB = (props) => {
+		return (
+			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+				<Text style={{fontSize: 22, color: "green"}}>Message: {props.route.params.message}</Text>
+				<Text style={ExStyles.heading}>ScreenB</Text>
+
+				<TouchableOpacity onPress={() => props.navigation.navigate('ScreenC')} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>Go to ScreenC</Text>
+				</TouchableOpacity>
+			</View>
+		)
+	}
+
+	export default ScreenB
+	
+--------------------------------------------------------------------------------------------------------
+	
+// ScreenC.js
+
+	import { View, Text, TouchableOpacity } from 'react-native'
+	import React from 'react'
+	import { ExStyles } from './css/ExStyles'
+
+	const ScreenC = (props) => {
+		return (
+			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+				<Text style={ExStyles.heading}>ScreenC</Text>
+
+				<TouchableOpacity onPress={() => props.navigation.navigate('LinkingScreen')} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>Go to Linking Screen</Text>
+				</TouchableOpacity>
+			</View>
+		)
+	}
+
+	export default ScreenC
+	
+--------------------------------------------------------------------------------------------------------
+	
+// LinkingScreen.js
+
+	import { View, Text, TouchableOpacity, Linking } from 'react-native'
+	import React from 'react'
+	import { ExStyles } from './css/ExStyles'
+
+	const LinkingScreen = (props) => {
+		const Url_A = "myapp://app/a";
+		const Url_B = "myapp://app/b/Comes from Deeplink";
+		const Url_C = "myapp://app/c";
+
+		return (
+			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+				<Text style={ExStyles.heading}>Linking Screen</Text>
+
+				<TouchableOpacity onPress={async () => Linking.openURL(Url_A)} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>DeepLink to ScreenA</Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity onPress={async () => Linking.openURL(Url_B)} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>DeepLink to ScreenB</Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity onPress={async () => Linking.openURL(Url_C)} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>DeepLink to ScreenC</Text>
+				</TouchableOpacity>
+				
+				<TouchableOpacity onPress={async () => Linking.openURL("https://reactnative.dev/")} style={{ width: "100%" }}>
+					<Text style={ExStyles.customBtn}>DeepLink to React Native Website</Text>
+				</TouchableOpacity>
+			</View>
+		)
+	}
+
+	export default LinkingScreen
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Configure Linking in Navigation $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+- Here in above example we creates a deep links to open these Screens within the app, but if we want to open it when app was closed, then we need to use below command in cmd.
+
+	-> npx uri-scheme open myapp://app/a -- android			// it opens ScreenA within the app
+	-> npx uri-scheme open myapp://app/b/Shahbaz -- android			// it opens ScreenB within the app
+
+############################################ Deep Linkinng ############################################
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 03/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 07/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+############################################ Push Notifications ############################################
+
+- Push Notifications in React Native allow apps to send messages to users even when the app is not active.
+
+	->> Types of Push Notifications:
+		1) Local Notifications: Triggered by the app on the device (e.g reminders & notification once file successfully downloaded)
+		2) Remote(Push) Notifications: Sent from a backend server via service like "Firebase Cloud Messaging"(FCM) or "Apple Push Notification Service"(APNs).
+
+- In case of Remote Notifications we need to use FCM Token which determine the relation between app and where this app been installed(means device) to generate the notification from backend(means firebase).
+
+- There are 3 states where the notifications can handled through firebase:
+	1) Foreground State 
+	2) Background State
+	3) Killed/Terminated State
+	
+- In all these 3 states we can handle the notifications using different firebase "@react-native-firebase/messaging" library's methods.
+- Out of these 3 states, the notification not displayed in foreground state where the app already in a running state.
+		
+	->> Important libraries for Push Notifications:
+		1) react-native-push-notification:	Supports local and remote notifications
+		2) @react-native-firebase/messaging: Library used to integrate FCM for remote push notifications
+			- Basically to configure remote notifications we need 2 Firebase notifications as below:
+				-> npm install @react-native-firebase/app @react-native-firebase/messaging
+				
+- Here we need some Platform related permissions for allow the app notifications on device(android/iOS).
+- if we just want to implement local notification on app, then no need to use any firebase related libraries, instead of it we can use "react-native-push-notification" library and in advanced or modern level we can use "@react-native-notification".
+- For developer convinience we can use React Native Library "notifee" which allow to create local notifications on device with minimal effort with rich media options like images, buttons etc. which handles at foreground as well as background state. Also can schedule the notifications & Android & iOS Native Customization.		
+- We can use FCM+notifee for better result and convinience to develope an application to handle Remote Push Notifications with minimal effort as compared to traditional way.
+
+
+
+############################################ Push Notifications ############################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 07/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 ######################### React Native (Work-Book) #########################
 
