@@ -899,11 +899,42 @@ Q	What is Type Narrowing(Type Safety with Typeof guards) in TypeScript?
 		console.log(favHobbies(["playing", "Kissing", "Cricket"]));
 	
 	
-Q	What should we use (Function or Classes) in TypeScript for MERN & Front-End Projects?
-	- 
+Q	How to do a basic configuration of TypeScript?
+	There are some easy steps to configure TypeScript environment to run the TypeScript code easily.
+
+	1) Create a project directory:
+		- First need to create project directory with below command
+			-> mkdir my-ts-app && cd my-ts-app
+
+	2) Initialize npm:
+		- Initialize node with that directory, which create "package.json" with minimal configuration and scripts.
+			-> npm init -y
 		
+	3) Install TypeScript:
+		- "TypeScript" installed with this directory using npm, and add one directory "node-modules" contains installed packages supported files.
+		-> npm install typescript --save-dev
 		
+	4) Create the config file:
+		-> npx tsc --init
+
+	5) Create your source folder and files:
+		- /src
+ 		 	└── index.ts
+
+	6) Manually write below typescript code there:
+		const message: string = "Hello, TypeScript!";
+		console.log(message); 
+
+	7) Compile TypeScript to JavaScript
+		- In this command response directory or file "dist/index.js" created successfully if no any error in "index.ts" file.
+		npx tsc
+		
+	8) 3. Run the Compiled JavaScript
+		-> node dist/index.js
 	
+		- In response output will be showed in console:
+			Hello, TypeScript!
+
 	
 
  	
