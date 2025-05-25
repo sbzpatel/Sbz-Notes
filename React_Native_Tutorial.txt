@@ -14,7 +14,7 @@
 				
 				Both the type of Components are differentiate using below example to explain seperately.
 				
-				Eg: ######## Function Component) ########
+				Eg: ######## Function Component ########
 				import React from 'react';
 				import { Text } from 'react-native';
 				
@@ -25,7 +25,7 @@
 				};
 				
 				export default Sbz;
-					######## Function Component) ########
+					######## Function Component ########
 				
 				
 				Eg: ######## Class Component ########
@@ -285,7 +285,7 @@
 	
 @ 	What is JSX, Explain it with Example?
 	- JSX means Javascript Extensions(which means extends the power of javascript in this concept).
-	- Basically we can write an HTML code with javascript code simultaniously and effeciently for fast coding purposes.
+	- Basically we can write HTML or HTML like code(Readymade Component in React Native) with javascript code simultaniously and effeciently for fast coding purposes.
 	- Traditionally we seperates the JS and HTML code in Javascript, But in React Native we use JSX to combine both HTML and JS for Programatically efficient purpose to coders, which would leads to save time.
 	
 	Eg:
@@ -430,10 +430,10 @@
 			  
 			  <Text>Name is {name}</Text>
 			  <TextInput 
-			  style={ styles.texTInput }
-			  placeholder="Enter Your Name"
-			  onChangeText={ (text) => setName(text) }
-			  value={name}
+				style={ styles.texTInput }
+				placeholder="Enter Your Name"
+				onChangeText={ (text) => setName(text) }
+				value={name}
 			  />
 			  <Button title="Clear Input Value" onPress={ () => setName('') } />
 			</View>
@@ -766,7 +766,7 @@
 		1) Mounting
 		2) Updating
 		3) UnMounting	
-	- Components are not of application but its of Component.
+	- Life Cycle Methods are not of application but its of earch Component present in an application.
 	- Life Cycle Methods are executing on the time of declaring, updating or any Error regarding the state or props in the program.
 	
 @ 	What are hooks & What we can do with hooks?
@@ -1572,16 +1572,16 @@
 							screenOptions={{
 								headerTintColor: "white",
 								headerStyle: {
-								backgroundColor: "#174182"
+									backgroundColor: "#174182"
 								},
 								headerTitleAlign: "center",
 								drawerStyle: {
-								backgroundColor: "#174182",
-								width: 310
+									backgroundColor: "#174182",
+									width: 310
 								},
 								drawerLabelStyle: {
-								color: "#fff",
-								fontSize: 18
+									color: "#fff",
+									fontSize: 18
 								},
 								drawerActiveBackgroundColor: "#0b2352"
 							}}
@@ -1710,7 +1710,6 @@
 		import {Text, View, StyleSheet, Button, TextInput} from 'react-native';
 		import {NavigationContainer} from '@react-navigation/native';
 		import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
 
 		const Tab = createMaterialTopTabNavigator();
 
@@ -1951,7 +1950,7 @@
 	- Also we can easily perform different operations like add, get and update json data from POSTMAN App using different APIs method like GET, POST and PUT simultaniously.
 	
 @ 	How to Integrate JSON Server API with React Native Code in App?
-	- Here we can't embed or use the JSON Server API using localhost in React Native App.
+	- Here we can't embed or use the JSON Server API using localhost in React Native App which runs on emulator.
 	- To do this First of all obtain the Current Machine IP Address (192.168.155.249).
 	- After that in jsonAPI folder, use the below command to start a machine as a server,
 		-- json-server --host 0.0.0.0 db.json --
@@ -2071,7 +2070,7 @@
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 22/10/2024 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-React Native Version ->> 0.76 (Major update)
+React Native Version ->> 0.79 (Major update)
 
 
 
@@ -2482,7 +2481,7 @@ const onRefresh = useCallback(() => {
 	setRefreshing(true);
 	setTimeout(() => {
 		setRefreshing(false);
-	}, 2000)
+	}, 3000)
 }, [])
 
 <ScrollView refreshControl={
@@ -2596,17 +2595,17 @@ Linking.openSettings();
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 11/11/2024 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 useEffect(() => {
-    const showSub = Keyboard.addListener("keyboardDidShow", () => {
+    const showKybrd = Keyboard.addListener("keyboardDidShow", () => {
       setKeyboardStatus("Keyboard Shown");
     })
 
-    const hideSub = Keyboard.addListener("keyboardDidHide", () => {
+    const hideKybrd = Keyboard.addListener("keyboardDidHide", () => {
       setKeyboardStatus("Keyboard Hide");
     })
 
-    return () =>  {
-      showSub.remove();
-      hideSub.remove();
+    return () => {
+      showKybrd.remove();
+      hideKybrd.remove();
     }
 }, []);
 
@@ -4700,7 +4699,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Configure Linking in Navigation $$$$$$$$$
 
 - Here in above example we creates a deep links to open these Screens within the app, but if we want to open it when app was closed, then we need to use below command in cmd.
 
-	-> npx uri-scheme open myapp://app/a -- android			// it opens ScreenA within the app
+	-> npx uri-scheme open myapp://app/a -- android					// it opens ScreenA within the app
 	-> npx uri-scheme open myapp://app/b/Shahbaz -- android			// it opens ScreenB within the app
 
 ############################################ Deep Linkinng ############################################
@@ -4742,6 +4741,45 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Configure Linking in Navigation $$$$$$$$$
 
 ############################################ Push Notifications ############################################
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 07/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 18/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+############################################ React Native Performance Tips ############################################
+
+	1) Use dynamic imports (import() instead of import)
+	2) Use FlatList instead of ScrollView
+	3) Avoid inline styling & anonymous function
+	4) Minimize renders by useMemo and useCallback hooks
+	5) optimize images through npm package "react-native-fast-image" for better caching
+	6) Optimize code of redux & context usage
+	7) Use Native drivers for navigation
+	8) Lazy loading feature of navigation by (lazy = true)
+	9) enable hermes engine in "android/app/build.gradle"
+	10) Reduce bundle size (in metro.config.js used to blacklist unnessary assets)
+	11) Remove cache related issues by installing npm package "react-native-clean-project"
+	12) Use console.disableYellowBox = true in Production level to disable all consoles (in App.js)
+
+############################################ React Native Performance Tips ############################################
+
+############################################ Responsive React Native App ############################################
+
+	1) Use FlexBox for Layout
+	2) Use Dimension API
+	3) Percentage based Width/Height
+	4) Use Platform API
+	5) Responsive Images with Image Component (resizeMode)
+	6) Use SafeAreaView Component specially to look good in iOS device below the notch
+	7) Test on multiple devices & Emulators
+
+############################################ Responsive React Native App ############################################
+
+############################################ CI/CD Pipline in React Native App Development ############################################
+
+
+
+############################################ CI/CD Pipline in React Native App Development ############################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 18/05/2025 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 ######################### React Native (Work-Book) #########################
 
@@ -5051,7 +5089,7 @@ Different functionalites in App:
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ MRF Tyre Selector @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 MRF Tyre Selector is a Hybrid Mobile Application made for MRF Tyre clients to fulfill there dealers requirements, where they can see all the record of tyres which MRF Tyres made. 
-1) Login with dealer code and authentication with 6 digit code
-2) first page contain the filters where we can search the tyre according to its modal and make but the second option where we can search using its size, tyre type & their patterns
-3) App contains the detailed information of that tyre with caraousal image where we use 3rd party npm package "react-native-reanimated-carousel" to integrate it in the app
+	1) Login with dealer code and authentication with 6 digit code
+	2) first page contain the filters where we can search the tyre according to its modal and make but the second option where we can search using its size, tyre type & their patterns
+	3) App contains the detailed information of that tyre with caraousal image where we use 3rd party npm package "react-native-reanimated-carousel" to integrate it in the app
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ MRF Tyre Selector @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -201,7 +201,54 @@ Q	What is function call signature in TypeScript?
 	- The function call signature refers to the declaration or definition of a function, which includes the function's name, parameters and return type.
 	- It defines the structure and type information of a function without including the function's implementation or body.
 	
-	Eg:
+	1) Basic call signature syntax:
+		- We should declare function signature like below:
+			-> type Greet = (name: string) => string;
+
+			- This means Greet is a type of a function that:
+			a) takes one parameter name of type string
+			b) returns a string
+
+			- Now we can use this signature during function declaration as below:
+
+			Eg:
+				const greet:Greet = (name) => {
+					return `Hello ${name}!!!`;
+				};
+
+
+
+	2) Call Signature in Interface:
+		- We can also define call signatures in interfaces:
+
+		Eg:
+			interface GreetFunction {
+				(name: string): string;
+			}
+
+		- This means that any function matching the shape (name:string) => string is valid for GreetFunction.
+
+
+
+	3) Optional & Rest Parameters:
+		Eg:
+			type Logger = (message:string, userId?:number) => void;
+			type Sum = (...nums: number[]) => number;
+
+		- Logger can be called with one or two arguments.
+		- Sum can take any number of number arguments.
+
+
+
+	4) Function Overloads as Call Signature:
+		Eg:
+			interface OverloadedFun {
+				(x:string): string;
+				(x:number): number;
+			}
+
+		- This means the function can be called either with a number or a string and returns the same type as the argument.
+		- A function call signature in TypeScript is a way to define what arguments a function accepts and what it returns — used in type aliases, interfaces, and function overloads. It’s critical for enforcing type safety in functions across your codebase.
 	
 	
 Q	What is enums in TypeScript?
