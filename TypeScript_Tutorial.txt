@@ -1,47 +1,74 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TypeScript Tutorial @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Q	Why we use TypeScript?
-	- TypeScript is a superset of JavaScript that adds static typing and other features to enhance JavaScript development.
+	- TypeScript is a superset of JavaScript that supports static typing and other features to enhance JavaScript development.
 	- It was developed by Microsoft on Oct 1, 2012, and is now open source project with a large community of contributors.
-	- TypeScript had extra features like Interfaces, Tuples, Enums, Generic, Classes etc over JavaScript.
-	- TypeScript catches error on compile time instead of runtime, which makes debugging easier and reduces the bugs which will be produce in production.
-	
-	Eg:
-		let fname:string = "Shahbaz Patel";
-		// fname = true;	//	error comes on this line
-		fname = "Kaleem Patel";
-		
-		console.log(fname);
+	- TypeScript had an extra features like Interfaces, Tuples, Enums, Generics, Classes etc over JavaScript.
+	- TypeScript catching errors during compile time instead of runtime, which makes debugging easier and reduce the bugs on production level.
 		
 	
 Q	What is static typing?
-	- Static typing means that the type of a variable is defined at compile-time instead of runtime. So, once a variable is declared to be a certain type in statically typed language, we cannot redeclare it to be another type later.
+	- Static typing means practice of defining and checking data type of variables, function parameters and function's return value at compile time instead of runtime.
+	- It contrasts with dynamically typed language like JavaScript, where type checking occurs at runtime.
+
+	Eg:
+		let fname:string = "Shahbaz";
+		// fname = 35;     // Error occurred on this line at compile time(before executionn)
+		console.log(fname);
+
+		function greet(name:string):string {    // defined data type of function parameters and return value
+			return `Hello, ${name}!!!`;
+		}
+
+		console.log(greet("Shahbaz"));
 	
 	
-Q	What is Type Annotations?
-	- In TypeScript, type annotation is a way of explicitly specifying the type of a variable, function parameters and function's return value.
+Q	What is Type Annotation?
+	- In TypeScript, type annotation is a way of explicitly declare data type of a variables, function parameters and function's return value.
 	
 	Eg:
+		// Type Annotation on Variable declaration
+		let name:string = "Shahbaz";
+		console.log(name);
+
+
+		// Type Annotation on Function Parameters & Return value
 		const sum = (a:number, b:number):number => {
 			return a+b;
 		}
-
 		console.log(sum(5,4));
 	
 	
 Q	What is Type "any" in TypeScript?
-	- The any type is most flexible type in javascript, where it turns off all type checking for the variables or expressionns it is applied to.
-	- It working with dynamic data which comes from user inputs, network responses, or deserialized JSON objects.
+	- It is most flexible type in TypeScript, it skips type checking for the variables and expressions it is applied to.
+	- It works with dynamic data that come from user inputs, network responses and deserialized JSON objects.
 	
 	Eg:
-		let num:any = 5;
-		num = "Shahbaz";
-		num = 7;
+		let fname:any = "Shahbaz";      // skips type checking in for variable
+		fname = 35;
+
+		console.log(fname);
+
+		function greet(name:any):string {       // we can pass any data type during its invocation
+			return `Hello ${name}!!!`;
+		}
+
+		console.log(greet("Shahbaz"));      // passing string argument
+		console.log(greet(35));         // passing number argument
+
+
+Q	What is Type Inference in TypeScript?
+	- Type Inference is the ability of TypeScript Compiler that automatically check and define type to variables, expressions and function's return value according to its context.
+
+	Eg:
+		const num = 4;		// here clearly indicates that num variable has type of "number"
+		// So we don't need to add type annotation, type annotation is simply opposite of "type inference"
+
 		console.log(num);
 		
 		
 Q	How to write function in TypeScript?
-	- We can write function in TypeScript with declaring its data types in below code:
+	- We can write function in TypeScript with type annotation for function parameters and its return value:
 	Eg:
 		function greet(name:string, id:number) {
 			console.log(`Welcome ${name}, your registered id is ${id}.`)
@@ -55,7 +82,7 @@ Q	How to write function in TypeScript?
 
 		greet("Shahbaz", 1);
 		
-	- If we want to return a specific type of value in TypeScript, then we should declare it as below:
+		- If we want to return a specific type of value in TypeScript, then we should declare it as below:
 		const greet = (name:string, id:number):string => `Welcome ${name}, your id is ${id}.`;
 
 		console.log(greet("Shahbaz", 1));
@@ -68,20 +95,10 @@ Q	How to write function in TypeScript?
 		}
 
 		console.log(checkPalindrom("MadaM"));
-
-
-Q	What is Type Inference in TypeScript?
-	- Type Inference in TypeScript refers to the ability of the TypeScript Compiler to automatically determine and assign types to variables, expressions and function returns value according to it's context.
-	- 
-	Eg:
-		const num = 4;		// here clearly indicates that num variable has type of "number"
-		// So we don't need to add type annotation, type annotation is simply opposite of "type inference"
-
-		console.log(num);
 		
 
 Q	What is Optional & Default Parameters in TypeScript?
-	- TypeScript allows to define optional & default parameters in functions.
+	- TypeScript allow to define optional & default parameters in function.
 	- In below example we defined default value to the functional parameter. If we not passed any argument during function invoke, then the default value will be given.
 	
 	Eg:
@@ -105,101 +122,10 @@ Q	What is Optional & Default Parameters in TypeScript?
 		
 		greet("Shahbaz", 1);
 		greet("Kaleem");
-		
-		
-Q	How to declare and use arrays in TypeScript?
-	- There are 3 ways to declare the arrays in TypeScript as below:
-	
-	1) Using square brackets:
-		const marks:number[] = [45, 78, 89, 95, 67];
-		
-	2) Using the Array constructor:
-		const marks:number[] = new Array(45, 78, 89, 95, 67);
-		
-	3) Using the Array.of method:
-		const friends = Array.of("Shahbaz", "Kaleem", "Ilham");
-		
-	- Also we can use array elements using its index reference as below:
-		console.log(marks[1]);		// 78
-		
-		console.log(friends[0]);	// Shahbaz
-		
-		
-Q	How to write object in TypeScript with type annotation?
-	- Below is a code where we write object "person":
-	
-	Eg:
-		const person:{
-			name:string;
-			email:string;
-			isStudent:boolean;
-			address: { city:string; country:string }
-		} = {
-			name: "Shahbaz T Patel", 
-			email: "shabya@gmail.com",
-			isStudent: false,
-			address: {
-				city: "Pune",
-				country: "India"
-			}
-		}
-		
-		person.name = 1243;		// Wrong, We can't assign number type value in a string variable
-		
-		person.name = "Shahbaz Patel";		// Right
-
-		console.log(person);
-		
-	
-Q	What is Type "Alias" in TypeScript?
-	- A Type "Alias" is a way to define a specific type or combination of types, which allows to create custom name for a type making it easier to reuse and refer to the same type in different parts of our code.
-	- In below code we use type alias to prevent from repeatitive code:
-	
-	Eg:
-		type Person = {			// type alias "Person" which reference gives to all 3 objects in below
-			name:string;
-			email:string;
-			isStudent:boolean;
-			address: { city:string; country:string }
-		};
 
 
-		const sbz:Person = {
-			name: "Shahbaz T Patel", 
-			email: "shabya@gmail.com",
-			isStudent: false,
-			address: {
-				city: "Pune",
-				country: "India"
-			}
-		}
-
-		const shaikh:Person = {
-			name: "Shahbaz A Shaikh", 
-			email: "shaikhu@gmail.com",
-			isStudent: false,
-			address: {
-				city: "Lanja",
-				country: "India"
-			}
-		}
-
-		const kaleem:Person = {
-			name: "Kaleem M Patel", 
-			email: "kalya@gmail.com",
-			isStudent: true,
-			address: {
-				city: "Dar-e-salaam",
-				country: "Africa"
-			}
-		}
-
-		console.log(sbz);
-		
-		
 Q	What is function call signature in TypeScript?
-	- The function call signature refers to the declaration or definition of a function, which includes the function's name, parameters and return type.
-	- It defines the structure and type information of a function without including the function's implementation or body.
+	- It defines the structure and type information of a function without it's implementation or body that includes the function's name, no. of parameters, type of parameters, order of parameters and return type.
 	
 	1) Basic call signature syntax:
 		- We should declare function signature like below:
@@ -249,11 +175,122 @@ Q	What is function call signature in TypeScript?
 
 		- This means the function can be called either with a number or a string and returns the same type as the argument.
 		- A function call signature in TypeScript is a way to define what arguments a function accepts and what it returns — used in type aliases, interfaces, and function overloads. It’s critical for enforcing type safety in functions across your codebase.
+
+		
+Q	How to declare and use arrays in TypeScript?
+	- There are 3 ways to declare the arrays in TypeScript as below:
+	
+	1) Using square brackets:
+		const marks:number[] = [45, 78, 89, 95, 67];
+		
+	2) Using the Array constructor:
+		const marks:number[] = new Array(45, 78, 89, 95, 67);
+		
+	3) Using the Array.of method:
+		const friends = Array.of("Shahbaz", "Kaleem", "Ilham");
+		
+	- Also we can use array elements using its index reference as below:
+		console.log(marks[1]);		// 78
+		
+		console.log(friends[0]);	// Shahbaz
+
+
+Q	What are Tuples in TypeScript?
+	- Tuple is data structure that allow to store fixed-size collection of elements where each of specific type.
+	- They are simillar to array, but with a key difference: 
+		a) type of tuple elements are predefined at the time of its declaration
+		b) number of tuple elements(tuple size) is fixed at the time of its declaration
+		
+	Eg:
+		type personInfo = [string, number, boolean];
+
+		const person1:personInfo = ["Shahbaz Patel", 35, true];
+		const person2:personInfo = ["Kaleem Patel", 60, false];
+
+		const displayPersonInfo : (person: personInfo) => void = (person: personInfo) : void => {
+			const [name, age, hasDrivingLicense] = person;
+
+			console.log(`Name: ${name}, Age: ${age}, Driver's License: ${hasDrivingLicense? "Yes": "No"}`)
+		}
+
+		displayPersonInfo(person1);
+		displayPersonInfo(person2);
+
+		
+Q	How to write object in TypeScript with type annotation?
+	- Below is a code where we write object "person":
+	
+	Eg:
+		const person:{
+			name:string;
+			email:string;
+			isStudent:boolean;
+			address: { city:string; country:string }
+		} = {
+			name: "Shahbaz T Patel", 
+			email: "shabya@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Pune",
+				country: "India"
+			}
+		}
+		
+		person.name = 1243;		// Wrong, We can't assign number type value in a string variable
+		
+		person.name = "Shahbaz Patel";		// Right
+
+		console.log(person);
+		
+	
+Q	What is Type "Alias" in TypeScript?
+	- A Type "Alias" is a way to define a specific or combination of types by creating custom name for code reusability & maintainability.
+	- In below code we use type alias to prevent from repeatitive code:
+	
+	Eg:
+		type Person = {			// type alias "Person" which reference gives to all 3 objects in below
+			name:string;
+			email:string;
+			isStudent:boolean;
+			address: { city:string; country:string }
+		};
+
+
+		const sbz:Person = {
+			name: "Shahbaz T Patel", 
+			email: "shabya@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Pune",
+				country: "India"
+			}
+		}
+
+		const shaikh:Person = {
+			name: "Shahbaz A Shaikh", 
+			email: "shaikhu@gmail.com",
+			isStudent: false,
+			address: {
+				city: "Lanja",
+				country: "India"
+			}
+		}
+
+		const kaleem:Person = {
+			name: "Kaleem M Patel", 
+			email: "kalya@gmail.com",
+			isStudent: true,
+			address: {
+				city: "Dar-e-salaam",
+				country: "Africa"
+			}
+		}
+
+		console.log(sbz);
 	
 	
 Q	What is enums in TypeScript?
-	- Enums in TypeScript are commonly used when we want to represent a set of related values and choose one value from multiple options.
-	- Enums provide a convenient way to define a set of named values and associate them with specific meanings.
+	- Enum is a way to represent a set of related values that associate with specific meaning and choose one value from them.
 	
 	Eg:
 		enum Roles {
@@ -296,30 +333,8 @@ Q	What is enums in TypeScript?
 		console.log(isAdmin(user2));
 		
 		
-Q	What are Tuples in TypeScript?
-	- Tuples are data structure that allow to store a fixed-size collection of elements of different types.
-	- They are simillar to array, but with a key difference: 
-		a) the types of elements in tuples are fixed and declared at the time of creation
-		b) and number of elements(size) in tuples are also already predefined during its declaration
-		
-	Eg:
-		type personInfo = [string, number, boolean];
-
-		const person1:personInfo = ["Shahbaz Patel", 35, true];
-		const person2:personInfo = ["Kaleem Patel", 60, false];
-
-		const displayPersonInfo : (person: personInfo) => void = (person: personInfo) : void => {
-			const [name, age, hasDrivingLicense] = person;
-
-			console.log(`Name: ${name}, Age: ${age}, Driver's License: ${hasDrivingLicense? "Yes": "No"}`)
-		}
-
-		displayPersonInfo(person1);
-		displayPersonInfo(person2);
-		
-		
 Q	What is Union type in TypeScript?
-	- Union types allow to specify that a variable can hold values of multiple types. Here we can use pipe symbol(|) to define a union type.
+	- Union type allow to specify that a variable can hold value of multiple types. Here we can use pipe symbol(|) to define a union type.
 	
 	Eg:
 		const inputValue = (value:string|number):any => {
@@ -336,7 +351,7 @@ Q	What is Union type in TypeScript?
 		
 		
 Q	What is Intersection type in TypeScript?
-	- Intersection type allow to combine multiple types into a single type. here we can use ampersand symbol(&) to define an interaction type.
+	- Intersection type allow to combine multiple types into a single type. Here we are using ampersand symbol(&) to define an Intersection type.
 
 	Eg:
 		type Person = {
@@ -388,8 +403,8 @@ Q	What is Intersection type in TypeScript?
 		console.log(myCompleteInfo);
 		
 		
-Q	What is Generics datatypes in TypeScript?
-	- Generics in TypeScript allow to create reusable components or functions that can work with multiple data types.
+Q	What is Generic datatypes in TypeScript?
+	- Generic allow to create reusable components or functions that can work with multiple data types.
 	
 	Eg:
 		function logAndReturn(value: number | string): number | string {
@@ -401,12 +416,12 @@ Q	What is Generics datatypes in TypeScript?
 		const stringResult:string | number = logAndReturn("Shahbaz");
 
 		const booleanResult: string | number = logAndReturn(true);	
-		// At this line the error will occurred because we are passing boolean value which is not allowed that only allowed to pass number or string. but in large application we can handle this by using generics in typescript which explained in below next eample.
+		// At this line the error will occurred because we are passing boolean value which is not allowed(that only allowed to pass number or string). but in large application we can handle this by using generics in typescript which explained in below next eample.
 
 		console.log(numberResult);
 		console.log(stringResult);
 		
-	Eg: (Overcome above error with typescript feature "generics" type declaration)
+	Eg: (Overcome above error with TypeScript feature "generics" type declaration)
 		function logAndReturn<T>(value: T): T {
 			return value;
 		}
@@ -431,7 +446,7 @@ Q	What is Generics datatypes in TypeScript?
 
 		sum<string>("Shahbaz", "Patel");
 		
-	- But what if I am passing different type of variables with calling function "sum", here this above function definition will be failed to executes. So to overcome from this issue, we will use multiple generic types in function defintion as below,
+	- But what if i am passing different type of variables with calling function "sum", here this above function definition will be failed to executes. So to overcome from this issue, we will use multiple generic types in function defintion as below,
 
 	Eg:
 		function sum<T, U>(a: T,b: U): void {
@@ -451,7 +466,7 @@ Q	What is Generics datatypes in TypeScript?
 		
 		
 Q	What is Interface in TypeScript?
-	- In TypeScript, an interface is a powerful feature that allow to define a contract for an object's shape. It specifies the properties and their types that an object must have to be considered of that particular interface type.
+	- In TypeScript, an interface is a powerful feature that allow to define a contract for an object's shape. It specify the properties and their types that an object must have to be considered of that particular interface type.
 	- It is primarily used for type-checking and do not generate any javascript code at runtime.
 	
 	Eg:
@@ -560,8 +575,7 @@ Q	What is Access Modifiers in OOPs in TypeScript?
 	
 	1) private ->> This type of properties and methods only access within the class where we declared it.
 	2) protected ->> this type of properties and methods we can access within the current class where we declared and its child classes.
-	3) public ->> This type of properties and methods we can access throught any where like within a class, its child class and outside  	
-	   the class where we creates its object. by default every functionality(properties & methods) of class is a public. 
+	3) public ->> This type of properties and methods we can access throught any where like within a class, its child class and outside the class where we creates its object. by default every functionality(properties & methods) of class is a public. 
 	
 	Eg:	(public modifier)
 		class Person {
@@ -631,7 +645,6 @@ Q	How to shorthand properties of class in Typescript?
 		// here "Student" class accessing all functionalities of class "Person"
 		// so we can create object of "Student" class & use all functionalites mentioned in "Student" class as mentioned below
 		class Student extends Person {
-
 			constructor(name:string, age:number, hobbies:string[], public grade:number) {
 				super(name, age, hobbies);
 			}  
@@ -730,9 +743,9 @@ Q	What is static properties & methods in classes?
 		
 		
 Q	What is abstract class in TypeScript?
-	- Abstract classes provide a way to define common properties and methods that multiple derived(child) classes can share. This promotes code reuse and helps establish a common interface for related classes.
-	- abstract class can't be instantiated.
-	- abstract classes focus on class inheritance and sharing common functionalities across different classes.
+	- Abstract classes provide a way to declare common properties and methods using `abstract` keyword that share with multiple derived(child) classes. This promotes code reuse and help to establish a common interface for related classes.
+	- Abstract class can't be instantiated.
+	- Abstract classes focus on class inheritance and sharing common functionalities across different classes.
 	
 	Eg:
 		abstract class Shape {
@@ -749,7 +762,7 @@ Q	What is abstract class in TypeScript?
 			}
 
 			calculateArea() {
-				return this.radius*this.radius*Math.PI;
+				return this.radius * this.radius * Math.PI;
 			}
 
 			displayArea() {
@@ -935,7 +948,4 @@ Q	How to do a basic configuration of TypeScript?
 		- In response output will be showed in console:
 			Hello, TypeScript!
 
-	
-
- 	
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TypeScript Tutorial @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
