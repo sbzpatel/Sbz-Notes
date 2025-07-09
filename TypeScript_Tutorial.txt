@@ -8,7 +8,7 @@ Q	Why we use TypeScript?
 		
 	
 Q	What is static typing?
-	- Static typing means practice of defining and checking data type of variables, function parameters and function's return value at compile time instead of runtime.
+	- Static typing is a practice of defining and checking data type of variables, function parameters and function's return value at compile time instead of runtime.
 	- It contrasts with dynamically typed language like JavaScript, where type checking occurs at runtime.
 
 	Eg:
@@ -40,7 +40,7 @@ Q	What is Type Annotation?
 	
 	
 Q	What is Type "any" in TypeScript?
-	- It is most flexible type in TypeScript, it skips type checking for the variables and expressions it is applied to.
+	- It is most flexible type in TypeScript, where it skips type checking for the variables and expressions it is applied to.
 	- It works with dynamic data that come from user inputs, network responses and deserialized JSON objects.
 	
 	Eg:
@@ -58,7 +58,7 @@ Q	What is Type "any" in TypeScript?
 
 
 Q	What is Type Inference in TypeScript?
-	- Type Inference is the ability of TypeScript Compiler that automatically check and define type to variables, expressions and function's return value according to its context.
+	- Type Inference is the ability of TypeScript Compiler that automatically check and define type to variables, expressions and function's return value according to it context.
 
 	Eg:
 		const num = 4;		// here clearly indicates that num variable has type of "number"
@@ -197,7 +197,7 @@ Q	How to declare and use arrays in TypeScript?
 
 Q	What are Tuples in TypeScript?
 	- Tuple is data structure that allow to store fixed-size collection of elements where each of specific type.
-	- They are simillar to array, but with a key difference: 
+	- They both(Arrays & Tuples) are simillar with a key difference: 
 		a) type of tuple elements are predefined at the time of its declaration
 		b) number of tuple elements(tuple size) is fixed at the time of its declaration
 		
@@ -244,8 +244,8 @@ Q	How to write object in TypeScript with type annotation?
 		
 	
 Q	What is Type "Alias" in TypeScript?
-	- A Type "Alias" is a way to define a specific or combination of types by creating custom name for code reusability & maintainability.
-	- In below code we use type alias to prevent from repeatitive code:
+	- A Type "Alias" is a way to gives a name to any specific type or combination of types that we can reuse throughout the program.
+	- We are using `type` keyword to create TypeScript alias as given below example:
 	
 	Eg:
 		type Person = {			// type alias "Person" which reference gives to all 3 objects in below
@@ -290,7 +290,7 @@ Q	What is Type "Alias" in TypeScript?
 	
 	
 Q	What is enums in TypeScript?
-	- Enum is a way to represent a set of related values that associate with specific meaning and choose one value from them.
+	- Enum is a way to represent a set of related values that associated with specific meaning and we can choose any one value from them.
 	
 	Eg:
 		enum Roles {
@@ -334,7 +334,7 @@ Q	What is enums in TypeScript?
 		
 		
 Q	What is Union type in TypeScript?
-	- Union type allow to specify that a variable can hold value of multiple types. Here we can use pipe symbol(|) to define a union type.
+	- Union type allow to specify a variable that can hold value of multiple types. Here we can use pipe symbol(|) to define a union type.
 	
 	Eg:
 		const inputValue = (value:string|number):any => {
@@ -570,7 +570,7 @@ Q	What is Inheritance in TypeScript?
 		
 
 Q	What is Access Modifiers in OOPs in TypeScript?
-	- Access Modifiers are the keywords which are used to defined the class properties and methods accessibility levels outside the class.
+	- Access Modifiers are the keywords which are used to define the class properties and methods accessibility levels outside the class.
 	- There are 3 types of Access Modifiers which are 1) private 2) public 3) protected
 	
 	1) private ->> This type of properties and methods only access within the class where we declared it.
@@ -777,7 +777,7 @@ Q	What is abstract class in TypeScript?
 		
 Q	What is Type vs Interface in TypeScript?
 	- We should use custom types when we need unions, intersections and mapped types.
-	- Use interfaces when defining object shapes or classes that adheref to a contract.
+	- Use interfaces when defining object shapes or classes that adhere to a contract.
 	- Interfaces can extend other interfaces to inherits their members.
 	- Custom types can use unions and interactions for more complex type compositions.
 	
