@@ -221,7 +221,7 @@ Q	How to write object in TypeScript with type annotation?
 	- Below is a code where we write object "person":
 	
 	Eg:
-		const person:{
+		const person: {
 			name:string;
 			email:string;
 			isStudent:boolean;
@@ -244,7 +244,7 @@ Q	How to write object in TypeScript with type annotation?
 		
 	
 Q	What is Type "Alias" in TypeScript?
-	- A Type "Alias" is a way to gives a name to any specific type or combination of types that we can reuse throughout the program.
+	- A Type "Alias" is a way to gives a name to any specific type or combination of types that we can further reuse throughout the program.
 	- We are using `type` keyword to create TypeScript alias as given below example:
 	
 	Eg:
@@ -302,7 +302,7 @@ Q	What is enums in TypeScript?
 			name?:string;
 			email:string;
 			password:string;
-			role:Roles
+			role:Roles;
 		}
 
 		const user1:LoginDetails = {
@@ -489,7 +489,7 @@ Q	What is Interface in TypeScript?
 
 Q	What is class in TypeScript?
 	- A class in terms of OOP is a blueprint of creating objects.
-	- constructor is a method which calls on creation of an object, generally we are using it to assign a value to the object properties.
+	- constructor is a method which calls on creation of an object, generally we are use to initialize the object's properties.
 	
 	Eg:
 		class Person {
@@ -570,7 +570,7 @@ Q	What is Inheritance in TypeScript?
 		
 
 Q	What is Access Modifiers in OOPs in TypeScript?
-	- Access Modifiers are the keywords which are used to define the class properties and methods accessibility levels outside the class.
+	- Access Modifiers are the keywords, used to define the class properties and methods accessibility levels outside the class.
 	- There are 3 types of Access Modifiers which are 1) private 2) public 3) protected
 	
 	1) private ->> This type of properties and methods only access within the class where we declared it.
@@ -720,7 +720,7 @@ Q	What is getter and setter methods in TypeScript?
 		console.log(p1.name);
 		
 		
-Q	What is static properties & methods in classes?
+Q	What is static properties & methods in class?
 	- In TypeScript, static methods and properties belong to the class itself rather than to instance of the class.
 	- By making methods and properties static, we can access them directly from the class without needing to create an object of the class. This is useful for utility functions or properties that don't rely on instance-specific data.
 	
@@ -743,9 +743,9 @@ Q	What is static properties & methods in classes?
 		
 		
 Q	What is abstract class in TypeScript?
-	- Abstract classes provide a way to declare common properties and methods using `abstract` keyword that share with multiple derived(child) classes. This promotes code reuse and help to establish a common interface for related classes.
+	- Abstract classes provide a way to declare common properties and methods using `abstract` keyword that share it with multiple derived(child) classes. It promotes code reuse and help to establish a common interface for related child classes.
 	- Abstract class can't be instantiated.
-	- Abstract classes focus on class inheritance and sharing common functionalities across different classes.
+	- Abstract classes focus on class inheritance and sharing common functionalities across its child classes.
 	
 	Eg:
 		abstract class Shape {
@@ -909,7 +909,7 @@ Q	What is Type Narrowing(Type Safety with Typeof guards) in TypeScript?
 
 		// Here we handling both type of types(string & array of strings) by using type narrowing concept
 		favHobbies("Playing");
-		console.log(favHobbies(["playing", "Kissing", "Cricket"]));
+		console.log(favHobbies(["Playing", "Singing", "Cricket"]));
 	
 	
 Q	How to do a basic configuration of TypeScript?
